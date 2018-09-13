@@ -30,7 +30,7 @@
         </div>
     </section>
 
-    <section id="index-menu">
+    <section id="index-menu" class="hidden-md hidden-lg">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <div id="img-block" class="center-block">
@@ -47,6 +47,31 @@
                         <img class="img-responsive news" src="/frontend-assets/assets/icon/news.png">
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="index-menu-full" class="hidden-xs hidden-sm">
+        <div class="row">
+            <div class="col-lg-3 col-md-3">
+                <a href="{{ url('/form/commentform') }}">
+                    <img class="img-responsive comment" src="/frontend-assets/assets/icon/comment.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <a href="{{ url('/form/inform') }}">
+                    <img class="img-responsive info" src="/frontend-assets/assets/icon/info.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <a href="{{ url('/form/complaintform') }}">
+                    <img class="img-responsive complaint" src="/frontend-assets/assets/icon/complaint.png">
+                </a>
+            </div>
+            <div class="col-lg-3 col-md-3">
+                <a href="{{ url('list-news') }}">
+                    <img class="img-responsive news" src="/frontend-assets/assets/icon/news.png">
+                </a>
             </div>
         </div>
     </section>

@@ -5,7 +5,7 @@
 @section('content')
 
 <section>
-    <img src="{{ asset('frontend-assets/assets/imgs/head_complaint.jpg' )}}" class="img-responsive">
+    <img src="{{ asset('frontend-assets/assets/imgs/head_complaint.jpg' )}}" class="img-responsive center-block">
 </section>
 
 <section id="complaintform">
@@ -32,7 +32,7 @@
                 @endif
             </div>
 
-            <div class="col-md-6 col-xs-12 col-sm-12">
+            <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
                     <label for="CPTYPE_ID" class="control-label">ประเภท <span class="must-input">*</span> : </label>
                     <select class="form-control use-select2" id="CPTYPE_ID" name="CPTYPE_ID" onchange="change_complaintform();">
@@ -58,21 +58,21 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                <div class="col-md-12 col-xs-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="USER_FULLNAME" class="control-label">ชื่อ นามสกุลผู้ใช้งาน <span class="must-input">*</span> : </label>
                                         <input type="text" class="form-control" id="USER_FULLNAME" name="USER_FULLNAME" value="" placeholder="ชื่อ นามสกุลผู้ใช้งาน">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                <div class="col-md-12 col-xs-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="USER_EMAIL" class="control-label">อีเมลผู้ใช้งาน <span class="must-input">*</span> : </label>
                                         <input type="email" class="form-control" id="USER_EMAIL" name="USER_EMAIL" value="" placeholder="อีเมลผู้ใช้งาน">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 col-xs-12 col-sm-12">
+                                <div class="col-md-12 col-xs-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="USER_PHONENUMBER" class="control-label">หมายเลขโทรศัพท์ผู้ใช้งาน <span class="must-input">*</span> : </label>
                                         <input type="text" class="form-control number-on" name="USER_PHONENUMBER" id="USER_PHONENUMBER">
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="col-md-6 col-xs-12 col-sm-12">
+            <div class="col-md-12 col-xs-12 col-sm-12">
                 <?=link_to('/', $title = 'ยกเลิก', ['class' => 'col-xs-4 btn btn-warning can-color'], $secure = null);?>
                 <button type="button" class="btn btn-success col-xs-8 inform-form-check submit-color">ส่งข้อมูล</button>
             </div>
@@ -102,21 +102,21 @@
 
     <div id="form-1">
 
-        <div class="col-md-6 col-xs-12 col-sm-12 hidden">
+        <div class="col-md-12 col-xs-12 col-sm-12 hidden">
             <div class="form-group">
                 <label for="CPDATA_NAME" class="control-label">หัวข้อ <span class="must-input">*</span> : </label>
                 <input type="text" class="form-control" id="CPDATA_NAME" name="CPDATA_NAME" value="-" placeholder="หัวข้อ">
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_STORENAME" class="control-label">ชื่อร้านค้า <span class="must-input">*</span> : </label>
                 <input type="text" class="form-control" id="CPDATA_STORENAME" name="CPDATA_STORENAME" value="" placeholder="ชื่อร้านค้า">
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="PROVINCE_ID" class="control-label">จังหวัด : </label>
                 <select class="form-control" id="PROVINCE_ID" onchange="search_district(this);">
@@ -124,7 +124,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="DISTRICT_ID" class="control-label">อำเภอ : </label>
                 <select class="form-control" id="DISTRICT_ID" onchange="search_subdistrict(this);">
@@ -132,7 +132,7 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="SUB_DISTRICT_ID" class="control-label">ตำบล : </label>
                 <select class="form-control" id="SUB_DISTRICT_ID">
@@ -140,31 +140,43 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_DETAILS" class="control-label">รายละเอียด <span class="must-input">*</span> : </label>
                 <textarea class="form-control" style="resize: none;" rows="3" id="CPDATA_DETAILS" name="CPDATA_DETAILS"></textarea>
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
             <label for="CPDATA_LOCATION" class="control-label">Location : </label>
                 <button type="button" class="btn btn-primary" onclick="map_init();">Google Map</button>
-                <input type="text" class="form-control" name="CPDATA_LOCATION" id="CPDATA_LOCATION" readonly>
-                <input type="text" class="form-control" name="CPDATA_LATITUDE" id="CPDATA_LATITUDE" readonly>
-                <input type="text" class="form-control" name="CPDATA_LONGITUDE" id="CPDATA_LONGITUDE" readonly>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LOCATION" id="CPDATA_LOCATION" readonly>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LATITUDE" id="CPDATA_LATITUDE" readonly>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LONGITUDE" id="CPDATA_LONGITUDE" readonly>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- <div class="col-md-6 col-xs-12 col-sm-12">
+        <!-- <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <input type="file" class="form-control" name="IMAGE_NAME[]" id="IMAGE_NAME" accept="image/x-png,image/jpeg" multiple>
             </div>
         </div> -->
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <div class="input-group">
@@ -183,7 +195,7 @@
 
     <div id="form-2">
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPMEDIATYPE_ID" class="control-label">ประเภทสื่อ <span class="must-input">*</span> : </label>
                 <select class="form-control" id="CPMEDIATYPE_ID" name="CPMEDIATYPE_ID">
@@ -194,28 +206,28 @@
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_NAME" class="control-label">หัวข้อ <span class="must-input">*</span> : </label>
                 <input type="text" class="form-control" id="CPDATA_NAME" name="CPDATA_NAME" value="" placeholder="หัวข้อ">
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_DETAILS" class="control-label">รายละเอียด <span class="must-input">*</span> : </label>
                 <textarea class="form-control" style="resize: none;" rows="3" id="CPDATA_DETAILS" name="CPDATA_DETAILS"></textarea>
             </div>
         </div>
 
-        <!-- <div class="col-md-6 col-xs-12 col-sm-12">
+        <!-- <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <input type="file" class="form-control" name="IMAGE_NAME[]" id="IMAGE_NAME" accept="image/x-png,image/jpeg" multiple>
             </div>
         </div> -->
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <div class="input-group">
@@ -235,14 +247,14 @@
 
     <div id="form-3">
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_NAME" class="control-label">หัวข้อ <span class="must-input">*</span> : </label>
                 <input type="text" class="form-control" id="CPDATA_NAME" name="CPDATA_NAME" value="" placeholder="หัวข้อ">
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_DETAILS" class="control-label">รายละเอียด <span class="must-input">*</span> : </label>
                 <textarea class="form-control" style="resize: none;" rows="3" id="CPDATA_DETAILS" name="CPDATA_DETAILS"></textarea>
@@ -253,38 +265,50 @@
 
     <div id="form-4">
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_NAME" class="control-label">หัวข้อ <span class="must-input">*</span> : </label>
                 <input type="text" class="form-control" id="CPDATA_NAME" name="CPDATA_NAME" value="" placeholder="หัวข้อ">
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="CPDATA_DETAILS" class="control-label">รายละเอียด <span class="must-input">*</span> : </label>
                 <textarea class="form-control" style="resize: none;" rows="3" id="CPDATA_DETAILS" name="CPDATA_DETAILS"></textarea>
             </div>
         </div>
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
             <label for="CPDATA_LOCATION" class="control-label">Location : </label>
                 <button type="button" class="btn btn-primary" onclick="map_init();">Google Map</button>
-                <input type="text" class="form-control" name="CPDATA_LOCATION" id="CPDATA_LOCATION" readonly>
-                <input type="text" class="form-control" name="CPDATA_LATITUDE" id="CPDATA_LATITUDE" readonly>
-                <input type="text" class="form-control" name="CPDATA_LONGITUDE" id="CPDATA_LONGITUDE" readonly>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LOCATION" id="CPDATA_LOCATION" readonly>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LATITUDE" id="CPDATA_LATITUDE" readonly>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="col-md-12 col-xs-12 col-sm-12">
+                        <input type="text" class="form-control" name="CPDATA_LONGITUDE" id="CPDATA_LONGITUDE" readonly>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- <div class="col-md-6 col-xs-12 col-sm-12">
+        <!-- <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <input type="file" class="form-control" name="IMAGE_NAME[]" id="IMAGE_NAME" accept="image/x-png,image/jpeg" multiple>
             </div>
         </div> -->
 
-        <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="col-md-12 col-xs-12 col-sm-12">
             <div class="form-group">
                 <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
                 <div class="input-group">

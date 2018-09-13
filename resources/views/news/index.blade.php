@@ -8,7 +8,7 @@
 
         <div class="row" style="margin-top: 15px;">
             <div class="col-lg-2 col-md-2 col-xs-2 col-sm-2">
-                <button type="button" class="btn prevpage" style="float: left;"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
+                <button type="button" class="btn prevpage" style="float: left;" {{ ($page == 1)? 'disabled' : '' }}><i class="fa fa-arrow-circle-left" aria-hidden="true"></i></button>
             </div>
             <div class="col-lg-8 col-md-8 col-xs-8 col-sm-8">
                 <button type="button" class="btn center-block" style=""> กำลังแสดงหน้า : <span class="cpage">{{$page}}</span> จากทั้งหมด <span class="mpage">{{$total}}</span> </button>

@@ -16,7 +16,7 @@
     <!-- DATETIME -->
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}
 </head>
-<body>
+<body style="padding: 15px;">
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
