@@ -1,0 +1,467 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Pridi";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.form-group label {
+  color: white;
+}
+
+#map {
+  /* height: 70%; */
+  height: 300px;
+}
+
+.modal-body .form-group label {
+  color: black;
+}
+
+body {
+  background-image: url("../assets/imgs/bg.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #999;
+}
+
+#user-img {
+  position: relative;
+  z-index: 100000000;
+}
+#user-img img {
+  position: absolute;
+  top: 20px;
+  width: 32px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.logo-top {
+  padding: 30px;
+}
+
+#index-contact {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+#index-contact h3 {
+  color: white;
+}
+
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111111b3; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 10px 8px 15px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.sidenav .sub-menu {
+  border-bottom: solid gray 2px;
+  cursor: pointer;
+}
+
+.sidenav img {
+  width: 40px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#commentform,
+#complaintform,
+#informfrom,
+#history,
+#list-news {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  #img-block {
+    height: 1190px;
+    position: relative;
+    width: 100%;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+  }
+}
+
+/* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  #img-block {
+    height: 1025px;
+    position: relative;
+    width: 100%;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    bottom: 5%;
+    left: 25%;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  #img-block {
+    height: 785px;
+    position: relative;
+    width: 745px;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+  }
+}
+
+/* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  #img-block {
+    height: 775px;
+    position: relative;
+    width: 715px;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+  }
+}
+
+/* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  #img-block {
+    height: 470px;
+    position: relative;
+    width: 450px;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+  }
+}
+
+/* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #img-block {
+    height: 350px;
+    position: relative;
+    width: 340px;
+  }
+
+  #img-block .comment {
+    width: 50%;
+    top: 0%;
+    left: 25%;
+    position: absolute;
+  }
+
+  #img-block .info {
+    width: 50%;
+    position: absolute;
+    top: 25%;
+  }
+
+  #img-block .complaint {
+    width: 50%;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+  }
+
+  #img-block .news {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+  }
+}
+
+.fb-img {
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 25px;
+}
+
+.submit-color {
+  background-color: #c22990 !important;
+  color: white !important;
+  border-color: #c22990 !important;
+  border-radius: 0px !important;
+}
+
+.can-color {
+  background-color: #c4adb8 !important;
+  color: black !important;
+  border-color: #c4adb8 !important;
+  border-radius: 0px !important;
+}
+
+.must-input {
+  color: red;
+}
+
+.admin-read {
+  float: right;
+  padding-left: 5px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  background-color: #c22990 !important;
+  color: white !important;
+}
+
+.nav-tabs > li > a {
+  background-color: #c4adb8 !important;
+  color: black !important;
+}
