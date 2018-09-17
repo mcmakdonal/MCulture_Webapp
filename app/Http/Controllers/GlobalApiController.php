@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Mylibs\Myclass;
+use Illuminate\Http\Request;
 
 class GlobalApiController extends Controller
 {
@@ -56,23 +57,42 @@ class GlobalApiController extends Controller
     public function user_detail()
     {
         $id = \Cookie::get('mct_user_id');
-        $arg = Myclass::mculter_service("GET", "8080", "user/api/v1/uid",[''=>''],\Cookie::get('mct_user_id'));
+        $arg = Myclass::mculter_service("GET", "8080", "user/api/v1/uid", ['' => ''], \Cookie::get('mct_user_id'));
         $paginatedItems = [];
         if ($arg->status) {
             $paginatedItems = $arg->data_object;
         }
 
         return response()->json($paginatedItems);
-    }    
+    }
 
     public function user_nofti(Request $request)
     {
         $arg = [
-            'get_news_update' => $request->nofti
+            'get_news_update' => $request->nofti,
         ];
-        $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_getnews",$arg,\Cookie::get('mct_user_id'));
+        $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_getnews", $arg, \Cookie::get('mct_user_id'));
 
         return response()->json($arg);
-    }        
+    }
+
+    public function sub_type(Request $request)
+    {
+        $main_type = ($request->main_type == "") ? 1 : $request->main_type;
+        $sub_type = MyClass::mculter_service("get", "8080", "data/api/v1/get_subtype/" . $main_type);
+        return response()->json($sub_type->data_object);
+    }
+
+    public function get_admissionfees()
+    {
+        $sub_type = MyClass::mculter_service("get", "8080", "data/api/v1/get_admissionfees");
+        return response()->json($sub_type->data_object);
+    }
+
+    public function get_organizations()
+    {
+        $sub_type = MyClass::mculter_service("get", "8080", "data/api/v1/get_organizations");
+        return response()->json($sub_type->data_object);
+    }
 
 }

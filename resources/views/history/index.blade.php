@@ -80,7 +80,7 @@
         </div>
 
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;bottom: 15px;position: absolute">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;bottom: 15px;">
                 <a href="{{ url('/')}}">
                     <button class="btn btn-default btn-block submit-color"> <i class="fa fa-arrow-left" aria-hidden="true"></i> </button>
                 </a>

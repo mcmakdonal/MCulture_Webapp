@@ -5,12 +5,12 @@ $.LoadingOverlaySetup({
 });
 
 // preload window
-$(document).ready(function($) {
+$(document).ready(function ($) {
   $(".use-select2").select2();
 });
 
 //number
-$(".number-on").keypress(function(event) {
+$(".number-on").keypress(function (event) {
   // console.log(event.which);
   if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
     event.preventDefault();
@@ -97,7 +97,7 @@ function province_init() {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $("#PROVINCE_ID").append(
         $("<option>", {
           value: "",
@@ -136,7 +136,7 @@ function search_district(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       clear_addr();
       for (var i = 0; i < result.length; i++) {
         $("#DISTRICT_ID").append(
@@ -166,7 +166,7 @@ function search_subdistrict(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       for (var i = 0; i < result.length; i++) {
         $("#SUB_DISTRICT_ID").append(
           $("<option>", {
@@ -209,7 +209,9 @@ function select2_init_addr() {
 }
 
 function map_init() {
-  $("#map-modal").modal({ backdrop: "static" });
+  $("#map-modal").modal({
+    backdrop: "static"
+  });
   initAutocomplete();
   // google.maps.event.trigger(map, 'resize');
 }
@@ -227,11 +229,13 @@ function select_map() {
 }
 
 function map_close() {
-  $("#map-modal").modal({ backdrop: "static" });
+  $("#map-modal").modal({
+    backdrop: "static"
+  });
 }
 
 // check comment user login
-$(".comment-form-check").click(function(e) {
+$(".comment-form-check").click(function (e) {
   var CMDATA_NAME = $("form #CMDATA_NAME").val();
   var CMDATA_DETAILS = $("form #CMDATA_DETAILS").val();
   var CMDATA_PERSONNAME = $("form #CMDATA_PERSONNAME").val();
@@ -249,12 +253,14 @@ $(".comment-form-check").click(function(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $.LoadingOverlay("hide");
       if (result.status) {
         return $("#form-form").submit();
       } else {
-        $("#register").modal({ backdrop: "static" });
+        $("#register").modal({
+          backdrop: "static"
+        });
         return false;
       }
     }
@@ -262,7 +268,7 @@ $(".comment-form-check").click(function(e) {
 });
 
 // check inform user login
-$(".inform-form-check").click(function(e) {
+$(".inform-form-check").click(function (e) {
   var IFTYPE_ID = $("#IFTYPE_ID").val();
   var IFDATA_NAME = $("form #IFDATA_NAME").val();
   var IFDATA_DETAILS = $("form #IFDATA_DETAILS").val();
@@ -301,12 +307,14 @@ $(".inform-form-check").click(function(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $.LoadingOverlay("hide");
       if (result.status) {
         return $("#form-form").submit();
       } else {
-        $("#register").modal({ backdrop: "static" });
+        $("#register").modal({
+          backdrop: "static"
+        });
         return false;
       }
     }
@@ -314,7 +322,7 @@ $(".inform-form-check").click(function(e) {
 });
 
 // check complaint user login
-$(".complaint-form-check").click(function(e) {
+$(".complaint-form-check").click(function (e) {
   var CPTYPE_ID = $("#CPTYPE_ID").val();
   var CPDATA_NAME = $("form #CPDATA_NAME").val();
   var CPDATA_STORENAME = $("form #CPDATA_STORENAME").val();
@@ -360,12 +368,14 @@ $(".complaint-form-check").click(function(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $.LoadingOverlay("hide");
       if (result.status) {
         return $("#form-form").submit();
       } else {
-        $("#register").modal({ backdrop: "static" });
+        $("#register").modal({
+          backdrop: "static"
+        });
         return false;
       }
     }
@@ -373,11 +383,11 @@ $(".complaint-form-check").click(function(e) {
 });
 
 // prev
-$(".prevpage").click(function(e) {
+$(".prevpage").click(function (e) {
   var cpage = parseInt(
     $(".cpage")
-      .html()
-      .trim()
+    .html()
+    .trim()
   );
   var cur_page = cpage - 1;
 
@@ -390,8 +400,10 @@ $(".prevpage").click(function(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    data: { page: cur_page },
-    success: function(result) {
+    data: {
+      page: cur_page
+    },
+    success: function (result) {
       $("#block-list").html(" ");
       for (var i = 0; i < result["data_object"].length; i++) {
         var data = JSON.stringify(result["data_object"][i]);
@@ -417,16 +429,16 @@ $(".prevpage").click(function(e) {
 });
 
 // next
-$(".nextpage").click(function(e) {
+$(".nextpage").click(function (e) {
   var cpage = parseInt(
     $(".cpage")
-      .html()
-      .trim()
+    .html()
+    .trim()
   );
   var mpage = parseInt(
     $(".mpage")
-      .html()
-      .trim()
+    .html()
+    .trim()
   );
   var cur_page = cpage + 1;
 
@@ -439,8 +451,10 @@ $(".nextpage").click(function(e) {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    data: { page: cur_page },
-    success: function(result) {
+    data: {
+      page: cur_page
+    },
+    success: function (result) {
       $("#block-list").html(" ");
       for (var i = 0; i < result["data_object"].length; i++) {
         var data = JSON.stringify(result["data_object"][i]);
@@ -520,4 +534,37 @@ function timetthai(day) {
   var m = parseInt(sub[1]);
   var d = parseInt(sub[2]);
   return " วันที่ " + d + " " + monthNamesThai[m] + " " + y;
+}
+
+
+function recommend_init() {
+  $("#topic_sub_type_id option").remove();
+  clear_addr();
+  $.ajax({
+    headers: {
+      "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+    },
+    url: window.location.origin + "/api/sub-type",
+    method: "GET",
+    data: {
+      main_type: $("#topic_main_type_id").val()
+    },
+    beforeSend() {
+      $.LoadingOverlay("show");
+    },
+    success: function (result) {
+      for (var i = 0; i < result.length; i++) {
+        $("#topic_sub_type_id").append(
+          $("<option>", {
+            value: result[i]["topic_sub_type_id"],
+            text: result[i]["topic_sub_type_name"]
+          })
+        );
+      }
+      $.LoadingOverlay("hide");
+    },
+    error(xhr, status, error) {
+      alert(error);
+    }
+  });
 }

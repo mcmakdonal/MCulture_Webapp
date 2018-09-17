@@ -258,7 +258,7 @@
 
 </div>
 
-    @include('shared.modal-map')  
+@include('shared.modal-map')  
 
  @endsection
 

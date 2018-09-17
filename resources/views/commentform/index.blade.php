@@ -108,7 +108,7 @@
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <?=link_to('/', $title = 'ยกเลิก', ['class' => 'col-xs-4 btn btn-warning can-color'], $secure = null);?>
-                <button type="button" class="btn btn-success col-xs-8 inform-form-check submit-color">ส่งข้อมูล</button>
+                <button type="button" class="btn btn-success col-xs-8 comment-form-check submit-color">ส่งข้อมูล</button>
             </div>
         </div>
 

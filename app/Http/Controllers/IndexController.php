@@ -34,7 +34,7 @@ class IndexController extends Controller
             // dd($arg);
             $result = Myclass::mculter_service("POST", "8080", "user/api/v1/check_email", $arg);
             // dd($result);
-            if (array_key_exists("token",$result)){
+            if (array_key_exists("token", $result)) {
                 // มี email ในระบบแล้ว
                 $cookie = cookie('mct_user_id', $result->token, 1440);
                 return redirect()->route('index')->cookie($cookie);
@@ -81,7 +81,7 @@ class IndexController extends Controller
             'user_phone' => $request->USER_PHONENUMBER,
             'user_type' => "M",
         );
-        $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_user", $args,\Cookie::get("mct_user_id"));
+        $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_user", $args, \Cookie::get("mct_user_id"));
         if ($arg->status) {
             return redirect()->route('index')->withCookie(\Cookie::forget('USER_EMAIL'))->withCookie(\Cookie::forget('USER_FULLNAME'))->with('status', 'Update Profile Success!');
         } else {
@@ -93,5 +93,7 @@ class IndexController extends Controller
     {
         return redirect('/')->withCookie(\Cookie::forget('mct_user_id'));
     }
+
+
 
 }

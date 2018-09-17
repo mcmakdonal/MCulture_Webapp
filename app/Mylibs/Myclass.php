@@ -34,13 +34,13 @@ class Myclass extends ServiceProvider
         } else {
             $arg = json_decode($response);
             return $arg;
-            if ($arg->status) {
-                return $arg;
-            } elseif ($arg->status == '403') {
-                return array('message' => 'Access Denied', 'status' => false);
-            } else {
-                return array('message' => "Can't $method Data", 'status' => false);
-            }
+            // if ($arg->status) {
+            //     return $arg;
+            // } elseif ($arg->status == '403') {
+            //     return array('message' => 'Access Denied', 'status' => false);
+            // } else {
+            //     return array('message' => "Can't $method Data", 'status' => false);
+            // }
         }
     }
 
@@ -88,18 +88,22 @@ class Myclass extends ServiceProvider
             return array('message' => $err, 'status' => false);
         } else {
             $arg = json_decode($response);
-            // dd($arg);
-            // return $arg;
-            if ($arg->status) {
-                foreach ($files as $unlink) {
-                    unlink($unlink);
-                }
-                return $arg;
-            } elseif ($arg->status == '403') {
-                return array('message' => 'Access Denied', 'status' => false);
-            } else {
-                return array('message' => "Can't $method Data", 'status' => false);
+            foreach ($files as $unlink) {
+                unlink($unlink);
             }
+            return $arg;
+
+            // return $arg;
+            // if ($arg->status) {
+            //     foreach ($files as $unlink) {
+            //         unlink($unlink);
+            //     }
+            //     return $arg;
+            // } elseif ($arg->status == '403') {
+            //     return array('message' => 'Access Denied', 'status' => false);
+            // } else {
+            //     return array('message' => "Can't $method Data", 'status' => false);
+            // }
         }
     }
 
@@ -158,6 +162,83 @@ class Myclass extends ServiceProvider
             return false;
         }
 
+    }
+
+    public static function map_path($main_id, $sub_id)
+    {
+        $main_id = (int) $main_id;
+        $sub_id = (int) $sub_id;
+        switch ($main_id) {
+            case 1:
+                switch ($sub_id) {
+                    case 1:
+                        return ['path' => 'recommend/activity', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 2:
+                        return ['path' => 'recommend/place', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 3:
+                        return ['path' => 'recommend/knowledge', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 4:
+                        return ['path' => 'recommend/service', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 5:
+                        return ['path' => 'recommend/employee', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 6:
+                        return ['path' => 'recommend/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    default:
+                        return ['path' => 'recommend'];
+                        break;
+                }
+                break;
+
+            case 2:
+                switch ($sub_id) {
+                    case 7:
+                        return ['path' => 'complaint/improper-media', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 8:
+                        return ['path' => 'complaint/deviate', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 9:
+                        return ['path' => 'complaint/employee', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 10:
+                        return ['path' => 'complaint/commerce', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 11:
+                        return ['path' => 'complaint/religion', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 12:
+                        return ['path' => 'complaint/culture', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    case 13:
+                        return ['path' => 'complaint/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    default:
+                        return ['path' => 'recommend'];
+                        break;
+                }
+                break;
+
+            case 3:
+                switch ($sub_id) {
+                    case 14:
+                        return ['path' => 'other/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        break;
+                    default:
+                        return ['path' => 'recommend'];
+                        break;
+                }
+                break;
+
+            default:
+                return ['path' => 'recommend'];
+                break;
+        }
     }
 
 }

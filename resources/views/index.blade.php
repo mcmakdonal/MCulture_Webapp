@@ -102,9 +102,8 @@
         </div>
     </section>
 
-    @include('shared.modal-register')
-    @include('shared.modal-nofti')
-    
+@include('shared.modal-update-profile')
+@include('shared.modal-nofti')
 </div>
 @endsection
 

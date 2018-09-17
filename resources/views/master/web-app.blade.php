@@ -6,15 +6,16 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{ \AppHelper::instance()->gen_script('css','frontend-assets/css/bootstrap.min.css') }}
+    <!-- {{ \AppHelper::instance()->gen_script('css','frontend-assets/css/bootstrap.min.css') }} -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/css/component.css') }}
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/css/main.css') }}
-    {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/font-awesome/css/font-awesome.min.css') }}
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/select2/select2.min.css') }}
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Pridi:300,400,600,700" rel="stylesheet">
     <!-- DATETIME -->
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}
+    {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/font-awesome/css/font-awesome.min.css') }}
 </head>
 <body style="padding: 15px;">
 
@@ -40,11 +41,12 @@
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/bootstrap.min.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/loadingoverlay.min.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/sweetalert.min.js') }}
-{{ \AppHelper::instance()->gen_script('js','frontend-assets/js/config.js') }}
+<!-- {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/config.js') }} -->
+{{ \AppHelper::instance()->gen_script('js','frontend-assets/js/config_v2.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/main.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/input-file.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}
-{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}
+{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/bootstrap-datetimepicker/js/momemt.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/select2/select2.min.js') }}
 @yield('script')
 </body>
