@@ -34,6 +34,13 @@
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
+                    <label for="" class="control-label">หัวข้อ/เหตุการณ์ <span class="must-input">*</span> : </label>
+                    <input type="text" class="form-control" id="topic_title" name="topic_title" value="" placeholder="หัวข้อ/เหตุการณ์">
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
                     <label for="organize_id" class="control-label">หน่วยงาน : </label>
                     <select class="form-control" id="organize_id" name="organize_id">
                     <select>
@@ -42,8 +49,39 @@
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <label for="" class="control-label">หัวข้อ/เหตุการณ์ <span class="must-input">*</span> : </label>
-                    <input type="text" class="form-control" id="topic_title" name="topic_title" value="" placeholder="หัวข้อ/เหตุการณ์">
+                    <label for="" class="control-label">วันที่ : </label>
+                    <input type="text" class="form-control form_date" id="start_date" name="start_date" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="" class="control-label">เวลา : </label>
+                    <input type="text" class="form-control form_time" name="start_time" id="start_time" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="province_id" class="control-label">จังหวัด : </label>
+                    <select class="form-control" id="province_id" name="province_id" onchange="search_district(this);">
+                    <select>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="district_id" class="control-label">อำเภอ : </label>
+                    <select class="form-control" id="district_id" name="district_id" onchange="search_subdistrict(this);">
+                    <select>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="sub_district_id" class="control-label">ตำบล : </label>
+                    <select class="form-control" id="sub_district_id" name="sub_district_id">
+                    <select>
                 </div>
             </div>
 
@@ -76,7 +114,6 @@
                 </div>
             </div>
             
-            @include('shared.modal-map')  
             @include('shared.modal-register')
 
             <div class="col-md-12 col-xs-12 col-sm-12">

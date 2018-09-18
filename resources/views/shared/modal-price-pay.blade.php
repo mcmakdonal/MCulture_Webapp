@@ -9,7 +9,9 @@
                         </div>
                         <div class="modal-body">
                             <div class="row">
-
+                                <div class="col-md-12">
+                                    <p class="text-warning text-center" style="display: none;" id="warning">ไม่สามารถกำหนดค่า ราคา ให้ซ้ำประเภทได้ กรุณาตรวจสอบอีกครั้ง</p>
+                                </div>
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <table class="table table-hover" id="price-table">
                                         <thead>

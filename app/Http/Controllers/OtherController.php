@@ -20,16 +20,12 @@ class OtherController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
             'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
+            'topic_location' => 'string|nullable',
+            'topic_latitude' => 'string|nullable',
+            'topic_longitude' => 'string|nullable',
             'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
-
-            'media_type_id' => 'numeric|required',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -54,15 +50,11 @@ class OtherController extends Controller
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
-            'province_id' => $request->province_id,
-            'district_id' => $request->district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
-            'sub_district_id' => $request->sub_district_id,
             'topic_details' => $request->topic_details,
+            'topic_location' => $request->topic_location,
+            'topic_latitude' => $request->topic_latitude,
+            'topic_longitude' => $request->topic_longitude,
             'topic_remark' => $request->topic_remark,
-
-            'media_type_id' => $request->media_type_id,
 
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,

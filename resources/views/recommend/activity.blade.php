@@ -39,17 +39,31 @@
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-6 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <label for="" class="control-label">วันที่จัดกิจกรรม - ถึงวันที่ : </label>
-                    <input type="text" class="form-control form_date" id="" name="" readonly>
+                    <label for="" class="control-label">วันที่จัดกิจกรรม : </label>
+                    <input type="text" class="form-control form_date" id="start_date" name="start_date" readonly>
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-6 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="" class="control-label">ถึงวันที่ : </label>
+                    <input type="text" class="form-control end_date" id="end_date" name="end_date" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 col-sm-12">
                 <div class="form-group">
                     <label for="" class="control-label">เวลาที่จัดกิจกรรม : </label>
-                    <input type="text" class="form-control form_time" name="" id="" readonly>
+                    <input type="text" class="form-control form_time" name="start_time" id="start_time" readonly>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="" class="control-label">ถึงเวลา : </label>
+                    <input type="text" class="form-control form_time" name="end_time" id="end_time" readonly>
                 </div>
             </div>
 

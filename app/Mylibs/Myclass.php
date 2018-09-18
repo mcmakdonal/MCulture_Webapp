@@ -22,7 +22,6 @@ class Myclass extends ServiceProvider
             CURLOPT_POSTFIELDS => "$obj",
             CURLOPT_HTTPHEADER => array(
                 "Authorization: $token",
-                "Cache-Control: no-cache",
                 "Content-Type: application/json",
             ),
         ));

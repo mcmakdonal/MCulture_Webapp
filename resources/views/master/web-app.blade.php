@@ -14,7 +14,8 @@
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Pridi:300,400,600,700" rel="stylesheet">
     <!-- DATETIME -->
-    {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}
+    {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/jquery-timepicker-addon/dist/jquery-ui.css') }}
+    {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/jquery-timepicker-addon/dist/jquery-ui-timepicker-addon.css') }}
     {{ \AppHelper::instance()->gen_script('css','frontend-assets/vendor/font-awesome/css/font-awesome.min.css') }}
 </head>
 <body style="padding: 15px;">
@@ -45,8 +46,9 @@
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/config_v2.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/main.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/js/input-file.js') }}
-{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') }}
-{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/bootstrap-datetimepicker/js/momemt.js') }}
+{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/jquery-timepicker-addon/dist/jquery-ui.min.js') }}
+{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/jquery-timepicker-addon/dist/jquery-ui-timepicker-addon.js') }}
+{{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/jquery-timepicker-addon/dist/jquery-ui-sliderAccess.js') }}
 {{ \AppHelper::instance()->gen_script('js','frontend-assets/vendor/select2/select2.min.js') }}
 @yield('script')
 </body>

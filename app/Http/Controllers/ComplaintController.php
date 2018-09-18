@@ -16,21 +16,18 @@ class ComplaintController extends Controller
         ]);
     }
 
-    // ยังไม่ test ขาด lat long
+    // ยังไม่ test
     public function complaint_improper_media_save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
-            'topic_details' => 'string|nullable',
-            'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
-
             'media_type_id' => 'numeric|required',
+            'topic_title' => 'required|string|max:255',
+            'topic_details' => 'string|nullable',
+            'topic_location' => 'string|nullable',
+            'topic_latitude' => 'string|nullable',
+            'topic_longitude' => 'string|nullable',
+            'file.*' => 'nullable',
+            'topic_remark' => 'string|nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -54,16 +51,13 @@ class ComplaintController extends Controller
         $args = array(
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
-            'topic_title' => $request->topic_title,
-            'province_id' => $request->province_id,
-            'district_id' => $request->district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
-            'sub_district_id' => $request->sub_district_id,
-            'topic_details' => $request->topic_details,
-            'topic_remark' => $request->topic_remark,
-
             'media_type_id' => $request->media_type_id,
+            'topic_title' => $request->topic_title,
+            'topic_details' => $request->topic_details,
+            'topic_location' => $request->topic_location,
+            'topic_latitude' => $request->topic_latitude,
+            'topic_longitude' => $request->topic_longitude,
+            'topic_remark' => $request->topic_remark,
 
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,
@@ -86,19 +80,17 @@ class ComplaintController extends Controller
         ]);
     }
 
-    // ยังไม่ test ขาด lat long
+    // ยังไม่ test
     public function complaint_deviate_save(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
             'topic_details' => 'string|nullable',
+            'topic_location' => 'string|nullable',
+            'topic_latitude' => 'string|nullable',
+            'topic_longitude' => 'string|nullable',
+            'file.*' => 'nullable',
             'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -123,12 +115,10 @@ class ComplaintController extends Controller
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
-            'province_id' => $request->province_id,
-            'district_id' => $request->district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
-            'sub_district_id' => $request->sub_district_id,
             'topic_details' => $request->topic_details,
+            'topic_location' => $request->topic_location,
+            'topic_latitude' => $request->topic_latitude,
+            'topic_longitude' => $request->topic_longitude,
             'topic_remark' => $request->topic_remark,
 
             'communicant_fullname' => $request->communicant_fullname,
@@ -157,16 +147,15 @@ class ComplaintController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
+            'organize_id' => 'numeric|required',
+            'start_date' => 'string|nullable',
+            'start_time' => 'string|nullable',
             'province_id' => 'numeric|nullable',
             'district_id' => 'numeric|nullable',
             'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
             'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
             'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
-
-            'organize_id' => 'numeric|required',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -191,15 +180,14 @@ class ComplaintController extends Controller
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
+            'organize_id' => $request->organize_id,
+            'start_date' => ($request->start_date) ? date("Y-m-d", strtotime($request->start_date)) : null,
+            'start_time' => $request->start_time,
             'province_id' => $request->province_id,
             'district_id' => $request->district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
             'sub_district_id' => $request->sub_district_id,
             'topic_details' => $request->topic_details,
             'topic_remark' => $request->topic_remark,
-
-            'organize_id' => $request->organize_id,
 
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,
@@ -227,18 +215,12 @@ class ComplaintController extends Controller
     public function complaint_commerce_save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
-            'topic_details' => 'string|nullable',
-            'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
-
             'commerce_type_id' => 'numeric|required',
+            'topic_title' => 'required|string|max:255',
             'business_name' => 'nullable|string|max:255',
+            'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
+            'topic_remark' => 'string|nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -262,17 +244,11 @@ class ComplaintController extends Controller
         $args = array(
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
+            'commerce_type_id' => $request->commerce_type_id,
             'topic_title' => $request->topic_title,
-            'province_id' => $request->province_id,
-            'district_id' => $request->district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
-            'sub_district_id' => $request->sub_district_id,
+            'business_name' => $request->business_name,
             'topic_details' => $request->topic_details,
             'topic_remark' => $request->topic_remark,
-
-            'commerce_type_id' => $request->commerce_type_id,
-            'business_name' => $request->business_name,
 
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,
@@ -300,17 +276,11 @@ class ComplaintController extends Controller
     public function complaint_religion_save(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
-            'topic_details' => 'string|nullable',
-            'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
-
             'religion_id' => 'numeric|required',
+            'topic_title' => 'required|string|max:255',
+            'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
+            'topic_remark' => 'string|nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -334,13 +304,10 @@ class ComplaintController extends Controller
         $args = array(
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
+            'religion_id' => $request->religion_id,
             'sub_district_id' => $request->sub_district_id,
             'topic_details' => $request->topic_details,
             'topic_remark' => $request->topic_remark,
-
-            'religion_id' => $request->religion_id,
 
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,
@@ -368,11 +335,9 @@ class ComplaintController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
-            'file.*' => 'nullable',
             'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
             'topic_remark' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -397,8 +362,6 @@ class ComplaintController extends Controller
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
             'topic_details' => $request->topic_details,
             'topic_remark' => $request->topic_remark,
 
@@ -428,13 +391,11 @@ class ComplaintController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
-            'province_id' => 'numeric|nullable',
-            'district_id' => 'numeric|nullable',
-            'sub_district_id' => 'numeric|nullable',
-            'file.*' => 'nullable',
             'topic_details' => 'string|nullable',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
+            'topic_location' => 'string|nullable',
+            'topic_latitude' => 'string|nullable',
+            'topic_longitude' => 'string|nullable',
+            'file.*' => 'nullable',
 
             'communicant_fullname' => 'string|max:150|nullable',
             'communicant_email' => 'email|max:150|nullable',
@@ -459,13 +420,11 @@ class ComplaintController extends Controller
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
-            'province_id' => $request->province_id,
-            'district_id' => $request->district_id,
-            'sub_district_id' => $request->sub_district_id,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
             'topic_details' => $request->topic_details,
-
+            'topic_location' => $request->topic_location,
+            'topic_latitude' => $request->topic_latitude,
+            'topic_longitude' => $request->topic_longitude,
+            
             'communicant_fullname' => $request->communicant_fullname,
             'communicant_email' => $request->communicant_email,
             'communicant_phone' => $request->communicant_phone,

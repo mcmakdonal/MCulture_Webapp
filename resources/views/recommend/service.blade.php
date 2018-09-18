@@ -42,14 +42,14 @@
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
                     <label for="" class="control-label">วันที่ : </label>
-                    <input type="text" class="form-control form_date" id="" name="" readonly>
+                    <input type="text" class="form-control form_date" id="start_date" name="start_date" readonly>
                 </div>
             </div>
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
                     <label for="" class="control-label">เวลา : </label>
-                    <input type="text" class="form-control form_time" name="" id="" readonly>
+                    <input type="text" class="form-control form_time" name="start_time" id="start_time" readonly>
                 </div>
             </div>
 

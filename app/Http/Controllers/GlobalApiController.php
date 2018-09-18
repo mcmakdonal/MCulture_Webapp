@@ -54,16 +54,16 @@ class GlobalApiController extends Controller
         }
     }
 
-    public function user_detail()
+    public function user_detail(Request $request)
     {
-        $id = \Cookie::get('mct_user_id');
-        $arg = Myclass::mculter_service("GET", "8080", "user/api/v1/uid", ['' => ''], \Cookie::get('mct_user_id'));
-        $paginatedItems = [];
+        $token = \Cookie::get('mct_user_id');
+        $arg = Myclass::mculter_service("GET", "8080", "user/api/v1/uid", ['' => ''], $token);
+        $data_object = [];
         if ($arg->status) {
-            $paginatedItems = $arg->data_object;
+            $data_object = $arg->data_object;
         }
 
-        return response()->json($paginatedItems);
+        return response()->json($data_object);
     }
 
     public function user_nofti(Request $request)

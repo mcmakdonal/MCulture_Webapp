@@ -41,20 +41,6 @@
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <label for="" class="control-label">วันที่จัดกิจกรรม - ถึงวันที่ : </label>
-                    <input type="text" class="form-control form_date" id="" name="" readonly>
-                </div>
-            </div>
-
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="form-group">
-                    <label for="" class="control-label">เวลาที่จัดกิจกรรม : </label>
-                    <input type="text" class="form-control form_time" name="" id="" readonly>
-                </div>
-            </div>
-
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="form-group">
                     <label for="province_id" class="control-label">จังหวัด : </label>
                     <select class="form-control" id="province_id" name="province_id" onchange="search_district(this);">
                     <select>
@@ -77,9 +63,15 @@
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-6 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <button type="button" class="btn btn-success col-md-4" onclick="price_init();">กำหนดราคา ค่าเข้าชม</button>
+                    <button type="button" class="btn btn-success btn-block" onclick="price_init();">กำหนดราคา ค่าเข้าชม</button>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <button type="button" class="btn btn-success btn-block" onclick="date_work_init();">กำหนดวัน เวลาทำการ</button>
                 </div>
             </div>
 
@@ -114,6 +106,7 @@
 
             @include('shared.modal-register')
             @include('shared.modal-price-pay')
+            @include('shared.modal-date-work')
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <?=link_to('/recommend', $title = 'ยกเลิก', ['class' => 'col-xs-4 btn btn-warning can-color'], $secure = null);?>

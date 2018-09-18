@@ -194,9 +194,35 @@ Route::get('/complaint',function (){
     return redirect('/recommend');
 });
 
+
+
+////////////////////////// API ////////////////////////////////////////////////////////////
+
+// Global api
+Route::get('/api/province', 'GlobalApiController@province')->name('api-province');
+Route::get('/api/district/{id}', 'GlobalApiController@district')->name('api-district');
+Route::get('/api/subdistrict/{id}', 'GlobalApiController@subdistrict')->name('api-subdistrict');
+Route::get('/api/user-detail', 'GlobalApiController@user_detail')->name('api-user-detail');
+// Route::get('/api/user-nofti', 'GlobalApiController@user_nofti')->name('api-user-nofti');
+Route::post('/api/user-nofti', 'GlobalApiController@user_nofti')->name('api-user-nofti');
+// check user auth
+Route::get('/api/check-auth', 'GlobalApiController@check_auth')->name('api-check-auth');
+// sub type
+Route::get('/api/sub-type','GlobalApiController@sub_type');
+// get_admissionfees
+Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
+// get_organizations
+Route::get('/api/get-organizations','GlobalApiController@get_organizations');
+
 ////////////////////////////////////////////// TEST ///////////////////////////////////
 
 
 Route::get('/session', function () {
     dd(session('type'));
+});
+
+Route::get('/cookie', function () {
+    // \Cookie::forget('USER_FULLNAME');
+    // \Cookie::forget('USER_EMAIL');
+    dd(\Cookie::get());
 });

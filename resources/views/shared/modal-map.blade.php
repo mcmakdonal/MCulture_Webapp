@@ -17,10 +17,10 @@
                     </div>
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input id="submit" class="btn btn-google center-block" type="button" value="Search">
+                            <input id="submit" class="btn btn-google center-block" type="button" value="ค้นหา">
                         </div>
                         <div class="col-md-6 col-sm-6 col-xs-6">
-                            <input id="myloc" onclick="getLocation()" class="btn btn-google center-block" type="button" value="My Location">
+                            <input id="myloc" onclick="getLocation()" class="btn btn-google center-block" type="button" value="ตำแหน่งของฉัน">
                         </div>
                     </div>
                     <div class="row" style="margin-top: 10px;">

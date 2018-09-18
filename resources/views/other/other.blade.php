@@ -48,21 +48,21 @@
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <label for="" class="control-label">Location : </label>
+                    <label for="topic_location" class="control-label">Location : </label>
                     <button type="button" class="btn btn-primary" onclick="map_init();">Google Map</button>
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="" id="" readonly>
+                            <input type="text" class="form-control" name="topic_location" id="topic_location" readonly>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="" id="" readonly>
+                            <input type="text" class="form-control" name="topic_latitude" id="topic_latitude" readonly>
                         </div>
                     </div>
                     <div class="row" style="margin-top: 5px;">
                         <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="" id="" readonly>
+                            <input type="text" class="form-control" name="topic_longitude" id="topic_longitude" readonly>
                         </div>
                     </div>
                 </div>

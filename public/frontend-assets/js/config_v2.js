@@ -7,14 +7,24 @@ $.LoadingOverlaySetup({
 // preload window
 $(document).ready(function ($) {
     $(".use-select2").select2();
-    province_init();
-    datetime_init();
-    organize_init();
+
+    if ($("#province_id").length > 0) {
+        // มี ให้เรียกใช้
+        province_init();
+    }
+    if ($(".form_date").length > 0) {
+        // มี ให้เรียกใช้
+        datetime_init();
+    }
+    if ($("#organize_id").length > 0) {
+        // มี ให้เรียกใช้
+        organize_init();
+    }
+
 });
 
 //number
-$(".number-on").keypress(function (event) {
-    // console.log(event.which);
+$(document).on('keypress',".number-on",function(event){
     if (event.which != 8 && isNaN(String.fromCharCode(event.which))) {
         event.preventDefault();
     }
@@ -22,29 +32,21 @@ $(".number-on").keypress(function (event) {
 
 // datetime
 function datetime_init() {
-    $(".form_date").datetimepicker({
-        weekStart: 1,
-        todayBtn: 1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 2,
-        minView: 2,
-        forceParse: 0,
-        format: "dd MM yyyy",
-        pickerPosition: "bottom-left"
-    });
-    $(".form_time").datetimepicker({
-        weekStart: 1,
-        todayBtn: 1,
-        autoclose: 1,
-        todayHighlight: 1,
-        startView: 1,
-        minView: 0,
-        maxView: 1,
-        forceParse: 0,
-        format: "hh:ii",
-        pickerPosition: "bottom-left"
-    });
+    $(".form_time").timepicker();
+
+    var startDateTextBox = $('.form_date');
+    var endDateTextBox = $('.end_date');
+
+    $.timepicker.dateRange(
+        startDateTextBox,
+        endDateTextBox, {
+            minInterval: (1000 * 60 * 60), // 1hr
+            dateFormat: 'dd MM yy',
+            start: {}, // start picker options
+            end: {} // end picker options					
+        }
+    );
+
 }
 
 function organize_init() {
@@ -203,7 +205,7 @@ function price_init() {
     $("#price").modal({
         backdrop: "static"
     });
-    if ($('.table tbody tr').length == 0) {
+    if ($('#price-table tbody tr').length == 0) {
         add_price_row();
     }
 }
@@ -224,14 +226,17 @@ function add_price_row() {
         success: function (result) {
             str += '<select class="form-control" name="admission_fee_type_id[]" required>';
             for (var i = 0; i < result.length; i++) {
-
-                str += '<option value="' + result[i]["admission_fee_type_id"] + '">';
+                var select = '';
+                if (i == 0) {
+                    select = 'selected="selected"';
+                }
+                str += '<option value="' + result[i]["admission_fee_type_id"] + '" ' + select + ' >';
                 str += result[i]["admission_fee_type_name"];
                 str += '</option>';
             }
             str += '</select></td>';
-            str += '<td><input type="text" class="form-control" name="admission_charge[]" placeholder="ราคา" required></td>';
-            str += '<td><button type="button" data="' + uniq + '" onclick="remove_row_price(this)" class="btn btn-danger">ลบ</button></td>';
+            str += '<td><input type="text" class="form-control number-on" name="admission_charge[]" placeholder="ราคา" required></td>';
+            str += '<td><button type="button" data="' + uniq + '" onclick="remove_row(this)" class="btn btn-danger">ลบ</button></td>';
             str += '</tr>';
             $("#price-table tbody").append(str);
 
@@ -244,7 +249,45 @@ function add_price_row() {
 
 }
 
-function remove_row_price(e) {
+function date_work_init() {
+    $("#date-work").modal({
+        backdrop: "static"
+    });
+    if ($('#date-work-table tbody tr').length == 0) {
+        add_date_work();
+    }
+}
+
+function add_date_work() {
+    $.LoadingOverlay("show");
+    var uniq = Math.random().toString(36).substr(2, 9);
+    var str = '';
+    var day = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสบดี', 'ศุกร์', 'เสาร์', 'อาทิตย์'];
+    str += '<tr id="' + uniq + '">';
+    str += '<td><select class="form-control" name="start_date[]" required>';
+    for (var i = 0; i < day.length; i++) {
+        str += '<option value="' + day[i] + '" >';
+        str += day[i];
+        str += '</option>';
+    }
+    str += '</select></td>';
+    str += '<td><select class="form-control" name="end_date[]" required>';
+    for (var i = 0; i < day.length; i++) {
+        str += '<option value="' + day[i] + '" >';
+        str += day[i];
+        str += '</option>';
+    }
+    str += '</select></td>';
+    str += '<td><input type="text" class="form-control form_time number-on" name="start_time[]" placeholder="" readonly></td>';
+    str += '<td><input type="text" class="form-control form_time number-on" name="end_time[]" placeholder="" readonly></td>';
+    str += '<td><button type="button" data="' + uniq + '" onclick="remove_row(this)" class="btn btn-danger">ลบ</button></td>';
+    str += '</tr>';
+    $("#date-work-table tbody").append(str);
+    $(".form_time").timepicker();
+    $.LoadingOverlay("hide");
+}
+
+function remove_row(e) {
     var id = $(e).attr('data');
     $("#" + id + "").remove();
 }
@@ -262,9 +305,9 @@ function select_map() {
     var long = $("#long").val();
     var address = $("#address").val();
 
-    $("[name$=_LOCATION]").val(address);
-    $("[name$=_LATITUDE]").val(lat);
-    $("[name$=LONGITUDE]").val(long);
+    $("[name=topic_location]").val(address);
+    $("[name=topic_latitude]").val(lat);
+    $("[name=topic_longitude]").val(long);
 
     $("#map-modal").modal("hide");
 }
@@ -500,4 +543,25 @@ $('#price').on('hidden.bs.modal', function () {
             $("#" + id).remove();
         }
     });
+
+    var myArray = [];
+    $("#price-table tbody tr select option:selected").each(function () {
+        var value = parseInt($(this).val().trim());
+        myArray.push(value);
+    });
+
+    if (!(myArray.length === new Set(myArray).size)) {
+        // duplicate return false | uniq return true
+        swal({
+            title: "Incorrect",
+            text: "ไม่สามารถกำหนดค่า ราคา ให้ซ้ำประเภทได้ กรุณาตรวจสอบอีกครั้ง",
+            icon: "warning",
+        });
+        $("#warning").show();
+        $("#price").modal({
+            backdrop: "static"
+        });
+        return false;
+    }
+
 });

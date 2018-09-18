@@ -26,10 +26,12 @@ function init_profile() {
       $.LoadingOverlay("show");
     },
     success: function(result) {
-      $("#USER_FULLNAME").val(result.user_fullname);
-      $("#USER_EMAIL").val(result.user_email);
-      $("#USER_PHONENUMBER").val(result.user_phone);
+      $("#communicant_fullname").val(result.user_fullname);
+      $("#communicant_email").val(result.user_email);
+      $("#communicant_phone").val(result.user_phone);
+      $("#communicant_identification").val('*************************');
       $.LoadingOverlay("hide");
+      
       $("#update-profile").modal({ backdrop: "static" });
     },
     error(xhr, status, error) {
