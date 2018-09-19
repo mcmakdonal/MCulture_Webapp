@@ -278,8 +278,8 @@ function add_date_work() {
         str += '</option>';
     }
     str += '</select></td>';
-    str += '<td><input type="text" class="form-control form_time number-on" name="start_time[]" placeholder="" readonly></td>';
-    str += '<td><input type="text" class="form-control form_time number-on" name="end_time[]" placeholder="" readonly></td>';
+    str += '<td><input type="text" class="form-control form_time number-on" name="start_time[]" placeholder="" value="08:00" readonly></td>';
+    str += '<td><input type="text" class="form-control form_time number-on" name="end_time[]" placeholder="" value="17:00" readonly></td>';
     str += '<td><button type="button" data="' + uniq + '" onclick="remove_row(this)" class="btn btn-danger">ลบ</button></td>';
     str += '</tr>';
     $("#date-work-table tbody").append(str);

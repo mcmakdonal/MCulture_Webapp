@@ -120,8 +120,10 @@ class RecommendController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'topic_title' => 'required|string|max:255',
-            // 'IFDATA_OPENTIME' => 'string|nullable',
-            // 'IFDATA_CLOSETIME' => 'string|nullable',
+            'start_date' => 'nullable',
+            'end_date' => 'nullable',
+            'start_time' => 'nullable',
+            'end_time' => 'nullable',
             'province_id' => 'numeric|nullable',
             'district_id' => 'numeric|nullable',
             'sub_district_id' => 'numeric|nullable',
@@ -154,20 +156,30 @@ class RecommendController extends Controller
         $admission_fees = [];
         foreach ($request->admission_fee_type_id as $k => $v) {
             $admission_fees[] = [
-                'admission_charge' => $request->admission_charge[$k],
                 'admission_fee_type_id' => $v,
+                'admission_charge' => $request->admission_charge[$k],
             ];
         }
+
+        $working_times = [];
+        foreach ($request->start_date as $k => $v) {
+            $working_times[] = [
+                'working_start_date' => $v,
+                'working_end_date' => $request->end_date[$k],
+                'working_start_time' => $request->start_time[$k],
+                'working_end_time' => $request->end_time[$k],
+            ];
+        }
+
         $args = array(
             'topic_main_type_id' => session('type')['main_id'],
             'topic_sub_type_id' => session('type')['sub_id'],
             'topic_title' => $request->topic_title,
-            // 'IFDATA_DATE' => ($request->IFDATA_DATE) ? date("Y-m-d", strtotime($request->IFDATA_DATE)) : null,
-            // 'IFDATA_TIMES' => $request->IFDATA_TIMES,
             'province_id' => $request->province_id,
             'district_id' => $request->district_id,
             'sub_district_id' => $request->sub_district_id,
             'admission_fees' => $admission_fees,
+            'working_times' => $working_times,
             'topic_details' => $request->topic_details,
             'topic_remark' => $request->topic_remark,
 
@@ -176,6 +188,9 @@ class RecommendController extends Controller
             'communicant_phone' => $request->communicant_phone,
             'communicant_identification' => $request->communicant_identification,
         );
+        echo json_encode($args, JSON_UNESCAPED_SLASHES| JSON_UNESCAPED_UNICODE);
+        dd($args);
+
         $token = (\Cookie::get('mct_user_id') !== null) ? \Cookie::get('mct_user_id') : null;
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "topic/api/v1/add", $args, $files, $token);
         if ($arg->status) {
