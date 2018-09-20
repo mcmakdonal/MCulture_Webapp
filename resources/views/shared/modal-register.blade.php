@@ -33,7 +33,7 @@
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="communicant_identification" class="control-label">เลขบัตรประจำตัวประชาชน <span class="must-input">*</span> : </label>
-                                        <input type="text" class="form-control number-on" name="communicant_identification" id="communicant_identification" placeholder="เลขบัตรประจำตัวประชาชน" pattern=".{13,}" maxlength="13">
+                                        <input type="text" class="form-control number-on iden" name="communicant_identification" id="communicant_identification" placeholder="เลขบัตรประจำตัวประชาชน" pattern=".{13,}" maxlength="13">
                                     </div>
                                 </div>
                             </div>

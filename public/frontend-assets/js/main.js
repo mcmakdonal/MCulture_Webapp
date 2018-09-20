@@ -2,7 +2,7 @@
 function openNav() {
   $("#mySidenav a").hide();
   $("#mySidenav").css("width", "85%");
-  setTimeout(function() {
+  setTimeout(function () {
     $("#mySidenav a").show();
   }, 200);
   $("#user-img").fadeOut();
@@ -25,14 +25,16 @@ function init_profile() {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $("#communicant_fullname").val(result.user_fullname);
       $("#communicant_email").val(result.user_email);
       $("#communicant_phone").val(result.user_phone);
       $("#communicant_identification").val('*************************');
       $.LoadingOverlay("hide");
-      
-      $("#update-profile").modal({ backdrop: "static" });
+
+      $("#update-profile").modal({
+        backdrop: "static"
+      });
     },
     error(xhr, status, error) {
       alert(error);
@@ -50,14 +52,16 @@ function init_nofti() {
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       if (result.get_news_update == "Y") {
         $("#nofti").attr("checked", "checked");
       } else {
         $("#nofti").removeAttr("checked");
       }
       $.LoadingOverlay("hide");
-      $("#nofti-modal").modal({ backdrop: "static" });
+      $("#nofti-modal").modal({
+        backdrop: "static"
+      });
     },
     error(xhr, status, error) {
       alert(error);
@@ -65,13 +69,17 @@ function init_nofti() {
   });
 }
 
-function update_nofti(){
+function update_nofti() {
   var checked = $("#nofti:checked").val();
   var data = {};
   if (checked == 'on') {
-    data = {'nofti': 'Y'};
+    data = {
+      'nofti': 'Y'
+    };
   } else {
-    data = {'nofti': 'N'};
+    data = {
+      'nofti': 'N'
+    };
   }
   $.ajax({
     headers: {
@@ -83,15 +91,15 @@ function update_nofti(){
     beforeSend() {
       $.LoadingOverlay("show");
     },
-    success: function(result) {
+    success: function (result) {
       $.LoadingOverlay("hide");
 
-      if(result.status){
+      if (result.status) {
         swal({
           title: result.description,
           icon: "success"
         });
-      }else{
+      } else {
         swal({
           title: result.description,
           icon: "error"
@@ -104,4 +112,14 @@ function update_nofti(){
     }
   });
 
+}
+
+function CheckInden() {
+  var iden = $(".iden").val().trim();
+  if (iden.length != 13) return false;
+  for (i = 0, sum = 0; i < 12; i++)
+    sum += parseFloat(iden.charAt(i)) * (13 - i);
+  if ((11 - sum % 11) % 10 != parseFloat(iden.charAt(12)))
+    return false;
+  return true;
 }

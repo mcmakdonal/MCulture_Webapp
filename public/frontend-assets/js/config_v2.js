@@ -49,35 +49,6 @@ function datetime_init() {
 
 }
 
-function organize_init() {
-    $("#organize_id option").remove();
-    clear_addr();
-    $.ajax({
-        headers: {
-            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
-        },
-        url: window.location.origin + "/api/get-organizations",
-        method: "GET",
-        beforeSend() {
-            $.LoadingOverlay("show");
-        },
-        success: function (result) {
-            for (var i = 0; i < result.length; i++) {
-                $("#organize_id").append(
-                    $("<option>", {
-                        value: result[i]["organize_id"],
-                        text: result[i]["organize_name"]
-                    })
-                );
-            }
-            $.LoadingOverlay("hide");
-        },
-        error(xhr, status, error) {
-            alert(error);
-        }
-    });
-}
-
 function province_init() {
     $("#province_id option").remove();
     clear_addr();

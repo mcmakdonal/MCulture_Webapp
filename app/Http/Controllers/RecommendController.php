@@ -31,12 +31,14 @@ class RecommendController extends Controller
     {
         $topic_main_type_id = $request->topic_main_type_id;
         $topic_sub_type_id = $request->topic_sub_type_id;
-        $path = Myclass::map_path($topic_main_type_id, $topic_sub_type_id);
+        $map_field = Myclass::map_field($topic_main_type_id, $topic_sub_type_id);
         session(['type' => [
             'main_id' => $topic_main_type_id,
             'sub_id' => $topic_sub_type_id,
         ]]);
-        return redirect($path['path']);
+        session(['field' => $map_field['field']]);
+        session(['title' => $map_field['title']]);
+        return redirect('/onepage');
     }
 
     public function recommend_activity()

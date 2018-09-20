@@ -163,33 +163,48 @@ class Myclass extends ServiceProvider
 
     }
 
-    public static function map_path($main_id, $sub_id)
+    public static function map_field($main_id, $sub_id)
     {
         $main_id = (int) $main_id;
         $sub_id = (int) $sub_id;
+        $args = [];
+        $args['title'] = "";
         switch ($main_id) {
             case 1:
                 switch ($sub_id) {
                     case 1:
-                        return ['path' => 'recommend/activity', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'end_date', 'start_time', 'end_time', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "แนะนำ/ติชม - กิจกรรม";
+                        return $args;
                         break;
                     case 2:
-                        return ['path' => 'recommend/place', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'date_work', 'province_id', 'district_id', 'sub_district_id', 'price', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "แนะนำ/ติชม - สถานที่";
+                        return $args;
                         break;
                     case 3:
-                        return ['path' => 'recommend/knowledge', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'start_time', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file', 'reference', 'topic_remark'];
+                        $args['title'] = "แนะนำ/ติชม - องค์ความรู้";
+                        return $args;
                         break;
                     case 4:
-                        return ['path' => 'recommend/service', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'start_time', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "แนะนำ/ติชม - บริการ";
+                        return $args;
                         break;
                     case 5:
-                        return ['path' => 'recommend/employee', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'start_time', 'organize_id', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "แนะนำ/ติชม - บุคคลากร/เจ้าหน้าที่";
+                        return $args;
                         break;
                     case 6:
-                        return ['path' => 'recommend/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'start_time', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file'];
+                        $args['title'] = "แนะนำ/ติชม - อื่นๆ";
+                        return $args;
                         break;
                     default:
-                        return ['path' => 'recommend'];
+                        $args['field'] = [];
+                        return $args;
                         break;
                 }
                 break;
@@ -197,28 +212,43 @@ class Myclass extends ServiceProvider
             case 2:
                 switch ($sub_id) {
                     case 7:
-                        return ['path' => 'complaint/improper-media', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'media_type_id', 'location', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - สื่อไม่เหมาะสม";
+                        return $args;
                         break;
                     case 8:
-                        return ['path' => 'complaint/deviate', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'location', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - พฤติกรรมเบี่ยงเบน";
+                        return $args;
                         break;
                     case 9:
-                        return ['path' => 'complaint/employee', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'start_date', 'start_time', 'organize_id', 'province_id', 'district_id', 'sub_district_id', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - บุคคลากร/เจ้าหน้าที่";
+                        return $args;
                         break;
                     case 10:
-                        return ['path' => 'complaint/commerce', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'commerce_type_id', 'business_name', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - ร้านเกม/ร้านคาราโอเกะ/ร้านขาย DVD เถื่อน";
+                        return $args;
                         break;
                     case 11:
-                        return ['path' => 'complaint/religion', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'religion_id', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - ศาสนา";
+                        return $args;
                         break;
                     case 12:
-                        return ['path' => 'complaint/culture', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - ศิลปะ/วัฒนธรรม";
+                        return $args;
                         break;
                     case 13:
-                        return ['path' => 'complaint/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'topic_details', 'file', 'topic_remark'];
+                        $args['title'] = "ร้องเรียน/ร้องทุกข์ - อื่นๆ";
+                        return $args;
                         break;
                     default:
-                        return ['path' => 'recommend'];
+                        $args['field'] = [];
+                        return $args;
                         break;
                 }
                 break;
@@ -226,16 +256,20 @@ class Myclass extends ServiceProvider
             case 3:
                 switch ($sub_id) {
                     case 14:
-                        return ['path' => 'other/other', 'main_id' => $main_id, 'sub_id' => $sub_id];
+                        $args['field'] = ['topic_title', 'topic_details', 'file', 'location', 'topic_remark'];
+                        $args['title'] = "อื่นๆ - อื่นๆ";
+                        return $args;
                         break;
                     default:
-                        return ['path' => 'recommend'];
+                        $args['field'] = [];
+                        return $args;
                         break;
                 }
                 break;
 
             default:
-                return ['path' => 'recommend'];
+                $args['field'] = [];
+                return $args;
                 break;
         }
     }

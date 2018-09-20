@@ -94,6 +94,148 @@ class IndexController extends Controller
         return redirect('/')->withCookie(\Cookie::forget('mct_user_id'));
     }
 
+    public function onepage(Request $request)
+    {
+        if (!$request->session()->has('field')) {
+            return redirect('/recommend');
+        }
+        $media_type = Myclass::mculter_service("GET", "8080", "data/api/v1/get_mediatype");
+        $get_religion = Myclass::mculter_service("GET", "8080", "data/api/v1/get_religion");
+        $get_commerce = Myclass::mculter_service("GET", "8080", "data/api/v1/get_commerce");
+        $get_organizations = Myclass::mculter_service("GET", "8080", "data/api/v1/get_organizations");
+        return view('one_page', [
+            'title' => session('title'),
+            'get_commerce' => $get_commerce->data_object,
+            'get_religion' => $get_religion->data_object,
+            'media_type' => $media_type->data_object,
+            'get_organizations' => $get_organizations->data_object,
+        ]);
+    }
 
+    public function store_onepage(Request $request)
+    {
+        if (!$request->session()->has('type')) {
+            return redirect('/recommend');
+        }
+        $validator = Validator::make($request->all(), [
+            'topic_title' => 'required|string|max:255',
+
+            'admission_fee_type_id.*' => 'numeric|nullable',
+            'admission_charge.*' => 'string|nullable',
+
+            'reference' => 'string|nullable',
+
+            'organize_id' => 'numeric|nullable',
+
+            'media_type_id' => 'numeric|nullable',
+
+            'start_date' => 'nullable',
+            'end_date' => 'nullable',
+            'start_time' => 'nullable',
+            'end_time' => 'nullable',
+
+            'topic_location' => 'string|nullable',
+            'topic_latitude' => 'string|nullable',
+            'topic_longitude' => 'string|nullable',
+
+            'commerce_type_id' => 'numeric|nullable',
+            'business_name' => 'nullable|string|max:255',
+
+            'religion_id' => 'numeric|nullable',
+
+            'province_id' => 'numeric|nullable',
+            'district_id' => 'numeric|nullable',
+            'sub_district_id' => 'numeric|nullable',
+
+            'topic_details' => 'string|nullable',
+            'file.*' => 'nullable',
+            'topic_remark' => 'string|nullable',
+
+            'communicant_fullname' => 'string|max:150|nullable',
+            'communicant_email' => 'email|max:150|nullable',
+            'communicant_phone' => 'numeric|digits_between:0,50|nullable',
+            'communicant_identification' => 'numeric|digits_between:0,13|nullable',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+        $args = [];
+        $files = [];
+        if ($request->hasfile('file')) {
+            foreach ($request->file('file') as $file) {
+                $name = md5($file->getClientOriginalName()) . "." . $file->getClientOriginalExtension();
+                $file->move(public_path() . '/files/', $name);
+                $files[] = public_path('files/' . $name);
+            }
+        }
+
+        $admission_fees = [];
+        if ($request->exists('admission_fee_type_id')) {
+            foreach ($request->admission_fee_type_id as $k => $v) {
+                $admission_fees[] = [
+                    'admission_fee_type_id' => $v,
+                    'admission_charge' => $request->admission_charge[$k],
+                ];
+            }
+        }
+
+        $working_times = [];
+        if (session('type')['sub_id'] == 2) {
+            foreach ($request->start_date as $k => $v) {
+                $working_times[] = [
+                    'working_start_date' => $v,
+                    'working_end_date' => $request->end_date[$k],
+                    'working_start_time' => $request->start_time[$k],
+                    'working_end_time' => $request->end_time[$k],
+                ];
+            }
+        } else {
+            $args['start_date'] = ($request->start_date) ? date("Y-m-d", strtotime($request->start_date)) : null;
+            $args['end_date'] = ($request->start_date) ? date("Y-m-d", strtotime($request->start_date)) : null;
+            $args['start_time'] = $request->start_time;
+            $args['end_time'] = $request->end_time;
+        }
+
+        $args['topic_main_type_id'] = session('type')['main_id'];
+        $args['topic_sub_type_id'] = session('type')['sub_id'];
+        $args['topic_title'] = $request->topic_title;
+        $args['admission_fees'] = $admission_fees;
+        $args['working_times'] = $working_times;
+        $args['reference'] =  $request->reference;
+        $args['organize_id'] = $request->organize_id;
+        $args['media_type_id'] = $request->media_type_id;
+        $args['topic_location'] = $request->topic_location;
+        $args['topic_latitude'] = $request->topic_latitude;
+        $args['topic_longitude'] = $request->topic_longitude;
+
+        $args['commerce_type_id'] = $request->commerce_type_id;
+        $args['business_name'] = $request->business_name;
+        $args['religion_id'] = $request->religion_id;
+
+        $args['province_id'] = $request->province_id;
+        $args['district_id'] = $request->district_id;
+        $args['sub_district_id'] = $request->sub_district_id;
+        $args['topic_details'] = $request->topic_details;
+        $args['topic_remark'] = $request->topic_remark;
+
+        $args['communicant_fullname'] = $request->communicant_fullname;
+        $args['communicant_email'] = $request->communicant_email;
+        $args['communicant_phone'] = $request->communicant_phone;
+        $args['communicant_identification'] = $request->communicant_identification;
+
+        // dd($args);
+
+        $token = (\Cookie::get('mct_user_id') !== null) ? \Cookie::get('mct_user_id') : null;
+        $arg = Myclass::buildMultiPartRequest("POST", "8080", "topic/api/v1/add", $args, $files, $token);
+        if ($arg->status) {
+            $request->session()->forget('type');
+            $request->session()->forget('field');
+            $request->session()->forget('title');
+            return redirect('/recommend')->with('status', $arg->description);
+        } else {
+            return redirect()->back()->withErrors($arg->description);
+        }
+    }
 
 }

@@ -123,6 +123,10 @@ Route::get('/admin/report/{type}', 'MakeReportController@report');
 Route::get('/recommend','RecommendController@index');
 Route::post('/recommend','RecommendController@route_path');
 
+// onepage
+Route::get('/onepage','IndexController@onepage');
+Route::post('/onepage','IndexController@store_onepage');
+
 // ---------------------------------------------- Recommend ---------------------------------------------- //
 
 // recommend activity
@@ -211,14 +215,12 @@ Route::get('/api/check-auth', 'GlobalApiController@check_auth')->name('api-check
 Route::get('/api/sub-type','GlobalApiController@sub_type');
 // get_admissionfees
 Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
-// get_organizations
-Route::get('/api/get-organizations','GlobalApiController@get_organizations');
 
 ////////////////////////////////////////////// TEST ///////////////////////////////////
 
 
 Route::get('/session', function () {
-    dd(session('type'));
+    dd(session('field'));
 });
 
 Route::get('/cookie', function () {

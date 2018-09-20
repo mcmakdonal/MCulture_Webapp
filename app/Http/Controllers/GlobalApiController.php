@@ -89,10 +89,4 @@ class GlobalApiController extends Controller
         return response()->json($sub_type->data_object);
     }
 
-    public function get_organizations()
-    {
-        $sub_type = MyClass::mculter_service("get", "8080", "data/api/v1/get_organizations");
-        return response()->json($sub_type->data_object);
-    }
-
 }
