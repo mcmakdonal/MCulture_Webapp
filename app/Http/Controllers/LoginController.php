@@ -27,7 +27,7 @@ class LoginController extends Controller
         if ($arg->status) {
             $token = $arg->token;
             $cookie = cookie('mcul_token', $token, 1440);
-            return redirect()->route('dashboard')->cookie($cookie);
+            return redirect('admin')->cookie($cookie);
         } else {
             return redirect('login')->with('status', 'Username or Password is incorrect !');
         }

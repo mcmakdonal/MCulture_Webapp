@@ -16,7 +16,6 @@
 </div>
 @endif
 {!! Form::open(['url' => '/admin/administrator','class' => 'form-auth-small', 'method' => 'post']) !!}
-@csrf
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">

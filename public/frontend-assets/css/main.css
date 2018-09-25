@@ -31,12 +31,13 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #999;
+  background-color: #fff;
 }
 
 #user-img {
   position: relative;
-  z-index: 100000000;
+  /* z-index: 100000000; */
+  z-index: 3;
 }
 
 #user-img img {
@@ -51,12 +52,12 @@ body {
   padding: 30px;
 }
 
-#index-contact {
+#index-fb {
   margin-bottom: 15px;
-  margin-top: 15px;
+  margin-top: 25px;
 }
 
-#index-contact h3 {
+#index-help h3 {
   color: white;
 }
 
@@ -68,7 +69,7 @@ body {
   /* 0 width - change this with JavaScript */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 3;
   /* Stay on top */
   top: 0;
   /* Stay at the top */
@@ -137,6 +138,193 @@ body {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+
+#knowledge-cat span {
+  font-size: 12px;
+  color: white;
+}
+
+#knowledge-search,
+#hilight-search {
+  margin-top: 10px;
+  padding-left: 60px;
+}
+
+.active-img {
+  cursor: pointer;
+}
+
+#nav-menu {
+  height: 100px;
+}
+
+.nav-menu {
+  position: absolute;
+  margin-top: 10px;
+  float: left;
+  left: 0;
+  width: 100%;
+}
+
+.nav-menu>img,
+.nav-menu>h4 {
+  display: inline-block;
+}
+
+.nav-menu>hr {
+  width: 90%;
+  border-width: 2px !important;
+}
+
+.btn-modern {
+  background-color: transparent !important;
+  border: transparent !important;
+}
+
+.search {
+  font-size: 22px !important;
+  color: white;
+}
+
+.sidebar-nav {
+  position: fixed;
+  width: 25%;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #74135E;
+  height: 100%;
+  padding: 10px 0px 0px 0px;
+  overflow-y: auto;
+}
+
+.sidebar-nav h3 {
+  display: block;
+  padding-left: 10%;
+}
+
+.sidebar-nav ul.nav li {
+  font-size: 1.7em;
+}
+
+.sidebar-nav ul.nav li a {
+  border-radius: 4px;
+  font-weight: 300;
+  color: white;
+  padding-left: 20%;
+}
+
+.sidebar-nav ul>li>a>img {
+  display: inline-block;
+}
+
+.sidebar-nav ul>li>a:hover {
+  background-color: #BB4399;
+  border-radius: 0px;
+}
+
+.nav-responsive {
+  display: block;
+  padding-left: 0;
+  margin-top: -1px !important;
+}
+
+.nav-active {
+  background-color: #D554AD;
+}
+
+ul.nav-responsive>li:hover {
+  background-color: #D554AD;
+}
+
+.nav-responsive li {
+  display: block;
+  list-style: none;
+  float: left;
+  width: 20%;
+}
+
+.nav-responsive li div.img-block {
+  height: 45px;
+  width: 45px;
+  margin: 0 auto;
+  position: relative;
+  /* border: solid; */
+}
+
+.nav-responsive li img.img-one {
+  padding: 10px 0px 5px 0px;
+}
+
+.nav-responsive li img.img-two {
+  padding: 10px 0px 5px 0px;
+}
+
+.nav-responsive li img.img-three {
+  padding: 5px 0px 5px 0px;
+}
+
+.nav-responsive li img.img-four {
+  padding: 3px 0px 5px 0px;
+}
+
+.nav-responsive li img.img-five {
+  padding: 7px 0px 5px 0px;
+}
+
+.nav-responsive li span {
+  color: white;
+}
+
+.knowledge-img {
+  display: block;
+  padding: 0px 0px 5px 5px;
+}
+
+.knowledge-img h3 {
+  color: black;
+  margin-top: 10px !important;
+}
+
+.knowledge-img h4 {
+  color: black;
+}
+
+.knowledge-img p {
+  color: black;
+}
+
+.knowledge-img hr {
+  width: 90%;
+  border-width: 2px !important;
+  margin: 10px 10px 10px 10px;
+}
+
+.knowledge-body {
+  padding: 5px;
+}
+
+.knowledge-list {
+  list-style: none;
+  padding: 0px !important;
+}
+
+.knowledge-list li {
+  text-align: left;
+  margin-top: 2px;
+}
+
+.knowledge-btn {
+  background-color: #92208E !important;
+  border-color: #92208E !important;
+  color: white !important;
+  padding: 10px 60px 10px 60px;
+  border-radius: 20px;
+}
+
+/* /////////////////  REsponsive */
+
 
 /* 
   ##Device = Desktops

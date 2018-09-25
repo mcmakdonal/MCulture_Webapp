@@ -26,12 +26,13 @@ function init_profile() {
       $.LoadingOverlay("show");
     },
     success: function (result) {
-      $("#communicant_fullname").val(result.user_fullname);
-      $("#communicant_email").val(result.user_email);
-      $("#communicant_phone").val(result.user_phone);
-      $("#communicant_identification").val('*************************');
+      $("#user_fullname").val(result.user_fullname);
+      $("#user_email").val(result.user_email);
+      $("#user_phone").val(result.user_phone);
+      if(result.user_identification != null || result.user_identification != ""){
+        $("#communicant_identification").attr("disabled","disabled");
+      }      
       $.LoadingOverlay("hide");
-
       $("#update-profile").modal({
         backdrop: "static"
       });

@@ -3,7 +3,7 @@
 @section('title', $title )
 
 @section('content')
-<div class="container">
+<div class="">
     <section id="index-logo">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
@@ -34,17 +34,17 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <div id="img-block" class="center-block">
-                    <a href="{{ url('/form/commentform') }}">
-                        <img class="img-responsive comment" src="/frontend-assets/assets/icon/comment.png">
+                    <a href="{{ url('/recommend') }}">
+                        <img class="img-responsive comment" src="/frontend-assets/assets/icon/menu_recomment.png">
                     </a>
-                    <a href="{{ url('/form/inform') }}">
-                        <img class="img-responsive info" src="/frontend-assets/assets/icon/info.png">
+                    <a href="{{ url('/hilight') }}">
+                        <img class="img-responsive info" src="/frontend-assets/assets/icon/menu_hilight.png">
                     </a>
-                    <a href="{{ url('/form/complaintform') }}">
-                        <img class="img-responsive complaint" src="/frontend-assets/assets/icon/complaint.png">
+                    <a href="{{ url('/knowledges') }}">
+                        <img class="img-responsive complaint" src="/frontend-assets/assets/icon/menu_knowledges.png">
                     </a>
-                    <a href="{{ url('list-news') }}">
-                        <img class="img-responsive news" src="/frontend-assets/assets/icon/news.png">
+                    <a href="{{ url('/contact') }}">
+                        <img class="img-responsive news" src="/frontend-assets/assets/icon/menu_contact.png">
                     </a>
                 </div>
             </div>
@@ -54,33 +54,23 @@
     <section id="index-menu-full" class="hidden-xs hidden-sm">
         <div class="row">
             <div class="col-lg-3 col-md-3">
-                <a href="{{ url('/form/commentform') }}">
-                    <img class="img-responsive comment" src="/frontend-assets/assets/icon/comment.png">
+                <a href="{{ url('/recommend') }}">
+                    <img class="img-responsive comment" src="/frontend-assets/assets/icon/menu_recomment.png">
                 </a>
             </div>
             <div class="col-lg-3 col-md-3">
-                <a href="{{ url('/form/inform') }}">
-                    <img class="img-responsive info" src="/frontend-assets/assets/icon/info.png">
+                <a href="{{ url('/hilight') }}">
+                    <img class="img-responsive info" src="/frontend-assets/assets/icon/menu_hilight.png">
                 </a>
             </div>
             <div class="col-lg-3 col-md-3">
-                <a href="{{ url('/form/complaintform') }}">
-                    <img class="img-responsive complaint" src="/frontend-assets/assets/icon/complaint.png">
+                <a href="{{ url('/knowledges') }}">
+                    <img class="img-responsive complaint" src="/frontend-assets/assets/icon/menu_knowledges.png">
                 </a>
             </div>
             <div class="col-lg-3 col-md-3">
-                <a href="{{ url('list-news') }}">
-                    <img class="img-responsive news" src="/frontend-assets/assets/icon/news.png">
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="index-contact">
-        <div class="row">
-            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                <a href="{{ url('user/contact') }}">
-                    <a href="{{ url('/contact') }}"><h3 class="text-center">ติดต่อสอบถาม</h3></a>
+                <a href="{{ url('/contact') }}">
+                    <img class="img-responsive news" src="/frontend-assets/assets/icon/menu_contact.png">
                 </a>
             </div>
         </div>
@@ -102,8 +92,16 @@
         </div>
     </section>
 
-@include('shared.modal-update-profile')
-@include('shared.modal-nofti')
+    <section id="index-help">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <a href="{{ url('/help') }}">
+                    <a href="{{ url('/help') }}"><h3 class="text-center">ช่วยเหลือ</h3></a>
+                </a>
+            </div>
+        </div>
+    </section>
+
 </div>
 @endsection
 

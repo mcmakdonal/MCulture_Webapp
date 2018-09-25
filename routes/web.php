@@ -50,16 +50,7 @@ Route::get('auth/login/facebook/index', 'IndexController@facebookSuccess');
 // for redirect to logout auth.
 Route::get('auth/login/logout', 'IndexController@facebooklogout');
 
-// inform
-Route::resource('/form/inform', 'InformController');
-
-// commentform
-Route::resource('/form/commentform', 'CommentformController');
-
-// complaintform
-Route::resource('/form/complaintform', 'ComplaintformController');
-
-Route::get('/register', function () {})->name('register');
+////////////////////// Login Manage ////////////////////////////////////////////////
 
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login/check_login', 'LoginController@store')->name('login/check_login');
@@ -67,10 +58,8 @@ Route::get('/login/logout', 'LoginController@logout')->name('logout');
 
 // Main Admin
 Route::get('/admin', function () {
-    return redirect('/admin/dashboard');
+    return redirect('/admin/administrator');
 });
-// Dashboard
-Route::get('/admin/dashboard', 'DashboardController@index')->name('dashboard');
 
 // Mn Administrator
 Route::resource('/admin/administrator', 'AdministratorController');
@@ -117,88 +106,24 @@ Route::get('/admin/report/{type}', 'MakeReportController@report');
 // Report All unread
 Route::get('/admin/report/{type}', 'MakeReportController@report');
 
-/////////////////////////// ROUTE V2 /////////////////////////////////////////////
+/////////////////////////// ROUTE /////////////////////////////////////////////
 
 // recommend
-Route::get('/recommend','RecommendController@index');
-Route::post('/recommend','RecommendController@route_path');
+Route::get('/recommend','IndexController@recommend');
+Route::post('/recommend','IndexController@route_path');
 
 // onepage
 Route::get('/onepage','IndexController@onepage');
 Route::post('/onepage','IndexController@store_onepage');
 
-// ---------------------------------------------- Recommend ---------------------------------------------- //
-
-// recommend activity
-Route::get('/recommend/activity','RecommendController@recommend_activity');
-Route::post('/recommend/activity','RecommendController@recommend_activity_save');
-
-// recommend activity
-Route::get('/recommend/place','RecommendController@recommend_place');
-Route::post('/recommend/place','RecommendController@recommend_place_save');
-
-// recommend knowledge
-Route::get('/recommend/knowledge','RecommendController@recommend_knowledge');
-Route::post('/recommend/knowledge','RecommendController@recommend_knowledge_save');
-
-// recommend service
-Route::get('/recommend/service','RecommendController@recommend_service');
-Route::post('/recommend/service','RecommendController@recommend_service_save');
-
-// recommend employee
-Route::get('/recommend/employee','RecommendController@recommend_employee');
-Route::post('/recommend/employee','RecommendController@recommend_employee_save');
-
-// recommend other
-Route::get('/recommend/other','RecommendController@recommend_other');
-Route::post('/recommend/other','RecommendController@recommend_other_save');
-
-// ---------------------------------------------- Complaint ---------------------------------------------- //
-
-// recommend improper-media
-Route::get('/complaint/improper-media','ComplaintController@complaint_improper_media');
-Route::post('/complaint/improper-media','ComplaintController@complaint_improper_media_save');
-
-// recommend deviate
-Route::get('/complaint/deviate','ComplaintController@complaint_deviate');
-Route::post('/complaint/deviate','ComplaintController@complaint_deviate_save');
-
-// recommend employee
-Route::get('/complaint/employee','ComplaintController@complaint_employee');
-Route::post('/complaint/employee','ComplaintController@complaint_employee_save');
-
-// recommend commerce
-Route::get('/complaint/commerce','ComplaintController@complaint_commerce');
-Route::post('/complaint/commerce','ComplaintController@complaint_commerce_save');
-
-// recommend religion
-Route::get('/complaint/religion','ComplaintController@complaint_religion');
-Route::post('/complaint/religion','ComplaintController@complaint_commerce_save');
-
-// recommend culture
-Route::get('/complaint/culture','ComplaintController@complaint_culture');
-Route::post('/complaint/culture','ComplaintController@complaint_culture_save');
-
-// recommend other
-Route::get('/complaint/other','ComplaintController@complaint_other');
-Route::post('/complaint/other','ComplaintController@complaint_other_save');
-
-// ---------------------------------------------- Other ---------------------------------------------- //
-
-// recommend improper-media
-Route::get('/other/other','OtherController@other_other');
-Route::post('/other/other','OtherController@other_other_save');
+// Knowledges
+Route::get('/knowledges','KnowledgesController@index');
+Route::post('/knowledges','KnowledgesController@res_knowledge');
 
 
-Route::get('/other',function (){
-    return redirect('/recommend');
-});
-
-Route::get('/complaint',function (){
-    return redirect('/recommend');
-});
-
-
+// Hilight
+Route::get('/hilight','HilightController@index');
+Route::post('/hilight','HilightController@res_hilight');
 
 ////////////////////////// API ////////////////////////////////////////////////////////////
 

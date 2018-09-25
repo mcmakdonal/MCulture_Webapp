@@ -48,6 +48,20 @@
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
+							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown" aria-expanded="false">
+								<i class="lnr lnr-alarm"></i>
+								<span class="badge bg-danger">5</span>
+							</a>
+							<ul class="dropdown-menu notifications">
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณศรีศักร วันทา</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณรัตภพ สืบโมรา</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณจักรกฤษ ไชวาน</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณณัฐพล เสียงล้ำ</a></li>
+								<li><a href="#" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณเกียรติศัก วงษา</a></li>
+								<li><a href="#" class="more">{{ url()->current() }}</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/user.png') }}" class="img-circle" alt="Avatar"> <span>Administrator</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
@@ -63,15 +77,14 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="{{ url('/admin/dashboard') }}" class="{{ (strpos(url()->current(),'dashboard') ) ? 'active' : '' }}"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>Administrator</span></a></li>
 						<li>
 							<a href="#subPage" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>Reply</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse ">
 								<ul class="nav">
-									<li><a style="font-size: 12px;" href="{{ url('/admin/reply-inform') }}" class="">ตอบกลับข้อมูลการ "ให้ข้อมูล"</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/reply-comment') }}" class="">ตอบกลับข้อมูลการ "ติชม"</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/reply-complaint') }}" class="">ตอบกลับข้อมูลการ "ร้องเรียน"</a></li>
+									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-inform') }}" class="{{ (strpos(url()->current(),'reply-inform') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
+									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-comment') }}" class="{{ (strpos(url()->current(),'reply-comment') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์</a></li>
+									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-complaint') }}" class="{{ (strpos(url()->current(),'reply-complaint') ) ? 'active' : '' }}">ตอบกลับข้อมูลเรื่องอื่นๆ</a></li>
 								</ul>
 							</div>
 						</li>
@@ -82,9 +95,9 @@
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report-user-nm') }}" class="{{ (strpos(url()->current(),'report-user-nm') ) ? 'active' : '' }}">รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)</a></li>
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report/1') }}" class="">เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน (ทุกหัวข้อ)</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-inform') }}" class="">ข้อมูลการ"ให้ข้อมูล"ทั้งหมด</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-comment') }}" class="">ข้อมูลการ "ติชม" ทั้งหมด</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-complaint') }}" class="">ข้อมูลการ "ร้องเรียน" ทั้งหมด</a></li>
+									<li><a style="font-size: 12px;" href="{{ url('/admin/report-inform') }}" class="">ข้อมูลการแนะนำ/ติชม ทั้งหมด</a></li>
+									<li><a style="font-size: 12px;" href="{{ url('/admin/report-comment') }}" class="">ข้อมูลการร้องเรียน/ร้องทุกข์ ทั้งหมด</a></li>
+									<li><a style="font-size: 12px;" href="{{ url('/admin/report-complaint') }}" class="">ข้อมูลเรื่องอื่นๆทั้งหมด</a></li>
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report/2') }}" class="">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report/3') }}" class="">รายการที่ยังไม่ได้ตอบกลับ</a></li>
 									<li><a style="font-size: 12px;" href="{{ url('/admin/report/4') }}" class="">รายการที่ยังไม่ได้อ่าน</a></li>

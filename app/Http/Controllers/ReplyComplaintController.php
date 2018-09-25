@@ -34,8 +34,8 @@ class ReplyComplaintController extends Controller
         }
 
         return view('reply.complaint', [
-            'title' => 'ตอบกลับข้อมูลการ "ร้องเรียน"',
-            'header' => 'ตอบกลับข้อมูลการ "ร้องเรียน"',
+            'title' => 'ตอบกลับข้อมูลเรื่องอื่นๆ',
+            'header' => 'ตอบกลับข้อมูลเรื่องอื่นๆ',
             'content' => $paginatedItems,
             'select' => $get_cptype,
             'select_type' => $request->CPTYPE_ID,

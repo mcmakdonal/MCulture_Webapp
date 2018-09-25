@@ -34,8 +34,8 @@ class ReplyCommentController extends Controller
         }
 
         return view('reply.comment', [
-            'title' => 'ตอบกลับข้อมูลการ "ติชม"',
-            'header' => 'ตอบกลับข้อมูลการ "ติชม"',
+            'title' => 'ตอบกลับข้อมูลการ แนะนำ/ติชม',
+            'header' => 'ตอบกลับข้อมูลการ แนะนำ/ติชม',
             'content' => $paginatedItems,
             'select' => $get_cmtype,
             'select_type' => $request->CMTYPE_ID,

@@ -34,8 +34,8 @@ class ReplyInformController extends Controller
         }
 
         return view('reply.inform', [
-            'title' => 'ตอบกลับข้อมูลการ "ให้ข้อมูล"',
-            'header' => 'ตอบกลับข้อมูลการ "ให้ข้อมูล"',
+            'title' => 'ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์',
+            'header' => 'ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์',
             'content' => $paginatedItems,
             'select' => $get_iftype,
             'select_type' => $request->IFTYPE_ID,

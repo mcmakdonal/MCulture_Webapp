@@ -65,9 +65,10 @@ class IndexController extends Controller
     public function first_update(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'USER_FULLNAME' => 'required|max:150',
-            'USER_EMAIL' => 'required|max:150',
-            'USER_PHONENUMBER' => 'required|max:150',
+            'user_fullname' => 'string|max:150|nullable',
+            'user_email' => 'email|max:150|nullable',
+            'user_phone' => 'numeric|digits_between:0,50|nullable',
+            'user_identification' => 'numeric|digits_between:0,13|nullable',
         ]);
 
         if ($validator->fails()) {
@@ -75,10 +76,10 @@ class IndexController extends Controller
         }
 
         $args = array(
-            'user_fbname' => $request->USER_FULLNAME,
-            'user_fullname' => $request->USER_FULLNAME,
-            'user_email' => $request->USER_EMAIL,
-            'user_phone' => $request->USER_PHONENUMBER,
+            'user_identification' => $request->user_identification,
+            'user_fullname' => $request->user_fullname,
+            'user_email' => $request->user_email,
+            'user_phone' => $request->user_phone,
             'user_type' => "M",
         );
         $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_user", $args, \Cookie::get("mct_user_id"));
@@ -94,6 +95,31 @@ class IndexController extends Controller
         return redirect('/')->withCookie(\Cookie::forget('mct_user_id'));
     }
 
+
+    public function recommend()
+    {
+        $main_type = MyClass::mculter_service("get", "8080", "data/api/v1/get_maintype");
+        // dd($main_type->data_object);
+        return view('recommend', [
+            'title' => 'MCulture',
+            'main_type' => $main_type->data_object,
+        ]);
+    }
+
+    public function route_path(Request $request)
+    {
+        $topic_main_type_id = $request->topic_main_type_id;
+        $topic_sub_type_id = $request->topic_sub_type_id;
+        $map_field = Myclass::map_field($topic_main_type_id, $topic_sub_type_id);
+        session(['type' => [
+            'main_id' => $topic_main_type_id,
+            'sub_id' => $topic_sub_type_id,
+        ]]);
+        session(['field' => $map_field['field']]);
+        session(['title' => $map_field['title']]);
+        return redirect('onepage');
+    }
+
     public function onepage(Request $request)
     {
         if (!$request->session()->has('field')) {
@@ -103,7 +129,7 @@ class IndexController extends Controller
         $get_religion = Myclass::mculter_service("GET", "8080", "data/api/v1/get_religion");
         $get_commerce = Myclass::mculter_service("GET", "8080", "data/api/v1/get_commerce");
         $get_organizations = Myclass::mculter_service("GET", "8080", "data/api/v1/get_organizations");
-        return view('one_page', [
+        return view('onepage', [
             'title' => session('title'),
             'get_commerce' => $get_commerce->data_object,
             'get_religion' => $get_religion->data_object,
