@@ -234,7 +234,7 @@
             @if(in_array("topic_remark", Session::get('field')))
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
-                    <label for="" class="control-label">อื่นๆ : </label>
+                    <label for="" class="control-label">อื่นๆ <span class="must-input">*</span> : </label>
                     <textarea class="form-control" style="resize: none;" rows="3" id="topic_remark" name="topic_remark"></textarea>
                 </div>
             </div>

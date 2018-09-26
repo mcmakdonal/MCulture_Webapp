@@ -30,8 +30,8 @@
 
         <div class="col-md-4 col-xs-12 col-sm-12">
             <div class="form-group">
-                <label for="DATETIME" class="control-label">ช่วงเวลา : </label>
-                <input type="text" class="form-control datetimerange" id="DATETIME" name="DATETIME" value="{{ $datetime }}" placeholder="ช่วงเวลา" required>
+                <label for="datetime" class="control-label">ช่วงเวลา : </label>
+                <input type="text" class="form-control datetimerange" id="datetime" name="datetime" value="{{ $datetime }}" placeholder="ช่วงเวลา" required>
             </div>
         </div>
 
@@ -48,9 +48,10 @@
     <thead>
         <tr>
             <td style="width : 8%;" >No.</td>
-            <td>FULLNAME</td>
-            <td>PHONE</td>
-            <td>EMAIL</td>
+            <td>ชื่อผู้ใช้</td>
+            <td>เบอร์โทรศัพท์</td>
+            <td>อีเมล์</td>
+            <td>หมายเลขบัตรประชาชน</td>
         </tr>
     </thead>
     <tbody>
@@ -60,10 +61,9 @@
             <td>{{ $value->user_fullname }}</td>
             <td>{{ isset($value->user_phonenumber)? $value->user_phonenumber : '' }}</td>
             <td>{{ $value->user_email }}</td>
+            <td>{{ isset($value->user_identification)? $value->user_identification : '' }}</td>
         </tr>
     @endforeach
     </tbody>
 </table>
-<!-- สำหรับทำ pagi -->
-{{-- $content->links() --}}
 @endsection

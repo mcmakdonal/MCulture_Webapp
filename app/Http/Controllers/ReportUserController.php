@@ -23,9 +23,9 @@ class ReportUserController extends Controller
         $start_date = "";
         $end_date = "";
         $originalDate = "";
-        if ($request->DATETIME) {
-            $originalDate = $request->DATETIME;
-            $date = explode(" - ", $request->DATETIME);
+        if ($request->datetime) {
+            $originalDate = $request->datetime;
+            $date = explode(" - ", $request->datetime);
             $start_date = date("Y-m-d", strtotime($date[0]));
             $end_date = date("Y-m-d", strtotime($date[1]));
         }
@@ -44,7 +44,7 @@ class ReportUserController extends Controller
         }
 
         $token = \Cookie::get('mcul_token');
-        $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/report/user", $args, $token);
+        $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/report/user_facebook", $args, $token);
         $paginatedItems = [];
         if ($arg->status) {
             $paginatedItems = $arg->data_object;
@@ -64,28 +64,26 @@ class ReportUserController extends Controller
         $start_date = "";
         $end_date = "";
         $originalDate = "";
-        if ($request->DATETIME) {
-            $originalDate = $request->DATETIME;
-            $date = explode(" - ", $request->DATETIME);
+        if ($request->datetime) {
+            $originalDate = $request->datetime;
+            $date = explode(" - ", $request->datetime);
             $start_date = date("Y-m-d", strtotime($date[0]));
             $end_date = date("Y-m-d", strtotime($date[1]));
         }
 
         $args = [];
         if ($start_date == "" && $end_date == "") {
-            $args = array(
-                'user_type' => 'N',
-            );
+            $args = ['' => ''];
         } else {
             $args = array(
-                'user_type' => 'N',
                 'start_date' => $start_date,
                 'end_date' => $end_date,
             );
         }
 
         $token = \Cookie::get('mcul_token');
-        $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/report/user", $args, $token);
+        $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/report/user_communicant", $args, $token);
+
         $paginatedItems = [];
         if ($arg->status) {
             $paginatedItems = $arg->data_object;

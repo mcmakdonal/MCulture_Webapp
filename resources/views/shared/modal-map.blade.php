@@ -25,7 +25,7 @@
                     </div>
                     <div class="row" style="margin-top: 10px;">
                         <div class="col-xs-12">
-                            <input type="text" class="form-control" id="address" placeholder="รายละเอียดตำแหน่ง" readonly="true">
+                            <input type="text" class="form-control" id="address" placeholder="รายละเอียดตำแหน่ง">
                         </div>
                     </div>
                     <div class="row" style="margin-top: 10px;">

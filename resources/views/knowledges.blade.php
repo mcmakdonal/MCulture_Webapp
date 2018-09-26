@@ -40,7 +40,7 @@
         </form>
     </section>
 
-    <section id="knowledge-cat" style="margin-top: 70px;">
+    <section id="knowledge-cat" style="margin-top: 30px;">
         <div class="row text-center">
             <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3">
                 <img data-id="1" src="{{ url('frontend-assets/assets/icon/kl_01-at.png') }}" class="img-responsive center-block active-img active-know">
@@ -64,7 +64,7 @@
     <section id="nav-menu">
         <div class="nav-menu">
             <img src="{{ url('frontend-assets/assets/icon/navmenu_kl.png') }}" class="img-responsive">
-            <h4>องค์ความรู้</h4> <h4>ด้านประวัติศาสตร์</h4>
+            <h4 style="color: #783D9B;">องค์ความรู้</h4> <h4 style="color: #CA3E9E;">ด้านประวัติศาสตร์</h4>
             <hr />
         </div>
     </section>

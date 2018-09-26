@@ -52,6 +52,7 @@
                     <li class="{{ (strpos(url()->current(),'contact') ) ? 'nav-active' : '' }}"><a href="{{ url('/contact') }}"><i class="fa fa-phone" aria-hidden="true"></i> ติดต่อ</a></li>
                 </ul>
 
+                @if (\Cookie::get('mct_user_id'))
                 <h3>
                     <i class="fa fa-sliders" aria-hidden="true"></i> Setting User
                 </h3>
@@ -69,6 +70,7 @@
                         <a href="{{ url('/auth/login/logout') }}">  <img src="{{ url('frontend-assets/assets/icon/m_key.png') }}" class="img-responsive"> ออกจากระบบ</a>
                     </li>
                 </ul>
+                @endif
 
             </div>
         </div>
@@ -85,7 +87,7 @@
                 <li class="text-center {{ (url()->current() === url('')) ? 'nav-active' : '' }}">
                     <a href="{{ url('/') }}">
                         <div class="img-block">
-                            <img src="{{ url('frontend-assets/assets/icon/nav_01.png') }}" class="img-responsive center-block img-one">
+                            <img src="{{ url('frontend-assets/assets/icon/nav_01.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
                     <span>หน้าหลัก</span>
@@ -93,7 +95,7 @@
                 <li class="text-center {{ (strpos(url()->current(),'recommend') ) ? 'nav-active' : '' }}">
                     <a href="{{ url('/recommend') }}">
                         <div class="img-block">
-                            <img src="{{ url('frontend-assets/assets/icon/nav_01.png') }}" class="img-responsive center-block img-two">
+                            <img src="{{ url('frontend-assets/assets/icon/nav_02.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
                     <span>แนะนำ</span>
@@ -101,7 +103,7 @@
                 <li class="text-center {{ (strpos(url()->current(),'hilight') ) ? 'nav-active' : '' }}">
                     <a href="{{ url('/hilight') }}">
                         <div class="img-block">
-                            <img src="{{ url('frontend-assets/assets/icon/nav_02.png') }}" class="img-responsive center-block img-three">
+                            <img src="{{ url('frontend-assets/assets/icon/nav_03.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
                     <span>ไฮไลท์</span>
@@ -109,7 +111,7 @@
                 <li class="text-center {{ (strpos(url()->current(),'knowledges') ) ? 'nav-active' : '' }}">
                     <a href="{{ url('/knowledges') }}">
                         <div class="img-block">
-                            <img src="{{ url('frontend-assets/assets/icon/nav_03.png') }}" class="img-responsive center-block img-four">
+                            <img src="{{ url('frontend-assets/assets/icon/nav_04.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
                     <span>องค์ความรู้</span>
@@ -117,7 +119,7 @@
                 <li class="text-center {{ (strpos(url()->current(),'contact') ) ? 'nav-active' : '' }}">
                     <a href="{{ url('/contact') }}">
                         <div class="img-block">
-                            <img src="{{ url('frontend-assets/assets/icon/nav_04.png') }}" class="img-responsive center-block img-five">
+                            <img src="{{ url('frontend-assets/assets/icon/nav_05.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
                     <span>ติดต่อ</span>

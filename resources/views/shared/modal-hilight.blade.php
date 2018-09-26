@@ -13,6 +13,11 @@
                     <p></p>
                     <hr />
                 </div>
+                <div class="knowledge-global">
+                    <a>
+                        <span><i class="fa fa-globe" aria-hidden="true"></i> รายละเอียด</span>
+                    </a>
+                </div>
                 <div class="knowledge-body">
                 </div>
             </div>

@@ -43,7 +43,7 @@
     <section id="nav-menu" style="margin-top: 30px;">
         <div class="nav-menu">
             <img src="{{ url('frontend-assets/assets/icon/navmenu_kl.png') }}" class="img-responsive">
-            <h4>ไฮไลท์</h4> <h4>เดือน xxxxx 4444</h4>
+            <h4 style="color: #783D9B;">ไฮไลท์</h4> <h4 style="color: #CA3E9E;">เดือน{{ \AppHelper::instance()->Month_Year(date('Y-m-d')) }} </h4>
             <hr />
         </div>
     </section>

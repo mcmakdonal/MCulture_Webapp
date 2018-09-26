@@ -298,6 +298,17 @@ function map_close() {
 
 // check comment user login
 $(".form-check").click(function (e) {
+    var topic_title =  $("#topic_title").val().trim();
+    var topic_details = ($("#topic_details").length > 0)? $("#topic_details").val().trim() : "0";
+    var topic_remark = ($("#topic_remark").length > 0)? $("#topic_remark").val().trim() : "0";
+    if(topic_title == "" || topic_details == "" || topic_remark == ""){
+        swal({
+            title: "Infomation",
+            text: "กรุณากรอกหัวข้อ ที่มีเครื่องหมาย * ด้วยครับ",
+            icon: "warning",
+        });
+        return;
+    }
     $.ajax({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
@@ -472,7 +483,7 @@ function timetthai(day) {
     var y = parseInt(sub[0]) + 543;
     var m = parseInt(sub[1]);
     var d = parseInt(sub[2]);
-    return " วันที่ " + d + " " + monthNamesThai[m] + " " + y;
+    return " วันที่ " + d + " " + monthNamesThai[m - 1] + " " + y;
 }
 
 function recommend_init() {

@@ -11,7 +11,7 @@ class LoginController extends Controller
     public function index()
     {
         if (\Cookie::get('mcul_token') !== null) {
-            return redirect('/admin/dashboard');
+            return redirect('/admin');
         } else {
             return view('login');
         }

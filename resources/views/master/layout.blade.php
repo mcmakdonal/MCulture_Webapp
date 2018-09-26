@@ -79,28 +79,28 @@
 					<ul class="nav">
 						<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>Administrator</span></a></li>
 						<li>
-							<a href="#subPage" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>Reply</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPage" class="collapse ">
+							<a href="#subPage" class="reply-main" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>Reply</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPage" class="collapse reply-sub">
 								<ul class="nav">
-									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-inform') }}" class="{{ (strpos(url()->current(),'reply-inform') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
-									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-comment') }}" class="{{ (strpos(url()->current(),'reply-comment') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์</a></li>
-									<li class=""><a style="font-size: 12px;" href="{{ url('/admin/reply-complaint') }}" class="{{ (strpos(url()->current(),'reply-complaint') ) ? 'active' : '' }}">ตอบกลับข้อมูลเรื่องอื่นๆ</a></li>
+									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-recommend') }}" class="{{ (strpos(url()->current(),'reply-recommend') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
+									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-complaint') }}" class="{{ (strpos(url()->current(),'reply-complaint') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์</a></li>
+									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-other') }}" class="{{ (strpos(url()->current(),'reply-other') ) ? 'active' : '' }}">ตอบกลับข้อมูลเรื่องอื่นๆ</a></li>
 								</ul>
 							</div>
 						</li>
 						<li>
-							<a href="#subPages" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
+							<a href="#subPages" class="report-main" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages" class="collapse report-sub">
 								<ul class="nav">
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-user-nm') }}" class="{{ (strpos(url()->current(),'report-user-nm') ) ? 'active' : '' }}">รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report/1') }}" class="">เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน (ทุกหัวข้อ)</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-inform') }}" class="">ข้อมูลการแนะนำ/ติชม ทั้งหมด</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-comment') }}" class="">ข้อมูลการร้องเรียน/ร้องทุกข์ ทั้งหมด</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report-complaint') }}" class="">ข้อมูลเรื่องอื่นๆทั้งหมด</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report/2') }}" class="">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report/3') }}" class="">รายการที่ยังไม่ได้ตอบกลับ</a></li>
-									<li><a style="font-size: 12px;" href="{{ url('/admin/report/4') }}" class="">รายการที่ยังไม่ได้อ่าน</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-user-nm') }}" class="{{ (strpos(url()->current(),'report-user-nm') ) ? 'active' : '' }}">รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report/1') }}" class="">เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน (ทุกหัวข้อ)</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-inform') }}" class="">ข้อมูลการแนะนำ/ติชม ทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-comment') }}" class="">ข้อมูลการร้องเรียน/ร้องทุกข์ ทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-complaint') }}" class="">ข้อมูลเรื่องอื่นๆทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report/2') }}" class="">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report/3') }}" class="">รายการที่ยังไม่ได้ตอบกลับ</a></li>
+									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report/4') }}" class="">รายการที่ยังไม่ได้อ่าน</a></li>
 								</ul>
 							</div>
 						</li>
@@ -165,6 +165,7 @@
 	{{ \AppHelper::instance()->gen_script('js','assets/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/vendor/chartist/js/chartist.min.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/klorofil-common.js') }}
+	{{ \AppHelper::instance()->gen_script('js','assets/scripts/config.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/main.js') }}
 	<!-- {{ \AppHelper::instance()->gen_script('js','assets/css/demo.css') }} -->
 </body>

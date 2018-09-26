@@ -30,19 +30,6 @@ Route::get('/contact', function () {
 // history user
 Route::get('/user/history','UserhistoryController@index')->name('user-history');
 
-// detail comment
-Route::get('/user/history-comment/{param}/view','UserhistoryController@comment_detail')->name('user-history-comment');
-
-// detail inform
-Route::get('/user/history-inform/{param}/view','UserhistoryController@inform_detail')->name('user-history-inform');
-
-// detail complaint
-Route::get('/user/history-complaint/{param}/view','UserhistoryController@complaint_detail')->name('user-history-complaint');
-
-// list news
-Route::get('/list-news','NewsController@index')->name('list-news');
-Route::post('/list-news','NewsController@change_page')->name('list-news-change');
-
 // for redirect to facebook auth.
 Route::get('auth/login/facebook', 'IndexController@facebookAuthRedirect');
 // facebook call back after login success.
@@ -61,24 +48,27 @@ Route::get('/admin', function () {
     return redirect('/admin/administrator');
 });
 
-// Mn Administrator
+// Manage Administrator
 Route::resource('/admin/administrator', 'AdministratorController');
 
-// Reply inform
-Route::resource('/admin/reply-inform', 'ReplyInformController');
-Route::post('/admin/update-reply-inform', 'ReplyController@inform');
-
-// Reply Comment
-Route::resource('/admin/reply-comment', 'ReplyCommentController');
-Route::post('/admin/update-reply-comment', 'ReplyController@comment');
+// Reply Recommend
+Route::get('/admin/reply-recommend', 'ReplyController@recommend');
 
 // Reply Complaint
-Route::resource('/admin/reply-complaint', 'ReplyComplaintController');
-Route::post('/admin/update-reply-complaint', 'ReplyController@complaint');
+Route::get('/admin/reply-complaint', 'ReplyController@complaint');
+
+// Reply Other
+Route::get('/admin/reply-other', 'ReplyController@other');
+
+// All Reply
+Route::get('/admin/reply/{id}', 'ReplyController@reply');
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Report User
 Route::get('/admin/report-user-fb', 'ReportUserController@user_fb')->name('report-user-fb');
 Route::post('/admin/report-user-fb', 'ReportUserController@user_fb');
+
 Route::get('/admin/report-user-nm', 'ReportUserController@user_nm')->name('report-user-nm');
 Route::post('/admin/report-user-nm', 'ReportUserController@user_nm');
 
@@ -145,7 +135,7 @@ Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
 
 
 Route::get('/session', function () {
-    dd(session('field'));
+    dd(session('field_edit'));
 });
 
 Route::get('/cookie', function () {
