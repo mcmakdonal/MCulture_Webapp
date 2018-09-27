@@ -155,21 +155,19 @@
             @endif
 
             @if(in_array("price", Session::get('field')))
-            <div class="col-md-6 col-xs-12 col-sm-12">
-                <div class="form-group">
-                    <button type="button" class="btn btn-success btn-block" onclick="price_init();">กำหนดราคา ค่าเข้าชม</button>
-                </div>
-            </div>
-            @include('shared.modal-price-pay')
+                <!-- <div class="col-md-6 col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-block" onclick="price_init();">กำหนดราคา ค่าเข้าชม</button>
+                    </div>
+                </div> -->
             @endif
 
             @if(in_array("date_work", Session::get('field')))
-            <div class="col-md-6 col-xs-12 col-sm-12">
-                <div class="form-group">
-                    <button type="button" class="btn btn-success btn-block" onclick="date_work_init();">กำหนดวัน เวลาทำการ</button>
-                </div>
-            </div>
-            @include('shared.modal-date-work')
+                <!-- <div class="col-md-6 col-xs-12 col-sm-12">
+                    <div class="form-group">
+                        <button type="button" class="btn btn-success btn-block" onclick="date_work_init();">กำหนดวัน เวลาทำการ</button>
+                    </div>
+                </div> -->
             @endif
 
             @if(in_array("topic_details", Session::get('field')))
@@ -177,30 +175,6 @@
                 <div class="form-group">
                     <label for="" class="control-label">รายละเอียด <span class="must-input">*</span> : </label>
                     <textarea class="form-control" style="resize: none;" rows="3" id="topic_details" name="topic_details"></textarea>
-                </div>
-            </div>
-            @endif
-
-            @if(in_array("location", Session::get('field')))
-            <div class="col-md-12 col-xs-12 col-sm-12">
-                <div class="form-group">
-                    <label for="topic_location" class="control-label">Location : </label>
-                    <button type="button" class="btn btn-primary" onclick="map_init();">Google Map</button>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="topic_location" id="topic_location" readonly>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="topic_latitude" id="topic_latitude" readonly>
-                        </div>
-                    </div>
-                    <div class="row" style="margin-top: 5px;">
-                        <div class="col-md-12 col-xs-12 col-sm-12">
-                            <input type="text" class="form-control" name="topic_longitude" id="topic_longitude" readonly>
-                        </div>
-                    </div>
                 </div>
             </div>
             @endif
@@ -236,6 +210,51 @@
                 <div class="form-group">
                     <label for="" class="control-label">อื่นๆ <span class="must-input">*</span> : </label>
                     <textarea class="form-control" style="resize: none;" rows="3" id="topic_remark" name="topic_remark"></textarea>
+                </div>
+            </div>
+            @endif
+
+            <div class="row">
+                @if(in_array("date_work", Session::get('field')))
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <img src="{{ url('frontend-assets/assets/icon/day.png') }}" class="img-responsive center-block" onclick="date_work_init();"> 
+                    </div>
+                    @include('shared.modal-date-work')
+                @endif
+                
+                @if(in_array("price", Session::get('field')))
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <img src="{{ url('frontend-assets/assets/icon/price.png') }}" class="img-responsive center-block" onclick="price_init();"> 
+                    </div>
+                    @include('shared.modal-price-pay')
+                @endif
+                
+                @if(in_array("location", Session::get('field')))
+                    <div class="col-md-4 col-xs-4 col-sm-4">
+                        <img src="{{ url('frontend-assets/assets/icon/place.png') }}" class="img-responsive center-block" onclick="map_init();"> 
+                    </div>
+                @endif
+            </div>
+
+            @if(in_array("location", Session::get('field')))
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="topic_location" class="control-label">Location : </label>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <input type="text" class="form-control" name="topic_location" id="topic_location" readonly>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <input type="text" class="form-control" name="topic_latitude" id="topic_latitude" readonly>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
+                            <input type="text" class="form-control" name="topic_longitude" id="topic_longitude" readonly>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endif

@@ -27,14 +27,10 @@
                                 @endif
 
                                 @foreach($v->reply as $kk => $vv)
-                                <div class="media">
+                                <div class="media" style="padding: 10px 5px 10px 30px;">
                                     <div class="media-body no-top">
                                         <p>{{ $vv->reply_details }}</p>
                                         <p>วันที่ : </p>
-                                    </div>
-                                    <div class="media-right text-center" style="vertical-align: middle;">
-                                        <img src="{{ url('frontend-assets/assets/icon/reply.png') }}" class="media-object" style="width:60px">
-                                        <span style="color: white;">เจ้าหน้าที่</span>
                                     </div>
                                 </div>
                                 @endforeach

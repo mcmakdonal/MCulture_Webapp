@@ -36,6 +36,12 @@
                                         <input type="text" class="form-control number-on iden" name="communicant_identification" id="communicant_identification" placeholder="เลขบัตรประจำตัวประชาชน" pattern=".{13,}" maxlength="13">
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <a href="https://www.m-culture.go.th/th/doc/Privacy_Policy02.pdf" target="_blank">
+                                        <h3 class="text-center" style="color: black;">นโยบายการคุ้มครองข้อมูลส่วนบุคคล</h3>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="modal-footer">

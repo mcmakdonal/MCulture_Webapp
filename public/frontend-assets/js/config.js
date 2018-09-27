@@ -298,10 +298,10 @@ function map_close() {
 
 // check comment user login
 $(".form-check").click(function (e) {
-    var topic_title =  $("#topic_title").val().trim();
-    var topic_details = ($("#topic_details").length > 0)? $("#topic_details").val().trim() : "0";
-    var topic_remark = ($("#topic_remark").length > 0)? $("#topic_remark").val().trim() : "0";
-    if(topic_title == "" || topic_details == "" || topic_remark == ""){
+    var topic_title = $("#topic_title").val().trim();
+    var topic_details = ($("#topic_details").length > 0) ? $("#topic_details").val().trim() : "0";
+    var topic_remark = ($("#topic_remark").length > 0) ? $("#topic_remark").val().trim() : "0";
+    if (topic_title == "" || topic_details == "" || topic_remark == "") {
         swal({
             title: "Infomation",
             text: "กรุณากรอกหัวข้อ ที่มีเครื่องหมาย * ด้วยครับ",
@@ -489,6 +489,12 @@ function timetthai(day) {
 function recommend_init() {
     $("#topic_sub_type_id option").remove();
     clear_addr();
+    var id = $("#topic_main_type_id").val();
+    if (id == 3) {
+        $(".sub-type").hide();
+    } else {
+        $(".sub-type").show();
+    }
     $.ajax({
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")

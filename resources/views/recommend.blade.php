@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 col-sm-12">
+            <div class="col-md-12 col-xs-12 col-sm-12 sub-type">
                 <div class="form-group">
                     <label for="" class="control-label">ประเภทของการแนะนำย่อย <span class="must-input">*</span> : </label>
                     <select class="form-control" id="topic_sub_type_id" name="topic_sub_type_id">

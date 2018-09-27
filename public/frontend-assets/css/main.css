@@ -383,7 +383,8 @@ ul.nav-responsive>li:hover {
 }
 
 .panel-history .panel-collapse .panel-body .media .media-body:after {
-  content: "";
+  display: block;
+  /* content: "";
   position: absolute;
   height: 0;
   width: 0;
@@ -393,7 +394,7 @@ ul.nav-responsive>li:hover {
   border-left-color: transparent;
   border-left-style: solid;
   border-left-width: 7px;
-  border-left: 5px solid white;
+  border-left: 5px solid white; */
 }
 
 .none-reply {
