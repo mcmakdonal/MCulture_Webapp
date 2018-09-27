@@ -59,7 +59,7 @@
         <tr>
             <td>{{ $key + 1  }}</td>
             <td>{{ $value->user_fullname }}</td>
-            <td>{{ isset($value->user_phonenumber)? $value->user_phonenumber : '' }}</td>
+            <td>{{ isset($value->user_phone)? $value->user_phone : '' }}</td>
             <td>{{ $value->user_email }}</td>
             <td>{{ isset($value->user_identification)? $value->user_identification : '' }}</td>
         </tr>

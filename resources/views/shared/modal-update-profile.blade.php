@@ -32,8 +32,8 @@
 
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="form-group">
-                        <label for="" class="control-label">เลขบัตรประจำตัวประชาชน <span class="must-input">*</span> : </label>
-                        <input type="text" class="form-control number-on" name="" id="" placeholder="เลขบัตรประจำตัวประชาชน" pattern=".{13,}" maxlength="13" required>
+                        <label for="user_identification" class="control-label">เลขบัตรประจำตัวประชาชน <span class="must-input">*</span> : </label>
+                        <input type="text" class="form-control number-on" name="user_identification" id="user_identification" placeholder="เลขบัตรประจำตัวประชาชน" pattern=".{13,}" maxlength="13" required>
                     </div>
                 </div>
             </div>

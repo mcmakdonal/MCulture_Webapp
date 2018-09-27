@@ -61,9 +61,13 @@ Route::get('/admin/reply-complaint', 'ReplyController@complaint');
 Route::get('/admin/reply-other', 'ReplyController@other');
 
 // All Reply
-Route::get('/admin/reply/{id}', 'ReplyController@reply');
+Route::get('/admin/reply/{id}', 'ReplyController@view_reply');
+// ตอบกลับ
+Route::post('/admin/reply/{id}', 'ReplyController@reply');
+// update แก้ไขการตอบกลับ
+Route::put('/admin/reply', 'ReplyController@replyed');
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////// REPORT /////////////////////////////////////////////////////////
 
 // Report User
 Route::get('/admin/report-user-fb', 'ReportUserController@user_fb')->name('report-user-fb');
@@ -71,6 +75,8 @@ Route::post('/admin/report-user-fb', 'ReportUserController@user_fb');
 
 Route::get('/admin/report-user-nm', 'ReportUserController@user_nm')->name('report-user-nm');
 Route::post('/admin/report-user-nm', 'ReportUserController@user_nm');
+
+//  --------------------------------------------------------------------------------
 
 // Report Comment
 Route::get('/admin/report-comment', 'ReportCommentController@comment')->name('report-comment');
@@ -84,17 +90,30 @@ Route::post('/admin/report-inform', 'ReportInformController@inform');
 Route::get('/admin/report-complaint', 'ReportComplaintController@complaint')->name('report-complaint');
 Route::post('/admin/report-complaint', 'ReportComplaintController@complaint');
 
-// Report All recive
-Route::get('/admin/report/{type}', 'MakeReportController@report');
+// ---------------------------------------  +++++++++++++++++++++++++++++++++++++++++=
 
-// Report All reply
-Route::get('/admin/report/{type}', 'MakeReportController@report');
+// Report ทั้งหมด
+Route::get('/admin/report-all', 'MakeReportController@index');
+// Report ตอบกลับแล้ว
+Route::get('/admin/report-replyed', 'MakeReportController@index');
+// Report ยังไม่ตอบกลับแล้ว
+Route::get('/admin/report-unreply', 'MakeReportController@index');
+// Report ยังไม่ได้อ่าน
+Route::get('/admin/report-unread', 'MakeReportController@index');
+// Gen report
+Route::post('/admin/report-generate','MakeReportController@generate');
 
-// Report All not recive
-Route::get('/admin/report/{type}', 'MakeReportController@report');
+// Report Recommend
+Route::get('/admin/report-recommend', 'MakeReportController@recommend');
+Route::post('/admin/report-recommend', 'MakeReportController@recommend_report');
 
-// Report All unread
-Route::get('/admin/report/{type}', 'MakeReportController@report');
+// Report Complaint
+Route::get('/admin/report-complaint', 'MakeReportController@complaint');
+Route::post('/admin/report-complaint', 'MakeReportController@complaint_report');
+
+// Report Other
+Route::get('/admin/report-other', 'MakeReportController@other');
+Route::post('/admin/report-other', 'MakeReportController@other_report');
 
 /////////////////////////// ROUTE /////////////////////////////////////////////
 
@@ -109,7 +128,6 @@ Route::post('/onepage','IndexController@store_onepage');
 // Knowledges
 Route::get('/knowledges','KnowledgesController@index');
 Route::post('/knowledges','KnowledgesController@res_knowledge');
-
 
 // Hilight
 Route::get('/hilight','HilightController@index');
@@ -130,6 +148,8 @@ Route::get('/api/check-auth', 'GlobalApiController@check_auth')->name('api-check
 Route::get('/api/sub-type','GlobalApiController@sub_type');
 // get_admissionfees
 Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
+// get noti
+Route::get('/api/get-noti','GlobalApiController@get_noti');
 
 ////////////////////////////////////////////// TEST ///////////////////////////////////
 
@@ -142,4 +162,10 @@ Route::get('/cookie', function () {
     // \Cookie::forget('USER_FULLNAME');
     // \Cookie::forget('USER_EMAIL');
     dd(\Cookie::get());
+});
+
+Route::get('/env',function(){
+    if (App::environment('local')) {
+        echo "ddd";
+    }
 });

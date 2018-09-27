@@ -89,4 +89,10 @@ class GlobalApiController extends Controller
         return response()->json($sub_type->data_object);
     }
 
+    public function get_noti()
+    {
+        $sub_type = MyClass::mculter_service("POST", "8080", "topic/api/v1/list",['read_status' => 'N'],\Cookie::get('mcul_token'));
+        return response()->json($sub_type->data_object);
+    }
+
 }

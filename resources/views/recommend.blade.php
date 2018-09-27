@@ -73,6 +73,7 @@
  <script>
 // preload window
 $(document).ready(function($) {
+    change_bg();
     recommend_init();
 });
 </script>

@@ -83,13 +83,14 @@ class Myclass extends ServiceProvider
         $err = curl_error($curl);
         curl_close($curl);
 
+        foreach ($files as $unlink) {
+            unlink($unlink);
+        }
+
         if ($err) {
             return array('message' => $err, 'status' => false);
         } else {
             $arg = json_decode($response);
-            foreach ($files as $unlink) {
-                unlink($unlink);
-            }
             return $arg;
 
             // return $arg;

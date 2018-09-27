@@ -35,7 +35,7 @@ a:hover {
 }
 
 body {
-  background-image: url("../assets/imgs/bg.jpg");
+  background-image: url("/frontend-assets/assets/imgs/mainbg.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;

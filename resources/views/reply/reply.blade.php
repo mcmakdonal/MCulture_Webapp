@@ -6,7 +6,7 @@
 
 @section('content')
 
-{!! Form::open(['url' => '','class' => 'form-auth-small', 'method' => 'put'] ) !!}
+{!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'POST'] ) !!}
 <div class="row">
     <div class="col-md-12 col-xs-12 col-sm-12">
         @if ($errors->any())
@@ -74,7 +74,15 @@
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">วันที่จัดกิจกรรม : </label>
-            <input type="text" class="form-control" id="" name="" value="" disabled>
+            @php
+            $date = $content->start_date;
+            if($date== ""){
+                $date = "";
+            }else{
+                $date = \AppHelper::instance()->Bt_date($date);
+            }
+            @endphp
+            <input type="text" class="form-control" id="" name="" value="{{ $date }}" disabled>
         </div>
     </div>
     @endif
@@ -83,7 +91,15 @@
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">ถึงวันที่ : </label>
-            <input type="text" class="form-control" id="" name="" value="" disabled>
+            @php
+            $date = $content->end_date;
+            if($date== ""){
+                $date = "";
+            }else{
+                $date = \AppHelper::instance()->Bt_date($date);
+            }
+            @endphp
+            <input type="text" class="form-control" id="" name="" value="{{ $date }}" disabled>
         </div>
     </div>
     @endif
@@ -92,7 +108,15 @@
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">เวลาที่จัดกิจกรรม : </label>
-            <input type="text" class="form-control" name="" id="" value="" disabled>
+            @php
+            $time = $content->start_time;
+            if($time== ""){
+                $time = "";
+            }else{
+                $time = date('H:i:s',strtotime($time));
+            }
+            @endphp
+            <input type="text" class="form-control" name="" id="" value="{{ $time }}" disabled>
         </div>
     </div>
     @endif
@@ -101,13 +125,21 @@
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">ถึงเวลา : </label>
-            <input type="text" class="form-control" name="" id="" value="" disabled>
+            @php
+            $time = $content->end_time;
+            if($time== ""){
+                $time = "";
+            }else{
+                $time = date('H:i:s',strtotime($time));
+            }
+            @endphp
+            <input type="text" class="form-control" name="" id="" value="{{ $time }}" disabled>
         </div>
     </div>
     @endif
 
     @if(in_array("province_id", Session::get('field_edit')))
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="province_id" class="control-label">จังหวัด : </label>
             <input type="text" class="form-control" name="" id="" value="{{ $content->province_name }}" disabled>
@@ -116,7 +148,7 @@
     @endif
 
     @if(in_array("district_id", Session::get('field_edit')))
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">อำเภอ : </label>
             <input type="text" class="form-control" name="" id="" value="{{ $content->district_name }}" disabled>
@@ -125,7 +157,7 @@
     @endif
 
     @if(in_array("sub_district_id", Session::get('field_edit')))
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">ตำบล : </label>
             <input type="text" class="form-control" name="" id="" value="{{ $content->sub_district_name }}" disabled>
@@ -136,8 +168,24 @@
     @if(in_array("price", Session::get('field_edit')))
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
-            <button type="button" class="btn btn-success btn-block" onclick="price_init();">กำหนดราคา ค่าเข้าชม</button>
+            <label for="" class="control-label">ค่าเข้าชม : </label>
         </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>กฏเกิน</th>
+                    <th>ราคา</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($content->admission_fees as $k => $v)
+                <tr>
+                    <td>{{ $v->admission_fee_type_name }}</td>
+                    <td>{{ $v->admission_charge }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
     @include('shared.modal-price-pay')
     @endif
@@ -145,8 +193,39 @@
     @if(in_array("date_work", Session::get('field_edit')))
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
-            <button type="button" class="btn btn-success btn-block" onclick="date_work_init();">กำหนดวัน เวลาทำการ</button>
+            <label for="" class="control-label">เวลาทำการ : </label>
         </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>วันทำการ</th>
+                    <th>เวลา</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach($content->working_times as $k => $v)
+                @php
+                    $working_start_time = $v->working_start_time;
+                    if($working_start_time== ""){
+                        $working_start_time = "";
+                    }else{
+                        $working_start_time = date('H:i:s',strtotime($working_start_time));
+                    }
+
+                    $working_end_time = $v->working_end_time;
+                    if($working_end_time == ""){
+                        $working_end_time = "";
+                    }else{
+                        $working_end_time = date('H:i:s',strtotime($working_end_time));
+                    }
+                @endphp
+                <tr>
+                    <td>{{ $v->working_start_date }} - {{ $v->working_end_date }}</td>
+                    <td>{{ $working_start_time }} - {{ $working_end_time }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
     </div>
     @include('shared.modal-date-work')
     @endif
@@ -155,48 +234,30 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">รายละเอียด : </label>
-            <textarea class="form-control" style="resize: none;" rows="3" id="" name="">{{ $content->topic_details }}</textarea>
+            <textarea class="form-control" style="resize: none;" rows="3" id="" name="" disabled>{{ $content->topic_details }}</textarea>
         </div>
     </div>
     @endif
 
     @if(in_array("location", Session::get('field_edit')))
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
-            <label for="topic_location" class="control-label">Location : </label>
-            <button type="button" class="btn btn-primary" onclick="map_init();">Google Map</button>
-            <div class="row" style="margin-top: 5px;">
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <input type="text" class="form-control" name="topic_location" id="topic_location" readonly>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 5px;">
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <input type="text" class="form-control" name="topic_latitude" id="topic_latitude" readonly>
-                </div>
-            </div>
-            <div class="row" style="margin-top: 5px;">
-                <div class="col-md-12 col-xs-12 col-sm-12">
-                    <input type="text" class="form-control" name="topic_longitude" id="topic_longitude" readonly>
-                </div>
-            </div>
+            <label for="" class="control-label">สถานที่ : </label>
+            <input type="text" class="form-control" name="" id="" value="{{ $content->topic_location }}" readonly>
         </div>
     </div>
-    @endif
 
-    @if(in_array("file", Session::get('field_edit')))
-    <div class="col-md-12 col-xs-12 col-sm-12">
+    <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
-            <label for="IMAGE_NAME" class="control-label">รูปภาพ : </label>
-            <div class="input-group">
-                <input type="text" class="form-control file-view" readonly>
-                <div class="input-group-btn">
-                <span class="fileUpload btn btn-info">
-                    <span class="upl" id="upload">เลือกได้หลายไฟล์</span>
-                    <input type="file" class="upload up limit-file" name="file[]" id="file" accept="image/x-png,image/jpeg" multiple readonly>
-                    </span>
-                </div>
-            </div>
+            <label for="" class="control-label">ละติจูด : </label>
+            <input type="text" class="form-control" name="" id="" value="{{ $content->topic_latitude }}" readonly>
+        </div>
+    </div>
+
+    <div class="col-md-4 col-xs-12 col-sm-12">
+        <div class="form-group">
+            <label for="" class="control-label">ลองติจูด : </label>
+            <input type="text" class="form-control" name="" id="" value="{{ $content->topic_longitude }}" readonly>
         </div>
     </div>
     @endif
@@ -205,7 +266,7 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">แหล่งข้อมูล : </label>
-            <textarea class="form-control" style="resize: none;" rows="3" id="" name="">{{ $content->reference }}</textarea>
+            <textarea class="form-control" style="resize: none;" rows="3" id="" name="" disabled>{{ $content->reference }}</textarea>
         </div>
     </div>
     @endif
@@ -214,10 +275,10 @@
     <div class="col-md-12 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">อื่นๆ : </label>
-            <textarea class="form-control" style="resize: none;" rows="3" id="" name="">{{ $content->topic_remark }}</textarea>
+            <textarea class="form-control" style="resize: none;" rows="3" id="" name="" disabled>{{ $content->topic_remark }}</textarea>
         </div>
     </div>
-    @endif           
+    @endif
 
     <div class="col-md-12 col-xs-12 col-sm-12">
         <hr />
@@ -227,7 +288,7 @@
     @foreach($content->files as $img)
         <div class="col-md-4 col-xs-6 col-sm-6">
             <div class="parent">
-                <img src="@php echo $img->image_path @endphp" class="img-responsive">
+                <img src="{{ $img->file_path }}" class="img-responsive">
             </div>
         </div>
     @endforeach
@@ -237,24 +298,31 @@
         <h3 class="text-center">ข้อมูลผู้แจ้ง</h3>
     </div>
 
-    <div class="col-md-4 col-xs-12 col-sm-12">
+    <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">ชื่อ-นามสกุล : </label>
             <input type="text" class="form-control" name="" id="" value="{{$content->user_fullname}}" readonly>
         </div>
     </div>
 
-    <div class="col-md-4 col-xs-12 col-sm-12">
+    <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">อีเมล : </label>
             <input type="text" class="form-control" name="" id="" value="{{$content->user_email}}" readonly>
         </div>
     </div>
 
-    <div class="col-md-4 col-xs-12 col-sm-12">
+    <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
             <label for="" class="control-label">หมายเลขโทรศัพท์ : </label>
             <input type="text" class="form-control" name="" id="" value="{{$content->user_phone}}" readonly>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xs-12 col-sm-12">
+        <div class="form-group">
+            <label for="" class="control-label">หมายเลขบัตรประจำตัวประชาชน : </label>
+            <input type="text" class="form-control" name="" id="" value="{{$content->user_identification}}" readonly>
         </div>
     </div>
 
@@ -270,11 +338,11 @@
                     <div class="row">
                         <div class="col-md-2">
                             <button type="button" class="btn btn-warning center-block edit-reply" data-class="complaint" data-id="{{$reply->reply_id}}">แก้ไข</button>
-                            <label class="text-center">ตอบกลับโดย : {{$reply->cpreply_by_name}}</label>
+                            <label class="text-center">ตอบกลับโดย : {{$reply->reply_by_name}}</label>
                         </div>
                         <div class="col-md-10">
                             <div id="reply_{{$reply->reply_id}}" style="display: block;word-wrap: break-word;">
-                                {{$reply->cpdetail_reply}}
+                                {{$reply->reply_details}}
                             </div>
                         </div>
                     </div>
@@ -286,8 +354,8 @@
 
     <div class="col-md-12 col-xs-12 col-sm-12">
         <div class="form-group">
-            <label for="CPDATA_DETAILREPLY" class="control-label">ตอบกลับ : </label>
-            <textarea class="form-control" style="resize : vertical;" rows="3" id="CPDATA_DETAILREPLY" name="CPDATA_DETAILREPLY" required></textarea>
+            <label for="reply_details" class="control-label">ตอบกลับ : </label>
+            <textarea class="form-control" style="resize : vertical;" rows="3" id="reply_details" name="reply_details" required></textarea>
         </div>
     </div>
 
@@ -304,7 +372,7 @@
 <!-- Modal -->
 <div class="modal fade" id="nofti-reply" role="dialog">
     <div class="modal-dialog">
-    {!! Form::open(['url' => '/admin/update-reply-complaint','class' => 'form-auth-small', 'method' => 'post']) !!}
+    {!! Form::open(['url' => '/admin/reply','class' => 'form-auth-small', 'method' => 'put']) !!}
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
@@ -315,9 +383,9 @@
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="form-group">
                         <label for="" class="control-label">ตอบกลับ : </label>
-                        <input type="hidden" class="form-control" name="REPLY_ID" id="REPLY_ID" value="">
+                        <input type="hidden" class="form-control" name="reply_id" id="reply_id" value="">
                         <input type="hidden" value="{{ $content->device_token }}" name="device_token">
-                        <textarea class="form-control" style="resize : vertical;" rows="3" id="CPDATA_DETAILREPLY" name="CPDATA_DETAILREPLY" required></textarea>
+                        <textarea class="form-control" style="resize : vertical;" rows="3" id="reply_details" name="reply_details" required></textarea>
                     </div>
                 </div>
             </div>

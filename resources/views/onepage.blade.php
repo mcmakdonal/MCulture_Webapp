@@ -254,3 +254,11 @@
 
 </section>
 @endsection
+@section('script')
+<script>
+// preload window
+$(document).ready(function() {
+    change_bg();
+});
+</script>
+@endsection

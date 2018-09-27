@@ -58,16 +58,16 @@
                 </h3>
                 <ul class="nav nav-pills nav-stacked">
                     <li style="cursor: pointer;">
-                        <a class="" onclick="init_profile();"> <img src="{{ url('frontend-assets/assets/icon/m_user.png') }}" class="img-responsive"> ข้อมูลส่วนตัว</a>
+                        <a class="" onclick="init_profile();"> <i class="fa fa-info" aria-hidden="true"></i> ข้อมูลส่วนตัว</a>
                     </li>
                     <li class="{{ (strpos(url()->current(),'/user/history') ) ? 'nav-active' : '' }}">
-                        <a href="{{ url('/user/history') }}"> <img src="{{ url('frontend-assets/assets/icon/m_arrow.png') }}" class="img-responsive"> ประวัติการตอบกลับ</a>
+                        <a href="{{ url('/user/history') }}"> <i class="fa fa-history" aria-hidden="true"></i> ประวัติการตอบกลับ</a>
                     </li>
                     <li style="cursor: pointer;">
-                        <a onclick="init_nofti();"> <img src="{{ url('frontend-assets/assets/icon/m_ring.png') }}" class="img-responsive"> ตั้งค่าการแจ้งเตือน</a>
+                        <a onclick="init_nofti();"> <i class="fa fa-bell-o" aria-hidden="true"></i> ตั้งค่าการแจ้งเตือน</a>
                     </li>
                     <li style="cursor: pointer;">
-                        <a href="{{ url('/auth/login/logout') }}">  <img src="{{ url('frontend-assets/assets/icon/m_key.png') }}" class="img-responsive"> ออกจากระบบ</a>
+                        <a href="{{ url('/auth/login/logout') }}"> <i class="fa fa-sign-out" aria-hidden="true"></i> ออกจากระบบ</a>
                     </li>
                 </ul>
                 @endif

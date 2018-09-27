@@ -325,7 +325,3 @@ function hilight_detail_init(e, id) {
         backdrop: "static"
     });
 }
-
-function blank_bg() {
-    $("body").css("background-image", "none");
-}

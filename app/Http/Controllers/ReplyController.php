@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mylibs\Myclass;
 use Illuminate\Http\Request;
+use Validator;
 
 class ReplyController extends Controller
 {
@@ -74,7 +75,7 @@ class ReplyController extends Controller
         ]);
     }
 
-    public function reply(Request $request, $id)
+    public function view_reply(Request $request, $id)
     {
         $request->session()->forget('type');
         $request->session()->forget('field');
@@ -106,6 +107,68 @@ class ReplyController extends Controller
             'header' => 'ตอบกลับข้อมูล' . session('title_edit'),
             'content' => $obj,
         ]);
+    }
+
+    public function reply(Request $request, $id)
+    {
+        // dd($request);
+        $token = \Cookie::get('mcul_token');
+        $validator = Validator::make($request->all(), [
+            'reply_details' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $args = array(
+            'reply_details' => $request->reply_details,
+            'topic_id' => $id,
+        );
+
+        $arg = Myclass::mculter_service("POST", "8080", "topic/api/v1/reply", $args, $token);
+        if ($arg->status) {
+            $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
+            if($nof){
+                return redirect()->back()->with('status', 'Reply Success');
+            }else{
+                return redirect()->back()->with('status', 'Reply Success But Notification not send');
+            }
+        } else {
+            return redirect()->back()->withErrors($arg->description);
+        }
+
+    }
+
+    public function replyed(Request $request)
+    {
+        $token = \Cookie::get('mcul_token');
+        $validator = Validator::make($request->all(), [
+            'reply_details' => 'required',
+            'reply_id' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $args = array(
+            'reply_details' => $request->reply_details,
+            'reply_id' => $request->reply_id,
+        );
+
+        $arg = Myclass::mculter_service("POST", "8080", "topic/api/v1/update_reply", $args, $token);
+        if ($arg->status) {
+            $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
+            if($nof){
+                return redirect()->back()->with('status', 'Update Reply Success');
+            }else{
+                return redirect()->back()->with('status', 'Update Reply Success But Notification not send');
+            }
+        } else {
+            return redirect()->back()->withErrors($arg->description);
+        }
+
     }
 
 }

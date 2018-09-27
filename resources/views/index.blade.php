@@ -92,7 +92,7 @@
         </div>
     </section>
 
-    <section id="index-help">
+    <section id="index-help" class="hidden">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <a href="{{ url('/help') }}">

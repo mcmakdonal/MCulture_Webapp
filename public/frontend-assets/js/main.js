@@ -30,7 +30,8 @@ function init_profile() {
       $("#user_email").val(result.user_email);
       $("#user_phone").val(result.user_phone);
       if(result.user_identification != null || result.user_identification != ""){
-        $("#communicant_identification").attr("disabled","disabled");
+        $("#user_identification").attr("disabled","disabled");
+        $("#user_identification").val(result.user_identification);
       }      
       $.LoadingOverlay("hide");
       $("#update-profile").modal({
@@ -123,4 +124,12 @@ function CheckInden() {
   if ((11 - sum % 11) % 10 != parseFloat(iden.charAt(12)))
     return false;
   return true;
+}
+
+function blank_bg() {
+  $("body").css("background-image", "none");
+}
+
+function change_bg(){
+  $("body").css("background-image", 'url("/frontend-assets/assets/imgs/bg.jpg")');
 }

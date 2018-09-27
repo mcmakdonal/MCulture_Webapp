@@ -33,11 +33,15 @@ $(document).ready(function ($) {
 
     // menu init
     menu_init();
-    
+
+    // noti
+    noti_init();
+
     //datetime range
     $(".datetimerange").daterangepicker({
         locale: {}
     });
+    
 });
 
 $(window).load(function () {
@@ -78,7 +82,7 @@ function destroy(e, url, id) {
                 }
             },
             error(xhr, status, error) {
-                alert(error);
+                // alert(error);
             }
         });
     }
@@ -87,9 +91,9 @@ function destroy(e, url, id) {
 function init_date_onf() {
     var DATE_ONF = $("#DATE_ONF").val();
     if (DATE_ONF == "ON") {
-        $("#DATETIME").removeAttr("disabled");
+        $("#datetime").removeAttr("disabled");
     } else {
-        $("#DATETIME").attr("disabled", "disabled");
+        $("#datetime").attr("disabled", "disabled");
     }
 }
 
@@ -110,7 +114,7 @@ function menu_init() {
 
 $(".edit-reply").click(function () {
     var id = $(this).attr("data-id");
-    $("#REPLY_ID").val(id);
+    $("#reply_id").val(id);
     $("#nofti-reply textarea").val(
         $("#reply_" + id)
         .html()
@@ -120,3 +124,25 @@ $(".edit-reply").click(function () {
         backdrop: "static"
     });
 });
+
+function noti_init() {
+    $.ajax({
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
+        },
+        url: window.location.origin + "/api/get-noti",
+        method: "GET",
+        success: function (result) {
+            var str = '';
+            for (var i = 0; i < 5; i++) {
+                str += '<li><a href="/admin/reply/'+ result[i]['topic_id'] +'" class="notification-item"><span class="dot bg-warning"></span>การแจ้งเตือนใหม่จากคุณ ' + result[i]['user_fullname'] + '</a></li>';
+            }
+            str += '<li><a href="/admin/reply-recommend" class="more">ดูการแจ้งเตือนทั้งหมด</a></li>';
+            $(".notifications").append(str);
+            $(".notifications-count").html(result.length);
+        },
+        error(xhr, status, error) {
+            // alert(error);
+        }
+    });
+}
