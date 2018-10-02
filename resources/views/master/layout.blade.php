@@ -109,13 +109,14 @@
 						</li>
 						@endif
 						<li>
-							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i> <span>Manage Knowledge</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i><span>Knowledge & Hilight</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse km-sub">
 								<ul class="nav">
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/rituals') }}" class="{{ (strpos(url()->current(),'rituals') ) ? 'active' : '' }}"> ฐานข้อมูลประเพณีท้องถิ่น </a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/tradition') }}" class="{{ (strpos(url()->current(),'tradition') ) ? 'active' : '' }}">ประเพณี</a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/folkarts') }}" class="{{ (strpos(url()->current(),'folkarts') ) ? 'active' : '' }}">ศิลปะพื้นถิ่น</a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/thailitdir') }}" class="{{ (strpos(url()->current(),'thailitdir') ) ? 'active' : '' }}">ข้อมูลนามานุกรมวรรณคดีไทย</a></li>
+									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/hilight') }}" class="{{ (strpos(url()->current(),'hilight') ) ? 'active' : '' }}">ไฮไลท์</a></li>
 								</ul>
 							</div>
 						</li>

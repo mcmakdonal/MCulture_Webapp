@@ -42,6 +42,13 @@ $(document).ready(function ($) {
         locale: {}
     });
 
+    $('.date-range').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            cancelLabel: 'Clear'
+        }
+  });    
+
     // tags
     $('.tags').tagsInput({
         'width': '100%',
@@ -138,6 +145,15 @@ $(".edit-reply").click(function () {
         backdrop: "static"
     });
 });
+
+$('.date-range').on('apply.daterangepicker', function(ev, picker) {
+    $(this).val(picker.startDate.format('MM/DD/YYYY') + ' - ' + picker.endDate.format('MM/DD/YYYY'));
+});
+
+$('.date-range').on('cancel.daterangepicker', function(ev, picker) {
+    $(this).val('');
+});
+
 
 function noti_init() {
     $.ajax({

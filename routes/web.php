@@ -129,6 +129,7 @@ Route::resource('/km/rituals', 'KmRitualsController');
 Route::resource('/km/tradition', 'KmTraditionController');
 Route::resource('/km/folkart', 'KmFolkartController');
 Route::resource('/km/thailitdir', 'KmThailitdirController');
+Route::resource('/km/hilight', 'KmHilightController');
 
 ////////////////////////// API ////////////////////////////////////////////////////////////
 
