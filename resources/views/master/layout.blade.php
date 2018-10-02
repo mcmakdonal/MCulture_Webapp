@@ -12,7 +12,7 @@
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/font-awesome/css/font-awesome.min.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/linearicons/style.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/chartist/css/chartist-custom.css') }}
-	{{ \AppHelper::instance()->gen_script('css','assets/vendor/jquery-tags-input/dist/jquery.tagsinput.min.css') }}
+	{{ \AppHelper::instance()->gen_script('css','assets/vendor/jquerytagsinput/dist/jquery.tagsinput.min.css') }}
 	<!-- VENDOR CSS DATATABLE -->
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/datatables/jquery.dataTables.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/datatables/buttons.dataTables.min.css') }}
@@ -161,7 +161,7 @@
 
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/sweetalert.min.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/loadingoverlay.min.js') }}
-	{{ \AppHelper::instance()->gen_script('js','assets/vendor/jquery-tags-input/dist/jquery.tagsinput.min.js') }}
+	{{ \AppHelper::instance()->gen_script('js','assets/vendor/jquerytagsinput/dist/jquery.tagsinput.min.js') }}
 
 	<!-- VENDOR CSS DATATABLE -->
 	{{ \AppHelper::instance()->gen_script('js','assets/vendor/datatables/jquery.dataTables.min.js') }}
