@@ -172,7 +172,7 @@ class KmHilightController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "activity/api/v1/update", $args, $token);
         if ($arg->status) {
-            return redirect('/km/hilight')->with('status', 'Create Success');
+            return redirect('/km/hilight')->with('status', 'Update Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
