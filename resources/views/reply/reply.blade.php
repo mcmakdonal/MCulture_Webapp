@@ -362,8 +362,9 @@
 
     <div class="col-md-12 col-xs-12 col-sm-12">
         <input type="hidden" value="{{ $content->device_token }}" name="device_token">
+        <input type="hidden" value="{{ $content->get_news_update }}" name="get_news_update">
         <button type="submit" class="btn btn-success">ตอบกลับ</button>
-        <?=link_to('/admin', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null);?>
+        <?=link_to('admin/reply-recommend', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null);?>
     </div>
 </div>
 

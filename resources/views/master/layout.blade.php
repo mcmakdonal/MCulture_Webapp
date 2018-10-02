@@ -12,6 +12,7 @@
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/font-awesome/css/font-awesome.min.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/linearicons/style.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/chartist/css/chartist-custom.css') }}
+	{{ \AppHelper::instance()->gen_script('css','assets/vendor/jquery-tags-input/dist/jquery.tagsinput.min.css') }}
 	<!-- VENDOR CSS DATATABLE -->
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/datatables/jquery.dataTables.css') }}
 	{{ \AppHelper::instance()->gen_script('css','assets/vendor/datatables/buttons.dataTables.min.css') }}
@@ -39,7 +40,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="brand">
-				<a href="{{ url('/admin/dashboard') }}"> MCulture </a>
+				<a href="{{ url('/admin') }}"> MCulture </a>
 			</div>
 			<div class="container-fluid">
 				<div class="navbar-btn">
@@ -47,6 +48,7 @@
 				</div>
 				<div id="navbar-menu">
 					<ul class="nav navbar-nav navbar-right">
+						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 2 )
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle icon-menu" data-toggle="dropdown" aria-expanded="false">
 								<i class="lnr lnr-alarm"></i>
@@ -56,8 +58,9 @@
 
 							</ul>
 						</li>
+						@endif
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/user.png') }}" class="img-circle" alt="Avatar"> <span>Administrator</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/user.png') }}" class="img-circle" alt="Avatar"> <span> {{ \AppHelper::instance()->get_admin_name() }} </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
 								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
 							</ul>
@@ -72,7 +75,10 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>Administrator</span></a></li>
+						@if (\Cookie::get('mcul_role') == 1 )
+							<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>Administrator</span></a></li>
+						@endif
+						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 2 )
 						<li>
 							<a href="#subPage" class="reply-main" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>Reply</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse reply-sub">
@@ -83,6 +89,8 @@
 								</ul>
 							</div>
 						</li>
+						@endif
+						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 3 )
 						<li>
 							<a href="#subPages" class="report-main" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse report-sub">
@@ -96,6 +104,18 @@
 									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-replyed') }}" class="{{ (strpos(url()->current(),'report-replyed') ) ? 'active' : '' }}">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
 									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-unreply') }}" class="{{ (strpos(url()->current(),'report-unreply') ) ? 'active' : '' }}">รายการที่ยังไม่ได้ตอบกลับ</a></li>
 									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-unread') }}" class="{{ (strpos(url()->current(),'report-unread') ) ? 'active' : '' }}">รายการที่ยังไม่ได้อ่าน</a></li>
+								</ul>
+							</div>
+						</li>
+						@endif
+						<li>
+							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i> <span>Manage Knowledge</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPagess" class="collapse km-sub">
+								<ul class="nav">
+									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/rituals') }}" class="{{ (strpos(url()->current(),'rituals') ) ? 'active' : '' }}"> ฐานข้อมูลประเพณีท้องถิ่น </a></li>
+									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/tradition') }}" class="{{ (strpos(url()->current(),'tradition') ) ? 'active' : '' }}">ประเพณี</a></li>
+									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/folkarts') }}" class="{{ (strpos(url()->current(),'folkarts') ) ? 'active' : '' }}">ศิลปะพื้นถิ่น</a></li>
+									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/thailitdir') }}" class="{{ (strpos(url()->current(),'thailitdir') ) ? 'active' : '' }}">ข้อมูลนามานุกรมวรรณคดีไทย</a></li>
 								</ul>
 							</div>
 						</li>
@@ -141,6 +161,7 @@
 
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/sweetalert.min.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/loadingoverlay.min.js') }}
+	{{ \AppHelper::instance()->gen_script('js','assets/vendor/jquery-tags-input/dist/jquery.tagsinput.min.js') }}
 
 	<!-- VENDOR CSS DATATABLE -->
 	{{ \AppHelper::instance()->gen_script('js','assets/vendor/datatables/jquery.dataTables.min.js') }}

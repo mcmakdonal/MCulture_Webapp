@@ -9,6 +9,11 @@ use Validator;
 class ReplyController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('Mid_auth');
+    }
+
     public function recommend(Request $request)
     {
         $args = ['main_type_id' => '1'];
@@ -44,8 +49,8 @@ class ReplyController extends Controller
         $main_data = MyClass::mculter_service("POST", "8080", "topic/api/v1/list", $args, \Cookie::get('mcul_token'));
         // dd($main_data);;
         return view('reply.index', [
-            'title' => 'ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุก',
-            'header' => 'ตอบกลับข้อมูลการ ้องเรียน/ร้องทุก',
+            'title' => 'ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์',
+            'header' => 'ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์',
             'main_data' => $main_data->data_object,
             'sub_type' => MyClass::mculter_service("get", "8080", "data/api/v1/get_subtype/2")->data_object,
             'id' => $request->id,
@@ -80,7 +85,6 @@ class ReplyController extends Controller
         $request->session()->forget('type');
         $request->session()->forget('field');
         $request->session()->forget('title');
-
 
         $token = \Cookie::get('mcul_token');
         $read = Myclass::mculter_service("GET", "8080", "topic/api/v1/read/" . $id, ['' => ''], $token);
@@ -128,12 +132,17 @@ class ReplyController extends Controller
 
         $arg = Myclass::mculter_service("POST", "8080", "topic/api/v1/reply", $args, $token);
         if ($arg->status) {
-            $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
-            if($nof){
+            if (strtolower($request->get_news_update) == "y") {
+                $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
+                if ($nof) {
+                    return redirect()->back()->with('status', 'Reply And send Notification Success');
+                } else {
+                    return redirect()->back()->with('status', 'Reply Success But Notification not send');
+                }
+            } else {
                 return redirect()->back()->with('status', 'Reply Success');
-            }else{
-                return redirect()->back()->with('status', 'Reply Success But Notification not send');
             }
+
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -145,7 +154,7 @@ class ReplyController extends Controller
         $token = \Cookie::get('mcul_token');
         $validator = Validator::make($request->all(), [
             'reply_details' => 'required',
-            'reply_id' => 'required'
+            'reply_id' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -159,12 +168,7 @@ class ReplyController extends Controller
 
         $arg = Myclass::mculter_service("POST", "8080", "topic/api/v1/update_reply", $args, $token);
         if ($arg->status) {
-            $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
-            if($nof){
-                return redirect()->back()->with('status', 'Update Reply Success');
-            }else{
-                return redirect()->back()->with('status', 'Update Reply Success But Notification not send');
-            }
+            return redirect()->back()->with('status', 'Update Reply Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

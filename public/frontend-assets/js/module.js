@@ -16,6 +16,7 @@ $(".active-img").click(function (e) {
             $(inputs[i]).removeClass("active-know");
         }
 
+        $(".nav-menu h4:last").html($(this).closest('div').find('span').html());
         $(".query_string").val("");
 
         var new_img = img_path.replace(".png", "-at.png", img_path);
@@ -69,7 +70,7 @@ function release_knowledge(know_id, data, startPage) {
     str = "";
     if (know_id == 1) {
         $.each(data['data_object'], function (i, v) {
-            str += '<div class="col-md-6 col-xs-12 col-sm-12" style="margin-top: 10px;">';
+            str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
             str += '<div class="media no-top rituals" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (v['content_img'] == null || v['content_img'] == "") {
@@ -90,7 +91,7 @@ function release_knowledge(know_id, data, startPage) {
     } else if (know_id == 2) {
         $.each(data['data_object'], function (i, v) {
             var obj = v['data_object'];
-            str += '<div class="col-md-6 col-xs-12 col-sm-12" style="margin-top: 10px;">';
+            str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
             str += '<div class="media no-top tradition" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (obj['article_img'] == null || obj['article_img'] == "") {
@@ -101,7 +102,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '</div>';
             str += '<div class="media-body">';
             str += '<h4>' + obj['article_name'] + '</h4>';
-            str += '<p>' + obj['article_name'] + '</p>';
+            str += '<p>' + obj['about'] + '</p>';
             str += '<textarea class="hidden" id="know_' + i + '">' + JSON.stringify(v) + '</textarea>';
             str += '</div>';
             str += '</div>';
@@ -111,7 +112,7 @@ function release_knowledge(know_id, data, startPage) {
     } else if (know_id == 3) {
         $.each(data['data_object'], function (i, v) {
             var obj = v['data_object'];
-            str += '<div class="col-md-6 col-xs-12 col-sm-12" style="margin-top: 10px;">';
+            str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
             str += '<div class="media no-top folkart" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (obj['folkart_img'] == null || obj['folkart_img'] == "") {
@@ -122,7 +123,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '</div>';
             str += '<div class="media-body">';
             str += '<h4>' + obj['folkart_name'] + '</h4>';
-            str += '<p>' + obj['folkart_name'] + '</p>';
+            str += '<p>' + obj['about'] + '</p>';
             str += '<textarea class="hidden" id="know_' + i + '">' + JSON.stringify(v) + '</textarea>';
             str += '</div>';
             str += '</div>';
@@ -132,14 +133,14 @@ function release_knowledge(know_id, data, startPage) {
     } else if (know_id == 4) {
         $.each(data['data_object'], function (i, v) {
             var obj = v['data_object'];
-            str += '<div class="col-md-6 col-xs-12 col-sm-12" style="margin-top: 10px;">';
+            str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
             str += '<div class="media no-top thailitdir" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
             str += '</div>';
             str += '<div class="media-body">';
             str += '<h4>' + obj['title_main'] + '</h4>';
-            str += '<p>' + obj['title_main'] + '</p>';
+            str += '<p>' + obj['composition'] + '</p>';
             str += '<textarea class="hidden" id="know_' + i + '">' + JSON.stringify(v) + '</textarea>';
             str += '</div>';
             str += '</div>';
@@ -173,7 +174,7 @@ function get_hilight(page = 1) {
             var totalPages = obj['total'];
             var str = '';
             $.each(obj['data_object'], function (i, v) {
-                str += '<div class="col-md-6 col-xs-12 col-sm-12" style="margin-top: 10px;">';
+                str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
                 str += '<div class="media no-top" onclick="hilight_detail_init(this,' + i + ')" style="cursor: pointer;">';
                 str += '<div class="media-left">';
                 str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_hl.jpg" + '" class="media-object" style="width:150px">';
@@ -214,20 +215,27 @@ function knowledge_detail_init(e, id) {
 
         $("div.knowledge-banner img").attr("src", image);
         $(".knowledge-img h3").html(obj['content_name']);
-        $(".knowledge-img h4").html(obj['keyword']);
-        $(".knowledge-img span").html(obj['type']);
+        // $(".knowledge-img h4").html("องค์ความรู้ "+ obj['type'] +" ");
+        $(".knowledge-img p").html("องค์ความรู้ด้าน " + obj['type'] + " ");
 
         $(".knowledge-global a").attr("href", obj['content_url']);
 
         $("ul.knowledge-list").html("");
         var rituals_month = (obj['rituals_month'] == null || obj['rituals_month'] == "") ? " " : obj['rituals_month'];
         var rituals_time = (obj['rituals_time'] == null || obj['rituals_time'] == "") ? " " : obj['rituals_time'];
-        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> ' + rituals_month + ' ' + rituals_time + ' </li> ');
         var location = (obj['location'] == null || obj['location'] == "") ? " " : obj['location'];
-        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> ' + location + ' </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-info" aria-hidden="true"></i> โทรศัพท์ </li> ');
         var user = (obj['author'] == null || obj['author'] == "") ? "-" : obj['author'];
-        $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> ' + user + '  </li> ');
+        var other_name = (obj['other_name'] == null || obj['other_name'] == "") ? "-" : obj['other_name'];
+        var zone = (obj['zone'] == null || obj['zone'] == "") ? "-" : obj['zone'];
+        var keyword = (obj['keyword'] == null || obj['keyword'] == "") ? "-" : obj['keyword'];
+
+        $("ul.knowledge-list").append('<li> <i class="fa fa-book" aria-hidden="true"></i> ชื่อเรียกอื่นๆ : ' + other_name + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-moon-o" aria-hidden="true"></i> เดือน : ' + rituals_month + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> เวลา : ' + rituals_time + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> สถานที่ : ' + location + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-globe" aria-hidden="true"></i> ภาค / จังหวัด : ' + zone + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> ผู้เขียน : ' + user + '  </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-exclamation-circle" aria-hidden="true"></i> คำสำคัญ : ' + keyword + ' </li> ');
 
     } else if ($(e).hasClass("tradition")) {
         var data = JSON.parse($("#know_" + id).val());
@@ -236,8 +244,8 @@ function knowledge_detail_init(e, id) {
 
         $("div.knowledge-banner img").attr("src", image);
         $(".knowledge-img h3").html(obj['article_name']);
-        $(".knowledge-img h4").html(obj['article_name']);
-        $(".knowledge-img span").html(obj['about']);
+
+        $(".knowledge-img p").html("องค์ความรู้ด้าน " + obj['about'] + " ");
 
         $(".knowledge-global a").attr("href", data['content_url']);
 
@@ -245,9 +253,8 @@ function knowledge_detail_init(e, id) {
         $(".knowledge-body").html(obj['history']);
 
         $("ul.knowledge-list").html("");
-        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> ' + obj['event_date'] + ' </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> ' + obj['location'] + ' </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-info" aria-hidden="true"></i> โทรศัพท์ </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> การจัดงาน : ' + obj['event_date'] + ' </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> สถานที่ : ' + obj['location'] + ' </li> ');
 
     } else if ($(e).hasClass("folkart")) {
         var data = JSON.parse($("#know_" + id).val());
@@ -256,8 +263,8 @@ function knowledge_detail_init(e, id) {
 
         $("div.knowledge-banner img").attr("src", image);
         $(".knowledge-img h3").html(obj['folkart_name']);
-        $(".knowledge-img h4").html(obj['folkart_name']);
-        $(".knowledge-img span").html(obj['about']);
+        // $(".knowledge-img h4").html(obj['folkart_name']);
+        $(".knowledge-img p").html("องค์ความรู้ด้าน " + obj['about'] + " ");
 
         $(".knowledge-global a").attr("href", data['content_url']);
 
@@ -265,9 +272,7 @@ function knowledge_detail_init(e, id) {
         $(".knowledge-body").html(obj['history']);
 
         $("ul.knowledge-list").html("");
-        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i>  </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> ' + obj['location'] + ' </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-info" aria-hidden="true"></i> โทรศัพท์ </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> สถานที่ : ' + obj['location'] + ' </li> ');
     } else if ($(e).hasClass("thailitdir")) {
         var data = JSON.parse($("#know_" + id).val());
         var obj = data['data_object'];
@@ -275,20 +280,22 @@ function knowledge_detail_init(e, id) {
 
         $("div.knowledge-banner img").attr("src", image);
         $(".knowledge-img h3").html(obj['title_main']);
-        $(".knowledge-img h4").html(obj['composer']);
-        $(".knowledge-img span").html(obj['composition']);
+        // $(".knowledge-img h4").html(obj['composer']);
+        $(".knowledge-img p").html("องค์ความรู้ด้าน " + obj['composition'] + " ");
 
         $(".knowledge-global a").attr("href", data['content_url']);
 
         $(".knowledge-body").html("");
         $(".knowledge-body").html(obj['story']);
 
-        $("ul.knowledge-list").html("");
-        $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i>  </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> </li> ');
-        $("ul.knowledge-list").append('<li> <i class="fa fa-info" aria-hidden="true"></i> โทรศัพท์ </li> ');
-        var user = (obj['author'] == null || obj['author'] == "") ? "-" : obj['author'];
-        $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> ' + user + '  </li> ');
+        var author = (obj['author'] == null || obj['author'] == "") ? "-" : obj['author'];
+        var composition = (obj['composition'] == null || obj['composition'] == "") ? "-" : obj['composition'];
+        var composer = (obj['composer'] == null || obj['composer'] == "") ? "-" : obj['composer'];
+
+        $("ul.knowledge-list").html("");       
+        $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> ผู้แต่ง : ' + author + '  </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-comments" aria-hidden="true"></i> คำประพันธ์ : ' + composition + '  </li> ');
+        $("ul.knowledge-list").append('<li> <i class="fa fa-user-plus" aria-hidden="true"></i> ผู้เรียบเรียง : ' + composer + '  </li> ');
     }
 
 
@@ -306,20 +313,20 @@ function hilight_detail_init(e, id) {
 
     $("div.knowledge-banner img").attr("src", image);
     $(".knowledge-img h3").html(obj['activity_name']);
-    $(".knowledge-img h4").html(obj['activity_name']);
-    $(".knowledge-img span").html(obj['organization']);
+    // $(".knowledge-img h4").html(obj['activity_name']);
+    $(".knowledge-img p").html("ไฮไลท์");
 
     $(".knowledge-global a").attr("href", obj['content_url']);
 
     $(".knowledge-body").html("");
     $(".knowledge-body").html(obj['description']);
 
-    $("ul.knowledge-list").html("");
-    $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> ' + timetthai(obj['start_date']) + ' - ' + timetthai(obj['end_date']) + ' </li> ');
-    $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> ' + obj['location'] + ' </li> ');
-    $("ul.knowledge-list").append('<li> <i class="fa fa-info" aria-hidden="true"></i> โทรศัพท์ </li> ');
     var user = (obj['accessory'] == null || obj['accessory'] == "") ? "-" : obj['accessory'];
-    $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> ' + user + '  </li> ');
+
+    $("ul.knowledge-list").html("");
+    $("ul.knowledge-list").append('<li> <i class="fa fa-clock-o" aria-hidden="true"></i> วันที่ : ' + timetthai(obj['start_date']) + ' - ' + timetthai(obj['end_date']) + ' </li> ');
+    $("ul.knowledge-list").append('<li> <i class="fa fa-map-marker" aria-hidden="true"></i> สถานที่ : ' + obj['location'] + ' </li> ');
+    $("ul.knowledge-list").append('<li> <i class="fa fa-user" aria-hidden="true"></i> โดย ' + user + '  </li> ');
     $.LoadingOverlay("hide");
     $("#hilight-modal").modal({
         backdrop: "static"

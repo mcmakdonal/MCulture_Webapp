@@ -13,11 +13,6 @@ class ReportUserController extends Controller
         $this->middleware('Mid_auth');
     }
 
-    public function index()
-    {
-
-    }
-
     public function user_fb(Request $request)
     {
         $start_date = "";

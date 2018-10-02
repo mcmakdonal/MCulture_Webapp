@@ -403,6 +403,12 @@ ul.nav-responsive>li:hover {
   border-radius: 5px;
 }
 
+.tooltip-contact {
+  padding: 10px 30px 10px 30px;
+  background-color: white;
+  border-radius: 30px;
+}
+
 /* /////////////////  REsponsive */
 
 

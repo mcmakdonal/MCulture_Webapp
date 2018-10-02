@@ -14,7 +14,7 @@
                     <hr />
                 </div>
                 <div class="knowledge-global">
-                    <a>
+                    <a target="_blank">
                         <span><i class="fa fa-globe" aria-hidden="true"></i> รายละเอียด</span>
                     </a>
                 </div>

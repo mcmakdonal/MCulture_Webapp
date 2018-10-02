@@ -40,10 +40,6 @@ class KnowledgesController extends Controller
             "page" => $page, "query_string" => $query_string,
         );
         $arg = Myclass::mculter_service("POST", "8080", "data/api/v1/$path", $field);
-        // $data_object = [];
-        // if ($arg->status) {
-        //     $data_object = $arg->data_object;
-        // }
 
         return response()->json($arg);
     }

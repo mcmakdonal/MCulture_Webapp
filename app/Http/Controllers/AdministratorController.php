@@ -23,9 +23,9 @@ class AdministratorController extends Controller
     {
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("GET", "8080", "admin/api/v1/list_user", [], $token);
-        $paginatedItems = [];
+        $data_object = [];
         if ($arg->status) {
-            $paginatedItems = $arg->data_object;
+            $data_object = $arg->data_object;
             // $items = $arg->data_object;
             // $currentPage = LengthAwarePaginator::resolveCurrentPage();
             // $itemCollection = collect($items);
@@ -36,7 +36,7 @@ class AdministratorController extends Controller
         }
 
         return view('administrator.index', [
-            'title' => 'Administrator', 'header' => 'Administrator', 'content' => $paginatedItems,
+            'title' => 'Administrator', 'header' => 'Administrator', 'content' => $data_object,
         ]);
     }
 
@@ -65,6 +65,7 @@ class AdministratorController extends Controller
             'ADMIN_USERNAME' => 'required|max:150',
             'ADMIN_PASSWORD' => 'required|max:150',
             'C_ADMIN_PASSWORD' => 'required|max:150',
+            'role' => 'required|max:10',
         ]);
 
         if ($validator->fails()) {
@@ -77,6 +78,7 @@ class AdministratorController extends Controller
             'fullname' => $request->ADMIN_FULLNAME,
             'username' => $request->ADMIN_USERNAME,
             'password' => $request->ADMIN_PASSWORD,
+            'role' => $request->role
         );
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/add_user", $args, $token);
@@ -134,6 +136,7 @@ class AdministratorController extends Controller
             'ADMIN_FULLNAME' => 'required|max:150',
             'ADMIN_PASSWORD' => 'max:150',
             'C_ADMIN_PASSWORD' => 'max:150',
+            'role' => 'required|max:10',
         ]);
 
         if ($validator->fails()) {
@@ -145,8 +148,9 @@ class AdministratorController extends Controller
 
         $args = array(
             'fullname' => $request->ADMIN_FULLNAME,
-            'password' => ($request->ADMIN_PASSWORD == "") ? $request->ADMIN_PASSWORD_OLD : MD5($request->ADMIN_PASSWORD),
+            'password' => ($request->ADMIN_PASSWORD == "") ? $request->ADMIN_PASSWORD_OLD : $request->ADMIN_PASSWORD,
             'user_id' => $id,
+            'role' => $request->role
         );
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/update_user", $args, $token);

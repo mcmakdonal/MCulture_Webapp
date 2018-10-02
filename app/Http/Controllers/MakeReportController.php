@@ -18,10 +18,10 @@ class MakeReportController extends Controller
 {
     // private $excel;
 
-    // public function __construct(Excel $excel)
-    // {
-    //     $this->excel = $excel;
-    // }
+    public function __construct()
+    {
+        $this->middleware('Mid_auth');
+    }    
 
     public function index()
     {

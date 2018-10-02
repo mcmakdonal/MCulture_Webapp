@@ -41,6 +41,14 @@ $(document).ready(function ($) {
     $(".datetimerange").daterangepicker({
         locale: {}
     });
+
+    // tags
+    $('.tags').tagsInput({
+        'width': '100%',
+        'defaultText': 'ใส่ป้ายกำกับ'
+    });
+
+    $(".tagsinput").addClass("form-control");
     
 });
 
@@ -57,7 +65,7 @@ $.LoadingOverlaySetup({
 
 function destroy(e, url, id) {
     var txt;
-    var r = confirm("Are you sure ?");
+    var r = confirm("คุณต้องการลบ เนื้อหานี้ ?");
     if (r == true) {
         $.ajax({
             headers: {
@@ -72,7 +80,7 @@ function destroy(e, url, id) {
                 var obj = $.parseJSON(result);
                 $.LoadingOverlay("hide");
                 if (obj.status) {
-                    swal("Good job!", obj.description, "success");
+                    swal("สำเร็จ !", obj.description, "success");
                     default_table
                         .row($(e).parents("tr"))
                         .remove()
@@ -108,6 +116,12 @@ function menu_init() {
     if (report_active) {
         $(".report-main").attr("aria-expanded", "true").removeClass("collapsed").addClass("active");
         $(".report-sub").addClass("collapse in").attr("aria-expanded", "true").css("height", "auto");
+    }
+
+    var report_active = $(".km a").hasClass("active");
+    if (report_active) {
+        $(".km-main").attr("aria-expanded", "true").removeClass("collapsed").addClass("active");
+        $(".km-sub").addClass("collapse in").attr("aria-expanded", "true").css("height", "auto");
     }
 
 }

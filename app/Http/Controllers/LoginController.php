@@ -25,9 +25,10 @@ class LoginController extends Controller
         $args = array('username' => $username, 'password' => $password);
         $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/authentication", $args);
         if ($arg->status) {
-            $token = $arg->token;
-            $cookie = cookie('mcul_token', $token, 1440);
-            return redirect('admin')->cookie($cookie);
+            $cookie_token = cookie('mcul_token', $arg->token, 1440);
+            $cookie_role = cookie('mcul_role', $arg->role, 1440);
+            $cookie_id = cookie('mcul_id', $arg->user_id, 1440);
+            return redirect('admin')->cookie($cookie_token)->cookie($cookie_role)->cookie($cookie_id);
         } else {
             return redirect('login')->with('status', 'Username or Password is incorrect !');
         }
@@ -36,6 +37,6 @@ class LoginController extends Controller
 
     public function logout()
     {
-        return redirect('/login')->withCookie(\Cookie::forget('mcul_token'));
+        return redirect('/login')->withCookie(\Cookie::forget('mcul_token'))->withCookie(\Cookie::forget('mcul_role'))->withCookie(\Cookie::forget('mcul_id'));
     }
 }

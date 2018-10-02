@@ -21,8 +21,9 @@
     <thead>
         <tr>
             <td style="width : 8%;" >No.</td>
-            <td>FULL NAME</td>
-            <td>USERNAME</td>
+            <td>Full name</td>
+            <td>Username</td>
+            <td>Role</td>
             <td class="text-center" style="width: 5%;">EDIT</td>
             <td class="text-center" style="width: 5%;">DELETE</td>
         </tr>
@@ -33,6 +34,13 @@
             <td>{{ $key + 1  }}</td>
             <td>{{ $value->fullname }}</td>
             <td>{{ $value->username }}</td>
+            @if($value->role == 1)
+                <td>Superadmin</td>
+            @elseif($value->role == 2)
+                <td>Reply Only</td>
+            @else
+                <td>Export Report</td>
+            @endif
             <td>
                 <a class="btn btn-small btn-info" href="{{ url('/admin/administrator/' . $value->user_id . '/edit') }}">Edit</a>
             </td>

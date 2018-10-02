@@ -54,9 +54,20 @@
         </div>
 
         <div class="col-md-6">
+            <div class="form-group">
+                <label for="role" class="control-label">บทบาทการทำงาน : </label>
+                <select class="form-control use-select2" name="role" id="role">
+                    <option value="1" {{ ($content->role == 1)? "selected" : "" }} >Super administrator</option>
+                    <option value="2" {{ ($content->role == 2)? "selected" : "" }} >Reply Only</option>
+                    <option value="3" {{ ($content->role == 3)? "selected" : "" }} >Export Only</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-12">
             <input type="hidden" value="{{ $content->password }}" name="ADMIN_PASSWORD_OLD" id="ADMIN_PASSWORD_OLD">
-            <button type="submit" class="btn btn-success">Submit</button>
-            <?= link_to('/admin/administrator', $title = 'Cancel', ['class' => 'btn btn-warning'], $secure = null); ?>
+            <button type="submit" class="btn btn-success">บันทึก</button>
+            <?= link_to('/admin/administrator', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
         </div>
     </div>
 {!! Form::close() !!}

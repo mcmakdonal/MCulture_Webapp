@@ -37,16 +37,34 @@ Route::get('auth/login/facebook/index', 'IndexController@facebookSuccess');
 // for redirect to logout auth.
 Route::get('auth/login/logout', 'IndexController@facebooklogout');
 
+
+/////////////////////////// ROUTE Frontend /////////////////////////////////////////////
+
+// recommend
+Route::get('/recommend','IndexController@recommend');
+Route::post('/recommend','IndexController@route_path');
+
+// onepage
+Route::get('/onepage','IndexController@onepage');
+Route::post('/onepage','IndexController@store_onepage');
+
+// Knowledges
+Route::get('/knowledges','KnowledgesController@index');
+Route::post('/knowledges','KnowledgesController@res_knowledge');
+
+// Hilight
+Route::get('/hilight','HilightController@index');
+Route::post('/hilight','HilightController@res_hilight');
+
 ////////////////////// Login Manage ////////////////////////////////////////////////
 
 Route::get('/login', 'LoginController@index')->name('login');
 Route::post('/login/check_login', 'LoginController@store')->name('login/check_login');
 Route::get('/login/logout', 'LoginController@logout')->name('logout');
 
-// Main Admin
-Route::get('/admin', function () {
-    return redirect('/admin/administrator');
-});
+// Main Backend Profile
+Route::get('/admin', 'AdminProfileController@index');
+Route::put('/admin', 'AdminProfileController@update');
 
 // Manage Administrator
 Route::resource('/admin/administrator', 'AdministratorController');
@@ -76,22 +94,6 @@ Route::post('/admin/report-user-fb', 'ReportUserController@user_fb');
 Route::get('/admin/report-user-nm', 'ReportUserController@user_nm')->name('report-user-nm');
 Route::post('/admin/report-user-nm', 'ReportUserController@user_nm');
 
-//  --------------------------------------------------------------------------------
-
-// Report Comment
-Route::get('/admin/report-comment', 'ReportCommentController@comment')->name('report-comment');
-Route::post('/admin/report-comment', 'ReportCommentController@comment');
-
-// Report Inform
-Route::get('/admin/report-inform', 'ReportInformController@inform')->name('report-inform');
-Route::post('/admin/report-inform', 'ReportInformController@inform');
-
-// Report Complaint
-Route::get('/admin/report-complaint', 'ReportComplaintController@complaint')->name('report-complaint');
-Route::post('/admin/report-complaint', 'ReportComplaintController@complaint');
-
-// ---------------------------------------  +++++++++++++++++++++++++++++++++++++++++=
-
 // Report ทั้งหมด
 Route::get('/admin/report-all', 'MakeReportController@index');
 // Report ตอบกลับแล้ว
@@ -115,23 +117,18 @@ Route::post('/admin/report-complaint', 'MakeReportController@complaint_report');
 Route::get('/admin/report-other', 'MakeReportController@other');
 Route::post('/admin/report-other', 'MakeReportController@other_report');
 
-/////////////////////////// ROUTE /////////////////////////////////////////////
 
-// recommend
-Route::get('/recommend','IndexController@recommend');
-Route::post('/recommend','IndexController@route_path');
+/////////////////////////// Manage KM /////////////////////////////////////////////////////
 
-// onepage
-Route::get('/onepage','IndexController@onepage');
-Route::post('/onepage','IndexController@store_onepage');
+// Main Admin
+Route::get('/km', function () {
+    return redirect('/km/rituals');
+});
 
-// Knowledges
-Route::get('/knowledges','KnowledgesController@index');
-Route::post('/knowledges','KnowledgesController@res_knowledge');
-
-// Hilight
-Route::get('/hilight','HilightController@index');
-Route::post('/hilight','HilightController@res_hilight');
+Route::resource('/km/rituals', 'KmRitualsController');
+Route::resource('/km/tradition', 'KmTraditionController');
+Route::resource('/km/folkart', 'KmFolkartController');
+Route::resource('/km/thailitdir', 'KmThailitdirController');
 
 ////////////////////////// API ////////////////////////////////////////////////////////////
 
@@ -152,7 +149,6 @@ Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
 Route::get('/api/get-noti','GlobalApiController@get_noti');
 
 ////////////////////////////////////////////// TEST ///////////////////////////////////
-
 
 Route::get('/session', function () {
     dd(session('field_edit'));
