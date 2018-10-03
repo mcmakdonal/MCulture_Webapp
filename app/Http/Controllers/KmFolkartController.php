@@ -80,7 +80,8 @@ class KmFolkartController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "folkarts/api/v1/add", $args, $files, $token);
         if ($arg->status) {
-            return redirect('/km/folkart')->with('status', 'Create Success');
+            $id = $arg->content_id;
+            return redirect("/km/folkart/$id/edit")->with('status', 'Create Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -160,7 +161,7 @@ class KmFolkartController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "folkarts/api/v1/update", $args, $files, $token);
         if ($arg->status) {
-            return redirect('/km/folkart')->with('status', 'Update Success');
+            return redirect("/km/folkart/$id/edit")->with('status', 'Update Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

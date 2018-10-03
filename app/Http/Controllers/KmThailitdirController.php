@@ -75,7 +75,8 @@ class KmThailitdirController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "thailitdir/api/v1/add", $args, $token);
         if ($arg->status) {
-            return redirect('/km/thailitdir')->with('status', 'Create Success');
+            $id = $arg->content_id;
+            return redirect("/km/thailitdir/$id/edit")->with('status', 'Create Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -150,7 +151,7 @@ class KmThailitdirController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "thailitdir/api/v1/update", $args, $token);
         if ($arg->status) {
-            return redirect('/km/thailitdir')->with('status', 'Create Success');
+            return redirect("/km/thailitdir/$id/edit")->with('status', 'Update Success');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
