@@ -56,11 +56,20 @@ class KmHilightController extends Controller
             'start_time' => 'max:5',
             'end_time' => 'max:5',
             'activity_location' => 'max:255',
-            'activity_details' => 'required'
+            'activity_details' => 'required',
+            'activity_image' => 'required',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $files = [];
+        if ($request->hasfile('activity_image')) {
+            $file = $request->file('activity_image');
+            $name = md5($file->getClientOriginalName()) . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/files/', $name);
+            $files[] = public_path('files/' . $name);
         }
 
         $start_date = "";
@@ -84,7 +93,7 @@ class KmHilightController extends Controller
         );
 
         $token = \Cookie::get('mcul_token');
-        $arg = Myclass::mculter_service("POST", "8080", "activity/api/v1/add", $args, $token);
+        $arg = Myclass::buildMultiPartRequest("POST", "8080", "activity/api/v1/add", $args, $files, $token);
         if ($arg->status) {
             $id = $arg->activity_id;
             return redirect("/km/hilight/$id/edit")->with('status', 'Create Success');
@@ -142,11 +151,20 @@ class KmHilightController extends Controller
             'start_time' => 'max:5',
             'end_time' => 'max:5',
             'activity_location' => 'max:255',
-            'activity_details' => 'required'
+            'activity_details' => 'required',
+            'activity_image' => 'nullable',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $files = [];
+        if ($request->hasfile('activity_image')) {
+            $file = $request->file('activity_image');
+            $name = md5($file->getClientOriginalName()) . "." . $file->getClientOriginalExtension();
+            $file->move(public_path() . '/files/', $name);
+            $files[] = public_path('files/' . $name);
         }
 
         $start_date = "";
@@ -171,7 +189,7 @@ class KmHilightController extends Controller
         );
 
         $token = \Cookie::get('mcul_token');
-        $arg = Myclass::mculter_service("POST", "8080", "activity/api/v1/update", $args, $token);
+        $arg = Myclass::buildMultiPartRequest("POST", "8080", "activity/api/v1/update", $args, $files, $token);
         if ($arg->status) {
             return redirect("/km/hilight/$id/edit")->with('status', 'Update Success');
         } else {

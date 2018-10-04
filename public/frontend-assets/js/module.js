@@ -174,10 +174,11 @@ function get_hilight(page = 1) {
             var totalPages = obj['total'];
             var str = '';
             $.each(obj['data_object'], function (i, v) {
+                var img = (v['activity_image']== null || v['activity_image'] == "")? window.location.origin + "/frontend-assets/assets/imgs/default-img_hl.jpg" :v['activity_image'];
                 str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
                 str += '<div class="media no-top" onclick="hilight_detail_init(this,' + i + ')" style="cursor: pointer;">';
                 str += '<div class="media-left">';
-                str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_hl.jpg" + '" class="media-object" style="width:150px">';
+                str += '<img src="' + img + '" class="media-object" style="width:150px">';
                 str += '</div>';
                 str += '<div class="media-body">';
                 str += '<h4>' + v['activity_name'] + '</h4>';

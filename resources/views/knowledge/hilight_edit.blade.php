@@ -68,6 +68,15 @@
             </div>
         </div>
 
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="activity_image" class="control-label">รูปภาพประกอบ : </label>
+                <input type="file" class="form-control" name="activity_image" id="activity_image" accept="image/*">
+                <br >
+                <img src="{{ $data->activity_image }}" class="img-responsive">
+            </div>
+        </div>
+
         <div class="col-md-12">
             <div class="form-group">
                 <label for="activity_details" class="control-label">รายละเอียด : </label>
