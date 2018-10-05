@@ -119,9 +119,9 @@ class Myclass extends ServiceProvider
         $payload_notification = array(
             'title' => 'MCULTURE - ตอบกลับจากเจ้าหน้าที่', // เปลี่ยนตัวข้อเป็นอะไรก็ได้เช่น 'ข้อความตอบกลับจากเจ้าหน้า'
             'body' => $args['message'], // แก้ตรงนี้ใส่ข้อความที่ admin ตอบกลับ
-            'sound' => 'default',
-            'icon' => 1,
-            'click_action' => 'OPEN_ACTIVITY_1',
+            // 'sound' => 'default',
+            // 'icon' => 1,
+            // 'click_action' => 'OPEN_ACTIVITY_1',
         );
         $payload_data = array(
             'answer' => 'success',
@@ -135,7 +135,7 @@ class Myclass extends ServiceProvider
             'data' => $payload_data,
         );
         $headers = array(
-            'Authorization: key=AAAAtelHw-s:APA91bEN8-6HxTGoxwqacD8cbFiItYLut_0mdGAdkuXQ6nj8HUrl9sjeCccoGzuHeJ95ViZW9lLUQ-YDZYfRvLeCZUWvULf9TJbrlxF2k_pcmJgXMw_9nIXxyjXIaAVS7VHm7d15bvdG',
+            'Authorization: key=AAAAsbhJGDc:APA91bEn6n4sVzN_0fLM8_N3xJVF02X1l7Zl41z5SvSvtTt9L3R3jnTQhM9cpMgXAq8oAnPAQlaXa8EdJeFZDy_eOqpVzbd8EqfoM1g4LXHCQGcoNr28MePOqnXSF494vak-KBzbTwF5',
             'Content-Type: application/json',
         );
         // Open connection
