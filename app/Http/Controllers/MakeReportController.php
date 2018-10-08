@@ -21,7 +21,7 @@ class MakeReportController extends Controller
     public function __construct()
     {
         $this->middleware('Mid_auth');
-    }    
+    }
 
     public function index()
     {
@@ -227,8 +227,20 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'W') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('T' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('U' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
-        // $spreadsheet->getActiveSheet()->getStyle('U1')->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+
         $from = "A1"; // or any value
         $to = "W1"; // or any value
         $spreadsheet->getActiveSheet()->getStyle("$from:$to")->getFont()->setBold(true);
@@ -365,6 +377,18 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'X') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('U' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('V' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
         $from = "A1"; // or any value
         $to = "X1"; // or any value
@@ -479,6 +503,18 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'N') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('K' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('L' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
         $from = "A1"; // or any value
         $to = "N1"; // or any value
@@ -618,6 +654,18 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'W') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('T' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('U' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
         $from = "A1"; // or any value
         $to = "W1"; // or any value
@@ -714,6 +762,18 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'X') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('U' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('V' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
         $from = "A1"; // or any value
         $to = "X1"; // or any value
@@ -789,6 +849,18 @@ class MakeReportController extends Controller
         // style
         foreach (range('A', 'N') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
+
+            $styleArray = [
+                'alignment' => [
+                    'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_LEFT,
+                ],
+            ];
+            
+            for ($i = 0; $i <= $start; $i++) {
+                $spreadsheet->getActiveSheet()->getStyle('K' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle('L' . $i)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
+                $spreadsheet->getActiveSheet()->getStyle($columnID.$i)->applyFromArray($styleArray);
+            }
         }
         $from = "A1"; // or any value
         $to = "N1"; // or any value
