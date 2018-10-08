@@ -108,7 +108,7 @@ class MakeReportController extends Controller
 
     public function recommend_report(Request $request)
     {
-        $file_name = "ข้อมูลการแนะนำ_ติชม_ทั้งหมด_" . date("Y-m-d");
+        $file_name = "Report_All_Recommend_" . date("Y-m-d");
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -228,6 +228,7 @@ class MakeReportController extends Controller
         foreach (range('A', 'W') as $columnID) {
             $spreadsheet->getActiveSheet()->getColumnDimension($columnID)->setAutoSize(true);
         }
+        // $spreadsheet->getActiveSheet()->getStyle('U1')->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_NUMBER);
         $from = "A1"; // or any value
         $to = "W1"; // or any value
         $spreadsheet->getActiveSheet()->getStyle("$from:$to")->getFont()->setBold(true);
@@ -254,7 +255,7 @@ class MakeReportController extends Controller
 
     public function complaint_report(Request $request)
     {
-        $file_name = "ข้อมูลการร้องเรียน_ร้องทุกข์_ทั้งหมด_" . date("Y-m-d");
+        $file_name = "Report_All_Complaint_" . date("Y-m-d");
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -392,7 +393,7 @@ class MakeReportController extends Controller
 
     public function other_report(Request $request)
     {
-        $file_name = "ข้อมูลการร้องเรียน_ร้องทุกข์_ทั้งหมด_" . date("Y-m-d");
+        $file_name = "Report_All_other_" . date("Y-m-d");
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -507,13 +508,13 @@ class MakeReportController extends Controller
     {
         $file_name = "";
         if ($type == 1) {
-            $file_name = "รายงาน_เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน_ทุกหัวข้อ_" . date("Y-m-d");
+            $file_name = "Report_All_Message_" . date("Y-m-d");
         } elseif ($type == 2) {
-            $file_name = "รายงาน_รายการทั้งหมดที่ตอบกลับแล้ว_" . date("Y-m-d");
+            $file_name = "Report_All_Reply_" . date("Y-m-d");
         } elseif ($type == 3) {
-            $file_name = "รายงาน_รายการที่ยังไม่ได้ตอบกลับ_" . date("Y-m-d");
+            $file_name = "Report_All_Not_Reply_" . date("Y-m-d");
         } else {
-            $file_name = "รายงาน_รายการที่ยังไม่ได้อ่าน_" . date("Y-m-d");
+            $file_name = "Report_Unread_Message_" . date("Y-m-d");
         }
 
         $spreadsheet = new Spreadsheet();

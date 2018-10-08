@@ -67,18 +67,18 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($content as $key => $value)
-        <tr>
-            <td>{{ $key + 1  }}</td>
-            <td>{{ $value->cmtype_name }}</td>
-            <td>{{ $value->cmdata_name }}</td>
-            <td style="display: none">{{ $value->cmdata_details }}</td>
-            <td>{{ $value->cmdata_personname }}</td>
-            <td style="display: none">{{ $value->user_fullname }}</td>
-            <td style="display: none">{{ $value->user_email }}</td>
-            <td style="display: none">{{ $value->user_phonenumber }}</td>
-        </tr>
-    @endforeach
+        @foreach($content as $key => $value)
+            <tr>
+                <td>{{ $key + 1  }}</td>
+                <td>{{ $value->cmtype_name }}</td>
+                <td>{{ $value->cmdata_name }}</td>
+                <td style="display: none">{{ $value->cmdata_details }}</td>
+                <td>{{ $value->cmdata_personname }}</td>
+                <td style="display: none">{{ $value->user_fullname }}</td>
+                <td style="display: none">{{ $value->user_email }}</td>
+                <td style="display: none">{{ $value->user_phonenumber }}</td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
 <!-- สำหรับทำ pagi -->

@@ -47,7 +47,7 @@ class ReportUserController extends Controller
 
         // dd($paginatedItems);
         return view('report.users', [
-            'title' => 'Report รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook',
+            'title' => 'Report User Login With Facebook',
             'header' => 'Report รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook',
             'content' => $paginatedItems,
             'datetime' => $originalDate,
@@ -85,7 +85,7 @@ class ReportUserController extends Controller
         }
 
         return view('report.users', [
-            'title' => 'Report รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)',
+            'title' => 'Report User Not Login With Facebook',
             'header' => 'Report รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)',
             'content' => $paginatedItems,
             'datetime' => $originalDate,
