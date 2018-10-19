@@ -158,7 +158,5 @@ Route::get('/cookie', function () {
 });
 
 Route::get('/env',function(){
-    if (App::environment('local')) {
-        echo "ddd";
-    }
+    phpinfo();
 });
