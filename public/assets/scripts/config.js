@@ -72,7 +72,7 @@ $.LoadingOverlaySetup({
 
 function destroy(e, url, id) {
     var txt;
-    var r = confirm("คุณต้องการลบ เนื้อหานี้ ?");
+    var r = confirm("คุณต้องการลบ ข้อมูลนี้ ?");
     if (r == true) {
         $.ajax({
             headers: {
