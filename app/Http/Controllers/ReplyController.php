@@ -93,7 +93,7 @@ class ReplyController extends Controller
         }
         $arg = [];
         $arg = Myclass::mculter_service("GET", "8080", "topic/api/v1/details/" . $id, ['' => ''], $token);
-        if (count($arg->data_object) == 0) {
+        if ($arg->status == false) {
             return redirect()->back()->withErrors("none");
         }
         $obj = [];
