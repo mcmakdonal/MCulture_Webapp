@@ -32,7 +32,7 @@
 <body>
 <div class="preloader-wrapper">
     <div class="preloader">
-        <img src="{{ asset('assets/img/preloader.gif') }}" alt="NILA">
+        <img src="{{ asset('assets/img/preloader.gif') }}" alt="">
     </div>
 </div>
 	<!-- WRAPPER -->
