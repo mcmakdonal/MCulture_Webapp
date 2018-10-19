@@ -184,7 +184,6 @@
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/klorofil-common.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/config.js') }}
 	{{ \AppHelper::instance()->gen_script('js','assets/scripts/main.js') }}
-	<!-- {{ \AppHelper::instance()->gen_script('js','assets/css/demo.css') }} -->
 </body>
 
 </html>

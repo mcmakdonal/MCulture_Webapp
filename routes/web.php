@@ -13,10 +13,6 @@ use Illuminate\Http\Request;
 |
  */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 // หน้าแรก
 Route::get('/', 'IndexController@index')->name('index');
 Route::post('/update-profile', 'IndexController@first_update');
