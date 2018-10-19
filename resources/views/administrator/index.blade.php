@@ -15,7 +15,7 @@
     </div>
     @endif
     <div style="margin-bottom: 10px;">
-        <?= link_to('/admin/administrator/create', $title = 'Add', ['class' => 'btn btn-primary'], $secure = null); ?>
+        <?= link_to('/admin/administrator/create', $title = 'เพิ่ม', ['class' => 'btn btn-primary'], $secure = null); ?>
     </div>
     <table class="table table-striped table-bordered datatables">
     <thead>
@@ -24,8 +24,8 @@
             <td>Full name</td>
             <td>Username</td>
             <td>Role</td>
-            <td class="text-center" style="width: 5%;">EDIT</td>
-            <td class="text-center" style="width: 5%;">DELETE</td>
+            <td class="text-center" style="width: 5%;">แก้ไข</td>
+            <td class="text-center" style="width: 5%;">ลบ</td>
         </tr>
     </thead>
     <tbody>
@@ -42,10 +42,10 @@
                 <td>Export Report</td>
             @endif
             <td>
-                <a class="btn btn-small btn-info" href="{{ url('/admin/administrator/' . $value->user_id . '/edit') }}">Edit</a>
+                <a class="btn btn-small btn-info" href="{{ url('/admin/administrator/' . $value->user_id . '/edit') }}">แก้ไข</a>
             </td>
             <td>
-                <a class="btn btn-small btn-danger" onclick="destroy(this,'/admin/administrator','{{ $value->user_id }}')" >Delete</a>
+                <a class="btn btn-small btn-danger" onclick="destroy(this,'/admin/administrator','{{ $value->user_id }}')" >ลบ</a>
             </td>
         </tr>
     @endforeach

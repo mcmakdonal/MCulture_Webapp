@@ -20,7 +20,7 @@
         </div>
     @endif
     <div style="margin-bottom: 10px;">
-        <?= link_to('/km/hilight/create', $title = 'Add', ['class' => 'btn btn-primary'], $secure = null); ?>
+        <?= link_to('/km/hilight/create', $title = 'เพิ่ม', ['class' => 'btn btn-primary'], $secure = null); ?>
     </div>
     <table class="table table-striped table-bordered datatables">
         <thead>
@@ -37,10 +37,10 @@
                 <td style="width : 8%;" >{{ $k + 1 }}</td>
                 <td>{{ $v->activity_name }}</td>
                 <td>
-                    <a class="btn btn-small btn-info" href="{{ url('/km/hilight/' . $v->activity_id . '/edit') }}">Edit</a>
+                    <a class="btn btn-small btn-info" href="{{ url('/km/hilight/' . $v->activity_id . '/edit') }}">แก้ไข</a>
                 </td>
                 <td>
-                    <a class="btn btn-small btn-danger" onclick="destroy(this,'/km/hilight','{{ $v->activity_id }}')" >Delete</a>
+                    <a class="btn btn-small btn-danger" onclick="destroy(this,'/km/hilight','{{ $v->activity_id }}')" >ลบ</a>
                 </td>
             </tr>
             @endforeach

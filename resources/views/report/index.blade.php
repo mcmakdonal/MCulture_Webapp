@@ -42,7 +42,7 @@
             <input type="hidden" name="reply_status" value="{{ $reply_status }}">
             <input type="hidden" name="report_type" value="{{ $report_type }}">
             <button type="submit" class="btn btn-success">ค้นหา</button>
-            <?=link_to(url()->current(), $title = 'Reset', ['class' => 'btn btn-warning'], $secure = null);?>
+            <?=link_to(url()->current(), $title = 'ล้างค่า', ['class' => 'btn btn-warning'], $secure = null);?>
         </div>
     </div>
     {!! Form::close() !!}

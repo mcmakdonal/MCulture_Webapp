@@ -14,7 +14,20 @@ $(document).ready(function ($) {
         searching: true,
         ordering: true,
         info: true,
-        autoWidth: false
+        autoWidth: false,
+        "language": {
+            "paginate": {
+                "first": "หน้าแรก",
+                "previous": "ก่อนหน้า",
+                "next": "ถัดไป",
+                "last": "หน้าสุดท้าย"
+            },
+            "info": "กำลังแสดงหน้า _PAGE_ จาก _PAGES_",
+            "lengthMenu": "แสดงผล _MENU_ records",
+            "zeroRecords": "ไม่พบข้อมูลที่ตรงกัน",
+            "infoFiltered": "(กรองจากทั้งหมด _MAX_)",
+            "search": "ค้นหา : ",
+        }
     });
 
     report_table = $(".report_datatables").DataTable({
@@ -25,7 +38,20 @@ $(document).ready(function ($) {
         searching: true,
         ordering: true,
         info: true,
-        autoWidth: false
+        autoWidth: false,
+        "language": {
+            "paginate": {
+                "first": "หน้าแรก",
+                "previous": "ก่อนหน้า",
+                "next": "ถัดไป",
+                "last": "หน้าสุดท้าย"
+            },
+            "info": "กำลังแสดงหน้า _PAGE_ จาก _PAGES_",
+            "lengthMenu": "แสดงผล _MENU_ records",
+            "zeroRecords": "ไม่พบข้อมูลที่ตรงกัน",
+            "infoFiltered": "(กรองจากทั้งหมด _MAX_)",
+            "search": "ค้นหา : ",
+        }
     });
 
     // reportdate
