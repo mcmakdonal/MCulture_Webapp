@@ -62,7 +62,7 @@
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{ asset('assets/img/user.png') }}" class="img-circle" alt="Avatar"> <span> {{ \AppHelper::instance()->get_admin_name() }} </span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
 							<ul class="dropdown-menu">
-								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+								<li><a href="{{ route('logout') }}"><i class="lnr lnr-exit"></i> <span>ออกจากระบบ</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -151,7 +151,7 @@
 		<div class="clearfix"></div>
 		<footer>
 			<div class="container-fluid">
-				<p class="copyright">&copy; 2018 MC. All Rights Reserved.</p>
+				<p class="copyright">&copy; 2018 Mculture. All Rights Reserved.</p>
 			</div>
 		</footer>
 	</div>
