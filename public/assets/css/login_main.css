@@ -1369,8 +1369,8 @@ ul.activity-list>li .timestamp {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  width: 70%;
-  height: 600px;
+  width: 90%;
+  height: 545px;
   margin: 0 auto;
   background-color: #fff;
 }
@@ -1422,7 +1422,7 @@ ul.activity-list>li .timestamp {
   position: relative;
   background-image: url("../../assets/img/mng.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
 
 .auth-box .right:before {
