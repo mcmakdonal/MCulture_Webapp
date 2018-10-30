@@ -154,7 +154,7 @@ function checkRegis() {
       });
       return false;
     } else {
-      if (((i == 0) && (s.charCodeAt(i) != 48)) || ((i == 1) && (s.charCodeAt(i) != 56))) {
+      if (((i == 0) && (s.charCodeAt(i) != 48))) {
         swal({
           title: msg,
           icon: "error"
@@ -220,7 +220,7 @@ function checkUpdateProfile() {
       });
       return false;
     } else {
-      if (((i == 0) && (s.charCodeAt(i) != 48)) || ((i == 1) && (s.charCodeAt(i) != 56))) {
+      if (((i == 0) && (s.charCodeAt(i) != 48))) {
         swal({
           title: msg,
           icon: "error"
