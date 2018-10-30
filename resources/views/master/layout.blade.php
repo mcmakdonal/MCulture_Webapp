@@ -80,7 +80,7 @@
 						@endif
 						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 2 )
 						<li>
-							<a href="#subPage" class="reply-main" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>Reply</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPage" class="reply-main" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>ตอบกลับ</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse reply-sub">
 								<ul class="nav">
 									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-recommend') }}" class="{{ (strpos(url()->current(),'reply-recommend') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
@@ -92,7 +92,7 @@
 						@endif
 						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 3 )
 						<li>
-							<a href="#subPages" class="report-main" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>Report</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPages" class="report-main" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>รายงาน</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse report-sub">
 								<ul class="nav">
 									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
@@ -109,17 +109,17 @@
 						</li>
 						@endif
 						<li>
-							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i><span>Knowledge & Hilight</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i><span>องค์ความรู้</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse km-sub">
 								<ul class="nav">
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/rituals') }}" class="{{ (strpos(url()->current(),'rituals') ) ? 'active' : '' }}"> ฐานข้อมูลประเพณีท้องถิ่น </a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/tradition') }}" class="{{ (strpos(url()->current(),'tradition') ) ? 'active' : '' }}">ประเพณี</a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/folkart') }}" class="{{ (strpos(url()->current(),'folkart') ) ? 'active' : '' }}">ศิลปะพื้นถิ่น</a></li>
 									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/thailitdir') }}" class="{{ (strpos(url()->current(),'thailitdir') ) ? 'active' : '' }}">ข้อมูลนามานุกรมวรรณคดีไทย</a></li>
-									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/hilight') }}" class="{{ (strpos(url()->current(),'hilight') ) ? 'active' : '' }}">ไฮไลท์</a></li>
 								</ul>
 							</div>
 						</li>
+						<li><a href="{{ url('/km/hilight') }}" class="{{ (strpos(url()->current(),'hilight') ) ? 'active' : '' }}"><i class="lnr lnr-graduation-hat"></i> <span>ไฮไลท์</span></a></li>
 					</ul>
 				</nav>
 			</div>
