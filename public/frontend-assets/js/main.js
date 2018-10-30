@@ -137,7 +137,7 @@ function checkRegis() {
   }
 
   s = new String($("#communicant_phone").val().trim());
-  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 08XXXXXXXX";
+  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 0XXXXXXXXX";
   if (s.length != 10) {
     swal({
       title: msg,
@@ -203,7 +203,7 @@ function checkUpdateProfile() {
   }
 
   s = new String($("#user_phone").val().trim());
-  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 08XXXXXXXX";
+  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 0XXXXXXXXX";
   if (s.length != 10) {
     swal({
       title: msg,
