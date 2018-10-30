@@ -59,8 +59,8 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="activity_location" class="control-label">สถานที่ : </label>
-                <input type="text" class="form-control" id="activity_location" name="activity_location" value="" placeholder="สถานที่เช่น กรุงเทพ">
+                <label for="activity_location" class="control-label">สถานที่่ : </label>
+                <input type="text" class="form-control" id="activity_location" name="activity_location" value="" placeholder="สถานที่่เช่น กรุงเทพ">
             </div>
         </div>
 

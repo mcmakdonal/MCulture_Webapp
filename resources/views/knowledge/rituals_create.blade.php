@@ -73,7 +73,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="location" class="control-label">สถานที : </label>
+                <label for="location" class="control-label">สถานที่ : </label>
                 <input type="text" class="form-control" id="location" name="location" value="" placeholder="เช่น วัดหาดเสี้ยว ต.หาดเสี้ยว อ.ศรีสัชนาลัย จ.สุโขทัย" required>
             </div>
         </div>

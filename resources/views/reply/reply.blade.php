@@ -242,7 +242,7 @@
     @if(in_array("location", Session::get('field_edit')))
     <div class="col-md-4 col-xs-12 col-sm-12">
         <div class="form-group">
-            <label for="" class="control-label">สถานที่ : </label>
+            <label for="" class="control-label">สถานที่่ : </label>
             <input type="text" class="form-control" name="" id="" value="{{ $content->topic_location }}" readonly>
         </div>
     </div>

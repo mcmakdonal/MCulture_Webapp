@@ -22,8 +22,8 @@
             <div class="form-group">
                 <label for="" class="control-label">กำหนดช่วงเวลา : </label>
                 <select class="form-control use-select2" id="DATE_ONF" onchange="init_date_onf();">
-                    <option value="OFF" selected>OFF</option>
-                    <option value="ON">ON</option>
+                    <option value="OFF" selected>ปิด</option>
+                    <option value="ON">เปิด</option>
                 </select>
             </div>
         </div>

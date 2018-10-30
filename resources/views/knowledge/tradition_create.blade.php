@@ -45,7 +45,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="location" class="control-label">สถานที : </label>
+                <label for="location" class="control-label">สถานที่ : </label>
                 <input type="text" class="form-control" id="location" name="location" value="" placeholder="เช่น บ้านวังโน - อำเภอ วังยาง (นาแก)" required="255" required>
             </div>
         </div>

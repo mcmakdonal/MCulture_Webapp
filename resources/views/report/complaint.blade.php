@@ -33,8 +33,8 @@
             <div class="form-group">
                 <label for="" class="control-label">กำหนดช่วงเวลา : </label>
                 <select class="form-control use-select2" id="DATE_ONF" onchange="init_date_onf();">
-                    <option value="OFF" {{ ($datetime == "")? 'selected' : '' }} >OFF</option>
-                    <option value="ON"  {{ ($datetime != "")? 'selected' : '' }} >ON</option>
+                    <option value="OFF" {{ ($datetime == "")? 'selected' : '' }} >ปิด</option>
+                    <option value="ON"  {{ ($datetime != "")? 'selected' : '' }} >เปิด</option>
                 </select>
             </div>
         </div>
@@ -65,14 +65,14 @@
                     <td style="display: none">จังหวัด</td>
                     <td style="display: none">อำเภอ</td>
                     <td style="display: none">ตำบล</td>
-                    <td style="display: none">รายละเอียดสถานที่</td>
+                    <td style="display: none">รายละเอียดสถานที่่</td>
                     <td style="display: none">ละติจูด</td>
                     <td style="display: none">ลองจิจูด</td>
                 @elseif ($select_type == 2)
                     <td style="display: none">ประเภทสื่อ</td>
                 @elseif ($select_type == 3)
                 @elseif ($select_type == 4)
-                    <td style="display: none">รายละเอียดสถานที่</td>
+                    <td style="display: none">รายละเอียดสถานที่่</td>
                     <td style="display: none">ละติจูด</td>
                     <td style="display: none">ลองจิจูด</td>
                 @else
@@ -81,7 +81,7 @@
                     <td style="display: none">อำเภอ</td>
                     <td style="display: none">ตำบล</td>
                     <td style="display: none">ประเภทสื่อ</td>
-                    <td style="display: none">รายละเอียดสถานที่</td>
+                    <td style="display: none">รายละเอียดสถานที่่</td>
                     <td style="display: none">ละติจูด</td>
                     <td style="display: none">ลองจิจูด</td>
                 @endif
