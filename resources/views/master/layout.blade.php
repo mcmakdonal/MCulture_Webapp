@@ -76,7 +76,7 @@
 				<nav>
 					<ul class="nav">
 						@if (\Cookie::get('mcul_role') == 1 )
-							<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>Administrator</span></a></li>
+							<li><a href="{{ url('/admin/administrator') }}" class="{{ (strpos(url()->current(),'administrator') ) ? 'active' : '' }}"><i class="lnr lnr-user"></i> <span>ผู้ดูแลระบบ</span></a></li>
 						@endif
 						@if (\Cookie::get('mcul_role') == 1 || \Cookie::get('mcul_role') == 2 )
 						<li>
