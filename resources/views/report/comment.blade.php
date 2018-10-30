@@ -47,7 +47,7 @@
         </div>
 
         <div class="col-md-12 col-xs-12 col-sm-12 text-center">
-            <button type="submit" class="btn btn-success">ค้นหา</button>
+            <button type="submit" class="btn btn-success">ออกรายงาน</button>
             <?=link_to(url()->current(), $title = 'ล้างค่า', ['class' => 'btn btn-warning'], $secure = null);?>
         </div>
     </div>
@@ -56,7 +56,7 @@
     <table class="table table-striped table-bordered report_datatables">
     <thead>
         <tr>
-            <td style="width : 8%;" >No.</td>
+            <td style="width : 8%;" >ลำดับ</td>
             <td>ประเภท</td>
             <td>หัวข้อ</td>
             <td style="display: none">ความคิดเห็น/รายละเอียด</td>

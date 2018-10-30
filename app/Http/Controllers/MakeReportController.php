@@ -417,7 +417,7 @@ class MakeReportController extends Controller
 
     public function other_report(Request $request)
     {
-        $file_name = "Report_All_other_" . date("Y-m-d");
+        $file_name = "Report_All_Other_" . date("Y-m-d");
         $start_date = "";
         $end_date = "";
         $originalDate = "";

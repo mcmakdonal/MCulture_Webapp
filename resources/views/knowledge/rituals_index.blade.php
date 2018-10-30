@@ -25,7 +25,7 @@
     <table class="table table-striped table-bordered datatables">
     <thead>
         <tr>
-            <td style="width : 8%;" >No.</td>
+            <td style="width : 8%;" >ลำดับ</td>
             <td>หัวข้อ</td>
             <td class="text-center" style="width: 5%;"></td>
             <td class="text-center" style="width: 5%;"></td>

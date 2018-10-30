@@ -48,7 +48,7 @@
         </div>
 
         <div class="col-md-12 col-xs-12 col-sm-12 text-center">
-            <button type="submit" class="btn btn-success">ค้นหา</button>
+            <button type="submit" class="btn btn-success">ออกรายงาน</button>
             <?=link_to(url()->current(), $title = 'ล้างค่า', ['class' => 'btn btn-warning'], $secure = null);?>
         </div>
         

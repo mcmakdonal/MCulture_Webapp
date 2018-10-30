@@ -50,7 +50,7 @@
     <table class="table table-striped table-bordered datatables">
     <thead>
         <tr>
-            <td style="width : 10%;">No.</td>
+            <td style="width : 10%;">ลำดับ</td>
             <td>ประเภท</td>
             <td>หัวข้อ</td>
             <td>แจ้งโดย</td>
@@ -73,7 +73,7 @@
                     @endif
                 </td>
                 <td class="text-center">
-                    <?=link_to('/admin/reply/' . $value->topic_id , $title = 'Reply', ['class' => 'btn btn-primary'], $secure = null);?>
+                    <?=link_to('/admin/reply/' . $value->topic_id , $title = 'ตอบกลับ', ['class' => 'btn btn-primary'], $secure = null);?>
                 </td>
             </tr>
         @endforeach
