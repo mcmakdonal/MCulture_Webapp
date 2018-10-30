@@ -47,7 +47,7 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="C_ADMIN_PASSWORD" class="control-label">Confirm รหัสผ่าน : </label>
+                <label for="C_ADMIN_PASSWORD" class="control-label">ยืนยัน รหัสผ่าน : </label>
                 <input type="password" class="form-control" id="C_ADMIN_PASSWORD" name="C_ADMIN_PASSWORD" value="" placeholder="ยืนยัน รหัสผ่าน">
                 <span class="text-muted">ปล่อยว่างไว้ถ้าหากไม่ต้องการเปลี่ยนรหัสผ่าน</span>
             </div>

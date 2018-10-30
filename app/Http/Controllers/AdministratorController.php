@@ -72,7 +72,7 @@ class AdministratorController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         if ($request->ADMIN_PASSWORD != $request->C_ADMIN_PASSWORD) {
-            return redirect()->back()->withErrors("Password and Confirm Password Not Macth");
+            return redirect()->back()->withErrors("รหัสผ่าน กับ ยืนยัน รหัสผ่านไม่ตรงกัน");
         }
         $args = array(
             'fullname' => $request->ADMIN_FULLNAME,
@@ -143,7 +143,7 @@ class AdministratorController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         if ($request->ADMIN_PASSWORD != $request->C_ADMIN_PASSWORD) {
-            return redirect()->back()->withErrors("Password and Confirm Password Not Macth");
+            return redirect()->back()->withErrors("รหัสผ่าน กับ ยืนยัน รหัสผ่านไม่ตรงกัน");
         }
 
         $args = array(
