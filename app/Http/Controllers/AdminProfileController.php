@@ -17,7 +17,7 @@ class AdminProfileController extends Controller
         $content = $arg->data_object;
 
         return view('administrator.profile', [
-            'title' => 'Administrator Profile', 'header' => 'Administrator Profile', 'content' => $content,
+            'title' => 'โปรไฟล์ ผู้ดูแลระบบ', 'header' => 'โปรไฟล์ ผู้ดูแลระบบ', 'content' => $content,
         ]);
     }
 

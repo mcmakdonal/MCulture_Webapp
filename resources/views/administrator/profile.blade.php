@@ -58,9 +58,9 @@
                 <label for="role" class="control-label">บทบาทการทำงาน : </label>
                 <select class="form-control use-select2" disabled>
                     <option value="">กรุณาเลือก</option>
-                    <option value="1" {{ ($content->role == 1)? "selected" : "" }} >Super administrator</option>
-                    <option value="2" {{ ($content->role == 2)? "selected" : "" }} >Reply Only</option>
-                    <option value="3" {{ ($content->role == 3)? "selected" : "" }} >Export Only</option>
+                    <option value="1" {{ ($content->role == 1)? "selected" : "" }} >ผู้ดูแลระบบสูงสุด</option>
+                    <option value="2" {{ ($content->role == 2)? "selected" : "" }} >ผู้ดูแลระบบ เฉพาะการตอบกลับ</option>
+                    <option value="3" {{ ($content->role == 3)? "selected" : "" }} >ผู้ดูแลระบบ เฉพาะการออกรายงาน</option>
                 </select>
             </div>
         </div>

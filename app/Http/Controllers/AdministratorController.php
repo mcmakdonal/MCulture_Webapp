@@ -36,7 +36,7 @@ class AdministratorController extends Controller
         }
 
         return view('administrator.index', [
-            'title' => 'Administrator', 'header' => 'Administrator', 'content' => $data_object,
+            'title' => 'ผู้ดูแลระบบ', 'header' => 'ผู้ดูแลระบบ', 'content' => $data_object,
         ]);
     }
 
@@ -48,7 +48,7 @@ class AdministratorController extends Controller
     public function create()
     {
         return view('administrator.create', [
-            'title' => 'Administrator', 'header' => 'Administrator Create', 'content' => '',
+            'title' => 'ผู้ดูแลระบบ', 'header' => 'เพิ่ม ผู้ดูแลระบบ', 'content' => '',
         ]);
     }
 
@@ -119,7 +119,7 @@ class AdministratorController extends Controller
         }
 
         return view('administrator.edit', [
-            'title' => 'Administrator', 'header' => 'Administrator Edit', 'content' => $content,
+            'title' => 'ผู้ดูแลระบบ', 'header' => 'แก้ไข ผู้ดูแลระบบ', 'content' => $content,
         ]);
     }
 

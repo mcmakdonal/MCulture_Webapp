@@ -83,9 +83,9 @@
 							<a href="#subPage" class="reply-main" data-toggle="collapse"><i class="lnr lnr-inbox"></i> <span>ตอบกลับ</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPage" class="collapse reply-sub">
 								<ul class="nav">
-									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-recommend') }}" class="{{ (strpos(url()->current(),'reply-recommend') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
-									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-complaint') }}" class="{{ (strpos(url()->current(),'reply-complaint') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์</a></li>
-									<li class="reply"><a style="font-size: 12px;" href="{{ url('/admin/reply-other') }}" class="{{ (strpos(url()->current(),'reply-other') ) ? 'active' : '' }}">ตอบกลับข้อมูลเรื่องอื่นๆ</a></li>
+									<li class="reply"><a style="font-size: 14px;" href="{{ url('/admin/reply-recommend') }}" class="{{ (strpos(url()->current(),'reply-recommend') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ แนะนำ/ติชม</a></li>
+									<li class="reply"><a style="font-size: 14px;" href="{{ url('/admin/reply-complaint') }}" class="{{ (strpos(url()->current(),'reply-complaint') ) ? 'active' : '' }}">ตอบกลับข้อมูลการ ร้องเรียน/ร้องทุกข์</a></li>
+									<li class="reply"><a style="font-size: 14px;" href="{{ url('/admin/reply-other') }}" class="{{ (strpos(url()->current(),'reply-other') ) ? 'active' : '' }}">ตอบกลับข้อมูลเรื่องอื่นๆ</a></li>
 								</ul>
 							</div>
 						</li>
@@ -95,27 +95,27 @@
 							<a href="#subPages" class="report-main" data-toggle="collapse"><i class="lnr lnr-file-empty"></i> <span>รายงาน</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse report-sub">
 								<ul class="nav">
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-user-nm') }}" class="{{ (strpos(url()->current(),'report-user-nm') ) ? 'active' : '' }}">รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-all') }}" class="{{ (strpos(url()->current(),'report-all') ) ? 'active' : '' }}">เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน (ทุกหัวข้อ)</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-recommend') }}" class="{{ (strpos(url()->current(),'report-recommend') ) ? 'active' : '' }}">ข้อมูลการแนะนำ/ติชม ทั้งหมด</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-complaint') }}" class="{{ (strpos(url()->current(),'report-complaint') ) ? 'active' : '' }}">ข้อมูลการร้องเรียน/ร้องทุกข์ ทั้งหมด</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-other') }}" class="{{ (strpos(url()->current(),'report-other') ) ? 'active' : '' }}">ข้อมูลเรื่องอื่นๆทั้งหมด</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-replyed') }}" class="{{ (strpos(url()->current(),'report-replyed') ) ? 'active' : '' }}">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-unreply') }}" class="{{ (strpos(url()->current(),'report-unreply') ) ? 'active' : '' }}">รายการที่ยังไม่ได้ตอบกลับ</a></li>
-									<li class="report"><a style="font-size: 12px;" href="{{ url('/admin/report-unread') }}" class="{{ (strpos(url()->current(),'report-unread') ) ? 'active' : '' }}">รายการที่ยังไม่ได้อ่าน</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-user-fb') }}" class="{{ (strpos(url()->current(),'report-user-fb') ) ? 'active' : '' }}">รายชื่อและข้อมูลผู้ที่เข้าสู่ระบบด้วย Facebook</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-user-nm') }}" class="{{ (strpos(url()->current(),'report-user-nm') ) ? 'active' : '' }}">รายชื่อข้อมูลผู้ที่ส่งเรื่องทั้งหมด (แบบไม่ได้ Login ด้วย Facebook)</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-all') }}" class="{{ (strpos(url()->current(),'report-all') ) ? 'active' : '' }}">เรื่องทั้งหมดที่ได้รับข้อมูลจากประชาชน (ทุกหัวข้อ)</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-recommend') }}" class="{{ (strpos(url()->current(),'report-recommend') ) ? 'active' : '' }}">ข้อมูลการแนะนำ/ติชม ทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-complaint') }}" class="{{ (strpos(url()->current(),'report-complaint') ) ? 'active' : '' }}">ข้อมูลการร้องเรียน/ร้องทุกข์ ทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-other') }}" class="{{ (strpos(url()->current(),'report-other') ) ? 'active' : '' }}">ข้อมูลเรื่องอื่นๆทั้งหมด</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-replyed') }}" class="{{ (strpos(url()->current(),'report-replyed') ) ? 'active' : '' }}">รายการทั้งหมดที่ตอบกลับแล้ว</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-unreply') }}" class="{{ (strpos(url()->current(),'report-unreply') ) ? 'active' : '' }}">รายการที่ยังไม่ได้ตอบกลับ</a></li>
+									<li class="report"><a style="font-size: 14px;" href="{{ url('/admin/report-unread') }}" class="{{ (strpos(url()->current(),'report-unread') ) ? 'active' : '' }}">รายการที่ยังไม่ได้อ่าน</a></li>
 								</ul>
 							</div>
 						</li>
 						@endif
 						<li>
-							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i><span>องค์ความรู้</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<a href="#subPagess" class="km-main" data-toggle="collapse"><i class="lnr lnr-graduation-hat"></i><span>ความรู้</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPagess" class="collapse km-sub">
 								<ul class="nav">
-									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/rituals') }}" class="{{ (strpos(url()->current(),'rituals') ) ? 'active' : '' }}"> ฐานข้อมูลประเพณีท้องถิ่น </a></li>
-									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/tradition') }}" class="{{ (strpos(url()->current(),'tradition') ) ? 'active' : '' }}">ประเพณี</a></li>
-									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/folkart') }}" class="{{ (strpos(url()->current(),'folkart') ) ? 'active' : '' }}">ศิลปะพื้นถิ่น</a></li>
-									<li class="km"><a style="font-size: 12px;" href="{{ url('/km/thailitdir') }}" class="{{ (strpos(url()->current(),'thailitdir') ) ? 'active' : '' }}">ข้อมูลนามานุกรมวรรณคดีไทย</a></li>
+									<li class="km"><a style="font-size: 14px;" href="{{ url('/km/rituals') }}" class="{{ (strpos(url()->current(),'rituals') ) ? 'active' : '' }}"> ฐานข้อมูลประเพณีท้องถิ่น </a></li>
+									<li class="km"><a style="font-size: 14px;" href="{{ url('/km/tradition') }}" class="{{ (strpos(url()->current(),'tradition') ) ? 'active' : '' }}">ประเพณี</a></li>
+									<li class="km"><a style="font-size: 14px;" href="{{ url('/km/folkart') }}" class="{{ (strpos(url()->current(),'folkart') ) ? 'active' : '' }}">ศิลปะพื้นถิ่น</a></li>
+									<li class="km"><a style="font-size: 14px;" href="{{ url('/km/thailitdir') }}" class="{{ (strpos(url()->current(),'thailitdir') ) ? 'active' : '' }}">ข้อมูลนามานุกรมวรรณคดีไทย</a></li>
 								</ul>
 							</div>
 						</li>

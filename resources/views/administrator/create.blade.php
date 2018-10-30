@@ -50,9 +50,9 @@
                 <label for="role" class="control-label">บทบาทการทำงาน : </label>
                 <select class="form-control use-select2" name="role" id="role" required>
                     <option value="">กรุณาเลือก</option>
-                    <option value="1">Super administrator</option>
-                    <option value="2">Reply Only</option>
-                    <option value="3">Export Report Only</option>
+                    <option value="1">ผู้ดูแลระบบสูงสุด</option>
+                    <option value="2">ผู้ดูแลระบบ เฉพาะการตอบกลับ</option>
+                    <option value="3">ผู้ดูแลระบบ เฉพาะการออกรายงาน</option>
                 </select>
             </div>
         </div>
