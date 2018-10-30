@@ -44,8 +44,8 @@
 									<input type="text" class="form-control" id="username" name="username" value="" placeholder="ชื่อผู้ใช้งานระบบ" required>
 								</div>
 								<div class="form-group">
-									<label for="password" class="control-label sr-only">Password : </label>
-									<input type="password" class="form-control" id="password" name="password" value="" placeholder="Password" required>
+									<label for="password" class="control-label sr-only">รหัสผ่าน : </label>
+									<input type="password" class="form-control" id="password" name="password" value="" placeholder="รหัสผ่าน" required>
 								</div>
                                 @csrf
 								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>

@@ -20,7 +20,7 @@
     <table class="table table-striped table-bordered datatables">
     <thead>
         <tr>
-            <td style="width : 8%;" >No.</td>
+            <td style="width : 8%;" >ลำดับ</td>
             <td>ชื่อ นามสกุล</td>
             <td>ชื่อผู้ใช้งานระบบ</td>
             <td>บทบาทการทำงาน</td>

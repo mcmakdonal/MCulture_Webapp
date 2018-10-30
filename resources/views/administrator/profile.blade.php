@@ -39,17 +39,17 @@
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="ADMIN_PASSWORD" class="control-label">Password : </label>
-                <input type="password" class="form-control" id="ADMIN_PASSWORD" name="ADMIN_PASSWORD" value="" placeholder="Password">
-                <span class="text-muted">leave blank if yout don't to change password.</span>
+                <label for="ADMIN_PASSWORD" class="control-label">รหัสผ่าน: </label>
+                <input type="password" class="form-control" id="ADMIN_PASSWORD" name="ADMIN_PASSWORD" value="" placeholder="รหัสผ่าน">
+                <span class="text-muted">ปล่อยว่างไว้ถ้าหากไม่ต้องการเปลี่ยนรหัสผ่าน</span>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="C_ADMIN_PASSWORD" class="control-label">Confirm Password : </label>
-                <input type="password" class="form-control" id="C_ADMIN_PASSWORD" name="C_ADMIN_PASSWORD" value="" placeholder="Confirm Password">
-                <span class="text-muted">leave blank if yout don't to change password.</span>
+                <label for="C_ADMIN_PASSWORD" class="control-label">Confirm รหัสผ่าน : </label>
+                <input type="password" class="form-control" id="C_ADMIN_PASSWORD" name="C_ADMIN_PASSWORD" value="" placeholder="ยืนยัน รหัสผ่าน">
+                <span class="text-muted">ปล่อยว่างไว้ถ้าหากไม่ต้องการเปลี่ยนรหัสผ่าน</span>
             </div>
         </div>
 
