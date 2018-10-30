@@ -21,9 +21,9 @@
     <thead>
         <tr>
             <td style="width : 8%;" >No.</td>
-            <td>Full name</td>
-            <td>Username</td>
-            <td>Role</td>
+            <td>ชื่อ นามสกุล</td>
+            <td>ชื่อผู้ใช้งานระบบ</td>
+            <td>บทบาทการทำงาน</td>
             <td class="text-center" style="width: 5%;">แก้ไข</td>
             <td class="text-center" style="width: 5%;">ลบ</td>
         </tr>
@@ -35,11 +35,11 @@
             <td>{{ $value->fullname }}</td>
             <td>{{ $value->username }}</td>
             @if($value->role == 1)
-                <td>Superadmin</td>
+                <td>ผู้ดูแลระบบสูงสุด</td>
             @elseif($value->role == 2)
-                <td>Reply Only</td>
+                <td>ผู้ดูแลระบบ เฉพาะการตอบกลับ</td>
             @else
-                <td>Export Report</td>
+                <td>ผู้ดูแลระบบ เฉพาะการออกรายงาน</td>
             @endif
             <td>
                 <a class="btn btn-small btn-info" href="{{ url('/admin/administrator/' . $value->user_id . '/edit') }}">แก้ไข</a>

@@ -19,15 +19,15 @@
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="ADMIN_FULLNAME" class="control-label">Fullname : </label>
-                <input type="text" class="form-control" id="ADMIN_FULLNAME" name="ADMIN_FULLNAME" value="" placeholder="Fullname" required>
+                <label for="ADMIN_FULLNAME" class="control-label">ชื่อ นามสกุล : </label>
+                <input type="text" class="form-control" id="ADMIN_FULLNAME" name="ADMIN_FULLNAME" value="" placeholder="ชื่อ นามสกุล" required>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="form-group">
-                <label for="ADMIN_USERNAME" class="control-label">Username : </label>
-                <input type="text" class="form-control" id="ADMIN_USERNAME" name="ADMIN_USERNAME" value="" placeholder="Username" required>
+                <label for="ADMIN_USERNAME" class="control-label">ชื่อผู้ใช้งานระบบ : </label>
+                <input type="text" class="form-control" id="ADMIN_USERNAME" name="ADMIN_USERNAME" value="" placeholder="ชื่อผู้ใช้งานระบบ" required>
             </div>
         </div>
 

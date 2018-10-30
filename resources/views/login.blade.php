@@ -40,8 +40,8 @@
 							</div>
 							{!! Form::open(['route' => 'login/check_login','class' => 'form-auth-small', 'method' => 'post']) !!}
 								<div class="form-group">
-									<label for="username" class="control-label sr-only">Username : </label>
-									<input type="text" class="form-control" id="username" name="username" value="" placeholder="Username" required>
+									<label for="username" class="control-label sr-only">ชื่อผู้ใช้งานระบบ : </label>
+									<input type="text" class="form-control" id="username" name="username" value="" placeholder="ชื่อผู้ใช้งานระบบ" required>
 								</div>
 								<div class="form-group">
 									<label for="password" class="control-label sr-only">Password : </label>
