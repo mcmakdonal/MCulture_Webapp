@@ -31,7 +31,6 @@
 						<div class="content">
 							<div class="header">
 								<div class="logo text-center"><img class="img-responsive" src="{{ asset('frontend-assets\assets\icon\logo.png')}}" alt="Klorofil Logo"></div>
-								<p class="lead">Login to Manage</p>
 								@if (session('status'))
 									<div class="alert alert-danger">
 										{{ session('status') }}
@@ -48,14 +47,13 @@
 									<input type="password" class="form-control" id="password" name="password" value="" placeholder="รหัสผ่าน" required>
 								</div>
                                 @csrf
-								<button type="submit" class="btn btn-primary btn-lg btn-block">LOGIN</button>
+								<button type="submit" class="btn btn-primary btn-lg btn-block">เข้าสู่ระบบ</button>
 							{!! Form::close() !!}
 						</div>
 					</div>
 					<div class="right">
 						<div class="overlay"></div>
 						<div class="content text">
-							<h1 class="heading">Backend MCulture</h1>
                             @if ($errors->any())
                             <div class="alert alert-danger">
                                 <ul>
