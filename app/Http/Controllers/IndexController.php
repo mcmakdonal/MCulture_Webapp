@@ -69,6 +69,7 @@ class IndexController extends Controller
             'user_email' => 'email|max:150|nullable',
             'user_phone' => 'numeric|digits_between:0,50|nullable',
             'user_identification' => 'numeric|digits_between:0,13|nullable',
+            'user_identification_blank' => 'numeric|digits_between:0,13|nullable',
         ]);
 
         if ($validator->fails()) {
@@ -76,7 +77,7 @@ class IndexController extends Controller
         }
 
         $args = array(
-            'user_identification' => $request->user_identification,
+            'user_identification' => ($request->user_identification == "") ? $request->user_identification_blank : $request->user_identification,
             'user_fullname' => $request->user_fullname,
             'user_email' => $request->user_email,
             'user_phone' => $request->user_phone,

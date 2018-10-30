@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="update-profile" role="dialog">
     <div class="modal-dialog">
-    {!! Form::open(['url' => '/update-profile','class' => 'form-auth-small', 'method' => 'post']) !!}
+    {!! Form::open(['url' => '/update-profile','class' => 'form-auth-small', 'method' => 'post','onsubmit' => 'return checkUpdateProfile();']) !!}
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
@@ -39,6 +39,7 @@
             </div>
         </div>
         <div class="modal-footer">
+            <input type="hidden" value="" name="user_identification_blank" id="user_identification_blank">
             <button type="submit" class="btn btn-success submit-color">อัพเดตข้อมูล</button>
         </div>
     </div>

@@ -33,6 +33,7 @@ function init_profile() {
         $("#user_identification").attr("disabled", "disabled");
         $("#user_identification").val(result.user_identification);
       }
+      $("#user_identification_blank").val(result.user_identification);
       $.LoadingOverlay("hide");
       $("#update-profile").modal({
         backdrop: "static"
@@ -164,6 +165,72 @@ function checkRegis() {
   }
 
   var id = $(".iden").val().trim();
+  if (id.length != 13) {
+    return false;
+  }
+  for (i = 0, sum = 0; i < 12; i++) {
+    sum += parseFloat(id.charAt(i)) * (13 - i);
+  }
+
+  if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12))) {
+    swal({
+      title: "เลขบัตรประจำตัวประชาชนไม่ถูกต้อง",
+      icon: "error"
+    });
+    return false;
+  }
+
+  return true;
+}
+
+function checkUpdateProfile() {
+  if ($("#user_fullname").val().trim() == "" || $("#user_email").val().trim() == "" || $("#user_phone").val().trim() == "" || $("#user_identification").val().trim() == "") {
+    swal({
+      title: "กรุณากรอก ข้อมูลส่วนตัวของท่านให้ครบด้วยครับ",
+      icon: "error"
+    });
+
+    return false;
+  }
+
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if(!re.test(String($("#user_email").val().trim()).toLowerCase())){
+    swal({
+      title: "รูปแบบของ อีเมลไม่ถูกต้อง",
+      icon: "error"
+    });
+    return false;
+  }
+
+  s = new String($("#user_phone").val().trim());
+  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 08XXXXXXXX";
+  if (s.length != 10) {
+    swal({
+      title: msg,
+      icon: "error"
+    });
+    return false;
+  }
+
+  for (i = 0; i < s.length; i++) {
+    if (s.charCodeAt(i) < 48 || s.charCodeAt(i) > 57) {
+      swal({
+        title: msg,
+        icon: "error"
+      });
+      return false;
+    } else {
+      if (((i == 0) && (s.charCodeAt(i) != 48)) || ((i == 1) && (s.charCodeAt(i) != 56))) {
+        swal({
+          title: msg,
+          icon: "error"
+        });
+        return false;
+      }
+    }
+  }
+
+  var id = $("#user_identification").val().trim();
   if (id.length != 13) {
     return false;
   }
