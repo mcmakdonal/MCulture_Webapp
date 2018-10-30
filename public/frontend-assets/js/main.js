@@ -29,10 +29,10 @@ function init_profile() {
       $("#user_fullname").val(result.user_fullname);
       $("#user_email").val(result.user_email);
       $("#user_phone").val(result.user_phone);
-      if(result.user_identification != null || result.user_identification != ""){
-        $("#user_identification").attr("disabled","disabled");
+      if (result.user_identification != null || result.user_identification != "") {
+        $("#user_identification").attr("disabled", "disabled");
         $("#user_identification").val(result.user_identification);
-      }      
+      }
       $.LoadingOverlay("hide");
       $("#update-profile").modal({
         backdrop: "static"
@@ -110,19 +110,75 @@ function update_nofti() {
       console.log(result);
     },
     error(xhr, status, error) {
-      alert(error);
+      // alert(error);
     }
   });
 
 }
 
-function CheckInden() {
-  var iden = $(".iden").val().trim();
-  if (iden.length != 13) return false;
-  for (i = 0, sum = 0; i < 12; i++)
-    sum += parseFloat(iden.charAt(i)) * (13 - i);
-  if ((11 - sum % 11) % 10 != parseFloat(iden.charAt(12)))
+function checkRegis() {
+  if ($("#communicant_fullname").val().trim() == "" || $("#communicant_email").val().trim() == "" || $("#communicant_phone").val().trim() == "" || $("#communicant_identification").val().trim() == "") {
+    swal({
+      title: "กรุณากรอก ข้อมูลส่วนตัวของท่านให้ครบด้วยครับ",
+      icon: "error"
+    });
+
     return false;
+  }
+
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if(!re.test(String($("#communicant_email").val().trim()).toLowerCase())){
+    swal({
+      title: "รูปแบบของ อีเมลไม่ถูกต้อง",
+      icon: "error"
+    });
+    return false;
+  }
+
+  s = new String($("#communicant_phone").val().trim());
+  var msg = "โปรดกรอกหมายเลขโทรศัพท์ 10 หลัก ด้วยรูปแบบดังนี้ 08XXXXXXXX";
+  if (s.length != 10) {
+    swal({
+      title: msg,
+      icon: "error"
+    });
+    return false;
+  }
+
+  for (i = 0; i < s.length; i++) {
+    if (s.charCodeAt(i) < 48 || s.charCodeAt(i) > 57) {
+      swal({
+        title: msg,
+        icon: "error"
+      });
+      return false;
+    } else {
+      if (((i == 0) && (s.charCodeAt(i) != 48)) || ((i == 1) && (s.charCodeAt(i) != 56))) {
+        swal({
+          title: msg,
+          icon: "error"
+        });
+        return false;
+      }
+    }
+  }
+
+  var id = $(".iden").val().trim();
+  if (id.length != 13) {
+    return false;
+  }
+  for (i = 0, sum = 0; i < 12; i++) {
+    sum += parseFloat(id.charAt(i)) * (13 - i);
+  }
+
+  if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12))) {
+    swal({
+      title: "เลขบัตรประจำตัวประชาชนไม่ถูกต้อง",
+      icon: "error"
+    });
+    return false;
+  }
+
   return true;
 }
 
@@ -130,6 +186,6 @@ function blank_bg() {
   $("body").css("background-image", "none");
 }
 
-function change_bg(){
+function change_bg() {
   $("body").css("background-image", 'url("/frontend-assets/assets/imgs/bg.jpg")');
 }

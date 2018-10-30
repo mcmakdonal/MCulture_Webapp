@@ -55,7 +55,8 @@ class KmThailitdirController extends Controller
             'composer' => 'required|max:255',
             'author' => 'required|max:255',
             'story' => 'required',
-            'content_url' => 'max:255'
+            'content_url' => 'max:255',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -70,13 +71,14 @@ class KmThailitdirController extends Controller
             'author' => $request->author,
             'story' => $request->story,
             'content_url' => $request->content_url,
+            'link_video' => $request->link_video,
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "thailitdir/api/v1/add", $args, $token);
         if ($arg->status) {
             $id = $arg->content_id;
-            return redirect("/km/thailitdir/$id/edit")->with('status', 'Create Success');
+            return redirect("/km/thailitdir/$id/edit")->with('status', 'สำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -130,7 +132,8 @@ class KmThailitdirController extends Controller
             'composer' => 'required|max:255',
             'author' => 'required|max:255',
             'story' => 'required',
-            'content_url' => 'max:255'
+            'content_url' => 'max:255',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -145,13 +148,14 @@ class KmThailitdirController extends Controller
             'author' => $request->author,
             'story' => $request->story,
             'content_url' => $request->content_url,
+            'link_video' => $request->link_video,
             'content_id' => $id
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "thailitdir/api/v1/update", $args, $token);
         if ($arg->status) {
-            return redirect("/km/thailitdir/$id/edit")->with('status', 'Update Success');
+            return redirect("/km/thailitdir/$id/edit")->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

@@ -78,6 +78,13 @@
             </div>
         </div>
 
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="link_video" class="control-label">วีดิโอประกอบ : </label>
+                <input type="url" class="form-control" name="link_video" id="link_video" placeholder="เช่น https://www.youtube.com/watch?v=abcdefg">
+            </div>
+        </div>
+
         <div class="col-md-12">
             <button type="submit" class="btn btn-success">บันทึก</button>
             <?= link_to('/km/hilight', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>

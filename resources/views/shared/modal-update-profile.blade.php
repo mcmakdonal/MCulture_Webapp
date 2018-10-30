@@ -26,7 +26,7 @@
                 <div class="col-md-12 col-xs-12 col-sm-12">
                     <div class="form-group">
                         <label for="user_phone" class="control-label">หมายเลขโทรศัพท์ผู้ใช้งาน <span class="must-input">*</span> : </label>
-                        <input type="text" class="form-control number-on" name="user_phone" id="user_phone" placeholder="หมายเลขโทรศัพท์ผู้ใช้งาน" maxlength="50" required>
+                        <input type="text" class="form-control number-on" name="user_phone" id="user_phone" placeholder="หมายเลขโทรศัพท์ผู้ใช้งาน" maxlength="10" required>
                     </div>
                 </div>
 

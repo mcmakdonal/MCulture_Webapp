@@ -58,6 +58,7 @@ class KmHilightController extends Controller
             'activity_location' => 'max:255',
             'activity_details' => 'required',
             'activity_image' => 'required',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -90,13 +91,14 @@ class KmHilightController extends Controller
             'end_time' => $request->end_time,
             'activity_location' => $request->activity_location,
             'activity_details' => $request->activity_details,
+            'link_video' => $request->link_video,
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "activity/api/v1/add", $args, $files, $token);
         if ($arg->status) {
             $id = $arg->activity_id;
-            return redirect("/km/hilight/$id/edit")->with('status', 'Create Success');
+            return redirect("/km/hilight/$id/edit")->with('status', 'สำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -153,6 +155,7 @@ class KmHilightController extends Controller
             'activity_location' => 'max:255',
             'activity_details' => 'required',
             'activity_image' => 'nullable',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -185,13 +188,14 @@ class KmHilightController extends Controller
             'end_time' => $request->end_time,
             'activity_location' => $request->activity_location,
             'activity_details' => $request->activity_details,
+            'link_video' => $request->link_video,
             'activity_id' => $id
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "activity/api/v1/update", $args, $files, $token);
         if ($arg->status) {
-            return redirect("/km/hilight/$id/edit")->with('status', 'Update Success');
+            return redirect("/km/hilight/$id/edit")->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

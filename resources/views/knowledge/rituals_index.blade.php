@@ -25,10 +25,10 @@
     <table class="table table-striped table-bordered datatables">
     <thead>
         <tr>
-            <td style="width : 8%;" >ลำดับ</td>
+            <td style="width : 8%;" >No.</td>
             <td>หัวข้อ</td>
-            <td class="text-center" style="width: 5%;"></td>
-            <td class="text-center" style="width: 5%;"></td>
+            <td class="text-center" style="width: 5%;">แก้ไข</td>
+            <td class="text-center" style="width: 5%;">ลบ</td>
         </tr>
     </thead>
     <tbody>

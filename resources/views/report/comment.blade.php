@@ -62,7 +62,7 @@
             <td style="display: none">ความคิดเห็น/รายละเอียด</td>
             <td>ชื่อบุคลากร</td>
             <td style="display: none">ชื่อ นามสกุล</td>
-            <td style="display: none">อีเมล์</td>
+            <td style="display: none">อีเมล</td>
             <td style="display: none">เบอร์โทร</td>
         </tr>
     </thead>

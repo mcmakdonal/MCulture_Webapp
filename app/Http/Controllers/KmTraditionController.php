@@ -57,6 +57,7 @@ class KmTraditionController extends Controller
             'history' => 'required',
             'content_url' => 'max:255',
             'article_img' => 'required',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -79,13 +80,14 @@ class KmTraditionController extends Controller
             'history' => $request->history,
             'content_url' => $request->content_url,
             'location' => $request->location,
+            'link_video' => $request->link_video,
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "tradition/api/v1/add", $args, $files, $token);
         if ($arg->status) {
             $id = $arg->content_id;
-            return redirect("/km/tradition/$id/edit")->with('status', 'Create Success');
+            return redirect("/km/tradition/$id/edit")->with('status', 'สำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -112,6 +114,7 @@ class KmTraditionController extends Controller
     {
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("GET", "8080", "tradition/api/v1/details/". $id, [], $token);
+        // dd($arg);
         $data_object = [];
         if ($arg->status) {
             $data_object = $arg->data_object;
@@ -141,6 +144,7 @@ class KmTraditionController extends Controller
             'history' => 'required',
             'content_url' => 'max:255',
             'article_img' => 'nullable',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -163,13 +167,14 @@ class KmTraditionController extends Controller
             'history' => $request->history,
             'content_url' => $request->content_url,
             'location' => $request->location,
+            'link_video' => $request->link_video,
             'content_id' => $id
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "tradition/api/v1/update", $args, $files, $token);
         if ($arg->status) {
-            return redirect("/km/tradition/$id/edit")->with('status', 'Update Success');
+            return redirect("/km/tradition/$id/edit")->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

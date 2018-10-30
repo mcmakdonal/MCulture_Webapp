@@ -115,7 +115,7 @@
     @endif
     @if (session('status'))
         <script>
-            swal("Update Profile Success");
+            swal("อัพเดตสำเร็จ");
         </script>
     @endif
 

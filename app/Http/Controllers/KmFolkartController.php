@@ -55,6 +55,7 @@ class KmFolkartController extends Controller
             'history' => 'required',
             'content_url' => 'max:255',
             'folkart_img' => 'required',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -75,13 +76,14 @@ class KmFolkartController extends Controller
             'about' => $request->about,
             'history' => $request->history,
             'content_url' => $request->content_url,
+            'link_video' => $request->link_video,
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "folkarts/api/v1/add", $args, $files, $token);
         if ($arg->status) {
             $id = $arg->content_id;
-            return redirect("/km/folkart/$id/edit")->with('status', 'Create Success');
+            return redirect("/km/folkart/$id/edit")->with('status', 'สำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -135,6 +137,7 @@ class KmFolkartController extends Controller
             'history' => 'required',
             'content_url' => 'max:255',
             'folkart_img' => 'nullable',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -155,13 +158,14 @@ class KmFolkartController extends Controller
             'about' => $request->about,
             'history' => $request->history,
             'content_url' => $request->content_url,
+            'link_video' => $request->link_video,
             'content_id' => $id
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "folkarts/api/v1/update", $args, $files, $token);
         if ($arg->status) {
-            return redirect("/km/folkart/$id/edit")->with('status', 'Update Success');
+            return redirect("/km/folkart/$id/edit")->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

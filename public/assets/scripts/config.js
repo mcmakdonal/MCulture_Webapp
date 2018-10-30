@@ -47,7 +47,7 @@ $(document).ready(function ($) {
                 "last": "หน้าสุดท้าย"
             },
             "info": "กำลังแสดงหน้า _PAGE_ จาก _PAGES_",
-            "lengthMenu": "แสดงผล _MENU_ records",
+            "lengthMenu": "แสดงผล _MENU_ เนื้อหา",
             "zeroRecords": "ไม่พบข้อมูลที่ตรงกัน",
             "infoFiltered": "(กรองจากทั้งหมด _MAX_)",
             "search": "ค้นหา : ",
@@ -97,7 +97,6 @@ $.LoadingOverlaySetup({
 });
 
 function destroy(e, url, id) {
-    var txt;
     var r = confirm("คุณต้องการลบ ข้อมูลนี้ ?");
     if (r == true) {
         $.ajax({

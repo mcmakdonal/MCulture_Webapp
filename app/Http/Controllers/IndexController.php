@@ -84,7 +84,7 @@ class IndexController extends Controller
         );
         $arg = Myclass::mculter_service("POST", "8080", "user/api/v1/update_user", $args, \Cookie::get("mct_user_id"));
         if ($arg->status) {
-            return redirect()->route('index')->withCookie(\Cookie::forget('USER_EMAIL'))->withCookie(\Cookie::forget('USER_FULLNAME'))->with('status', 'Update Profile Success!');
+            return redirect()->route('index')->withCookie(\Cookie::forget('USER_EMAIL'))->withCookie(\Cookie::forget('USER_FULLNAME'))->with('status', 'อัพเดตสำเร็จ!');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

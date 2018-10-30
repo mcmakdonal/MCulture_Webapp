@@ -45,7 +45,7 @@ class TestController extends Controller
         $spreadsheet->getActiveSheet()->setCellValue('A1', 'รหัสพนักงาน')
             ->setCellValue('B1', 'ชื่อ')
             ->setCellValue('C1', 'นามสกุล')
-            ->setCellValue('D1', 'อีเมล์')
+            ->setCellValue('D1', 'อีเมล')
             ->setCellValue('E1', 'เพศ');
             // ->setCellValue('F1', 'เงินเดือน')
             // ->setCellValue('G1', 'เบอร์โทรศัพท์');

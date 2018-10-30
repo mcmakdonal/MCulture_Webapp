@@ -62,8 +62,9 @@ class KmRitualsController extends Controller
             'rituals_time' => 'required|max:255',
             'zone' => 'required|max:255',
             'location' => 'required|max:255',
-            'content_url' => 'max:255',
+            'content_url' => 'nullable|max:255',
             'content_img' => 'required',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -89,13 +90,14 @@ class KmRitualsController extends Controller
             'zone' => $request->zone,
             'content_url' => $request->content_url,
             'location' => $request->location,
+            'link_video' => $request->link_video,
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "rituals/api/v1/add", $args, $files, $token);
         if ($arg->status) {
             $id = $arg->content_id;
-            return redirect("/km/rituals/$id/edit")->with('status', 'Create Success');
+            return redirect("/km/rituals/$id/edit")->with('status', 'สำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
@@ -154,6 +156,7 @@ class KmRitualsController extends Controller
             'location' => 'required|max:255',
             'content_url' => 'max:255',
             'content_img' => 'nullable',
+            'link_video' => 'nullable|max:255'
         ]);
 
         if ($validator->fails()) {
@@ -179,13 +182,14 @@ class KmRitualsController extends Controller
             'zone' => $request->zone,
             'content_url' => $request->content_url,
             'location' => $request->location,
+            'link_video' => $request->link_video,
             'content_id' => $id
         );
 
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::buildMultiPartRequest("POST", "8080", "rituals/api/v1/update", $args, $files, $token);
         if ($arg->status) {
-            return redirect("/km/rituals/$id/edit")->with('status', 'Update Success');
+            return redirect("/km/rituals/$id/edit")->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

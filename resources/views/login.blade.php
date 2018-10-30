@@ -15,7 +15,7 @@
 	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
 	<link rel="stylesheet" href="assets/css/demo.css">
 	<!-- GOOGLE FONTS -->
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Niramit:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
 	<link rel="icon" type="image/png" sizes="96x96" href="assets/img/favicon.png">
@@ -47,7 +47,7 @@
 									<input type="password" class="form-control" id="password" name="password" value="" placeholder="รหัสผ่าน" required>
 								</div>
                                 @csrf
-								<button type="submit" class="btn btn-primary btn-lg btn-block">เข้าสู่ระบบ</button>
+								<button type="submit" class="btn btn-lg btn-block knowledge-btn">เข้าสู่ระบบ</button>
 							{!! Form::close() !!}
 						</div>
 					</div>

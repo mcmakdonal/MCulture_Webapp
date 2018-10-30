@@ -4,8 +4,8 @@
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">×</button>
-                        <h4 class="modal-title">กรอกข้อมูล</h4>
+                            <button type="button" class="close" data-dismiss="modal">×</button>
+                            <h4 class="modal-title">กรอกข้อมูล</h4>
                         </div>
                         <div class="modal-body">
                             <div class="row">
@@ -26,7 +26,7 @@
                                 <div class="col-md-12 col-xs-12 col-sm-12">
                                     <div class="form-group">
                                         <label for="communicant_phone" class="control-label">หมายเลขโทรศัพท์ผู้ใช้งาน <span class="must-input">*</span> : </label>
-                                        <input type="text" class="form-control number-on" name="communicant_phone" id="communicant_phone" placeholder="หมายเลขโทรศัพท์ผู้ใช้งาน" maxlength="50">
+                                        <input type="text" class="form-control number-on" name="communicant_phone" id="communicant_phone" placeholder="หมายเลขโทรศัพท์ผู้ใช้งาน" maxlength="10">
                                     </div>
                                 </div>
 
@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">ส่งข้อมูล</button>
+                            <button type="submit" onclick="return checkRegis();" class="btn btn-success">ส่งข้อมูล</button>
                         </div>
                     </div>
                 </div>

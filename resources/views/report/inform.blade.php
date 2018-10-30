@@ -91,7 +91,7 @@
                     <td style="display: none">ลองจิจูด</td>
                 @endif
                     <td style="display: none">ชื่อ นามสกุล</td>
-                    <td style="display: none">อีเมล์</td>
+                    <td style="display: none">อีเมล</td>
                     <td style="display: none">เบอร์โทร</td>
                     <td style="display: none">รูปภาพ</td>
             </tr>

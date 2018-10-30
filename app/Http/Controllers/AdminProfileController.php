@@ -45,7 +45,7 @@ class AdminProfileController extends Controller
         $token = \Cookie::get('mcul_token');
         $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/update_user", $args, $token);
         if ($arg->status) {
-            return redirect()->back()->with('status', 'Update Success');
+            return redirect()->back()->with('status', 'อัพเดตสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }

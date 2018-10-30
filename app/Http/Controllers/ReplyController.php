@@ -135,12 +135,12 @@ class ReplyController extends Controller
             if (strtolower($request->get_news_update) == "y") {
                 $nof = Myclass::send_nofti(['device_token' => $request->device_token, 'message' => $request->reply_details]);
                 if ($nof) {
-                    return redirect()->back()->with('status', 'Reply And send Notification Success');
+                    return redirect()->back()->with('status', 'ตอบกลับและส่งการแจ้งเตือนสำเร็จ');
                 } else {
-                    return redirect()->back()->with('status', 'Reply Success But Notification not send');
+                    return redirect()->back()->with('status', 'ตอบกลับสำเร็จ แต่ไม่ส่งการแจ้งเตือน');
                 }
             } else {
-                return redirect()->back()->with('status', 'Reply Success');
+                return redirect()->back()->with('status', 'ตอบกลับสำเร็จ');
             }
 
         } else {
@@ -168,11 +168,18 @@ class ReplyController extends Controller
 
         $arg = Myclass::mculter_service("POST", "8080", "topic/api/v1/update_reply", $args, $token);
         if ($arg->status) {
-            return redirect()->back()->with('status', 'Update Reply Success');
+            return redirect()->back()->with('status', 'อัพเดตตอบกลับสำเร็จ');
         } else {
             return redirect()->back()->withErrors($arg->description);
         }
 
+    }
+
+    public function remove_topic($id)
+    {
+        $token = \Cookie::get('mcul_token');
+        $arg = Myclass::mculter_service("GET", "8080", "topic/api/v1/delete/$id", ['' => ''], $token);
+        return json_encode($arg);
     }
 
 }

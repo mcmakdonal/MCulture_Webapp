@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,13 +16,13 @@ Route::get('/', 'IndexController@index')->name('index');
 Route::post('/update-profile', 'IndexController@first_update');
 Route::get('/contact', function () {
     $data = [
-        'title' => 'Contact'
+        'title' => 'Contact',
     ];
-    return view('contact',$data);
+    return view('contact', $data);
 });
 
 // history user
-Route::get('/user/history','UserhistoryController@index')->name('user-history');
+Route::get('/user/history', 'UserhistoryController@index')->name('user-history');
 
 // for redirect to facebook auth.
 Route::get('auth/login/facebook', 'IndexController@facebookAuthRedirect');
@@ -33,24 +31,23 @@ Route::get('auth/login/facebook/index', 'IndexController@facebookSuccess');
 // for redirect to logout auth.
 Route::get('auth/login/logout', 'IndexController@facebooklogout');
 
-
 /////////////////////////// ROUTE Frontend /////////////////////////////////////////////
 
 // recommend
-Route::get('/recommend','IndexController@recommend');
-Route::post('/recommend','IndexController@route_path');
+Route::get('/recommend', 'IndexController@recommend');
+Route::post('/recommend', 'IndexController@route_path');
 
 // onepage
-Route::get('/onepage','IndexController@onepage');
-Route::post('/onepage','IndexController@store_onepage');
+Route::get('/onepage', 'IndexController@onepage');
+Route::post('/onepage', 'IndexController@store_onepage');
 
 // Knowledges
-Route::get('/knowledges','KnowledgesController@index');
-Route::post('/knowledges','KnowledgesController@res_knowledge');
+Route::get('/knowledges', 'KnowledgesController@index');
+Route::post('/knowledges', 'KnowledgesController@res_knowledge');
 
 // Hilight
-Route::get('/hilight','HilightController@index');
-Route::post('/hilight','HilightController@res_hilight');
+Route::get('/hilight', 'HilightController@index');
+Route::post('/hilight', 'HilightController@res_hilight');
 
 ////////////////////// Login Manage ////////////////////////////////////////////////
 
@@ -80,6 +77,8 @@ Route::get('/admin/reply/{id}', 'ReplyController@view_reply');
 Route::post('/admin/reply/{id}', 'ReplyController@reply');
 // update แก้ไขการตอบกลับ
 Route::put('/admin/reply', 'ReplyController@replyed');
+// delete topic
+Route::delete('/admin/remove-topic/{id}', 'ReplyController@remove_topic');
 
 ///////////////////////////////////////////// REPORT /////////////////////////////////////////////////////////
 
@@ -99,7 +98,7 @@ Route::get('/admin/report-unreply', 'MakeReportController@index');
 // Report ยังไม่ได้อ่าน
 Route::get('/admin/report-unread', 'MakeReportController@index');
 // Gen report
-Route::post('/admin/report-generate','MakeReportController@generate');
+Route::post('/admin/report-generate', 'MakeReportController@generate');
 
 // Report Recommend
 Route::get('/admin/report-recommend', 'MakeReportController@recommend');
@@ -112,7 +111,6 @@ Route::post('/admin/report-complaint', 'MakeReportController@complaint_report');
 // Report Other
 Route::get('/admin/report-other', 'MakeReportController@other');
 Route::post('/admin/report-other', 'MakeReportController@other_report');
-
 
 /////////////////////////// Manage KM /////////////////////////////////////////////////////
 
@@ -139,11 +137,11 @@ Route::post('/api/user-nofti', 'GlobalApiController@user_nofti')->name('api-user
 // check user auth
 Route::get('/api/check-auth', 'GlobalApiController@check_auth')->name('api-check-auth');
 // sub type
-Route::get('/api/sub-type','GlobalApiController@sub_type');
+Route::get('/api/sub-type', 'GlobalApiController@sub_type');
 // get_admissionfees
-Route::get('/api/get-admissionfees','GlobalApiController@get_admissionfees');
+Route::get('/api/get-admissionfees', 'GlobalApiController@get_admissionfees');
 // get noti
-Route::get('/api/get-noti','GlobalApiController@get_noti');
+Route::get('/api/get-noti', 'GlobalApiController@get_noti');
 
 ////////////////////////////////////////////// TEST ///////////////////////////////////
 
@@ -157,6 +155,6 @@ Route::get('/cookie', function () {
     dd(\Cookie::get());
 });
 
-Route::get('/env',function(){
+Route::get('/env', function () {
     phpinfo();
 });
