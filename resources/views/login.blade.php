@@ -30,7 +30,7 @@
 					<div class="left">
 						<div class="content">
 							<div class="header">
-								<div class="logo text-center"><img class="img-responsive" src="{{ asset('frontend-assets\assets\icon\logo.png')}}" alt="Klorofil Logo"></div>
+								<div class="logo text-center"><img class="img-responsive center-block" src="{{ asset('frontend-assets\assets\icon\logo.png')}}" alt="Klorofil Logo"></div>
 								@if (session('status'))
 									<div class="alert alert-danger">
 										{{ session('status') }}
