@@ -142,6 +142,8 @@ Route::get('/api/sub-type', 'GlobalApiController@sub_type');
 Route::get('/api/get-admissionfees', 'GlobalApiController@get_admissionfees');
 // get noti
 Route::get('/api/get-noti', 'GlobalApiController@get_noti');
+// Mass admin
+Route::get('/api/mass-admin', 'GlobalApiController@mass_admin');
 
 ////////////////////////////////////////////// TEST ///////////////////////////////////
 

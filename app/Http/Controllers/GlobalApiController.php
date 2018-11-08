@@ -95,4 +95,17 @@ class GlobalApiController extends Controller
         return response()->json($sub_type->data_object);
     }
 
+    public function mass_admin(){
+
+        for($i = 1;$i <= 30;$i++){
+            $args = array(
+                'fullname' => "admin".$i,
+                'username' => "admin".$i,
+                'password' => "admin".$i,
+                'role' => 1
+            );
+            $token = \Cookie::get('mcul_token');
+            $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/add_user", $args, $token);
+        }
+    }
 }

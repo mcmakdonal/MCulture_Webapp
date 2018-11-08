@@ -108,7 +108,7 @@ class MakeReportController extends Controller
 
     public function recommend_report(Request $request)
     {
-        $file_name = "Report_All_Recommend_" . date("Y-m-d");
+        $file_name = "Report_All_Recommend_" . date("Y-m-d").".xlsx";
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -267,7 +267,7 @@ class MakeReportController extends Controller
 
     public function complaint_report(Request $request)
     {
-        $file_name = "Report_All_Complaint_" . date("Y-m-d");
+        $file_name = "Report_All_Complaint_" . date("Y-m-d").".xlsx";
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -417,7 +417,7 @@ class MakeReportController extends Controller
 
     public function other_report(Request $request)
     {
-        $file_name = "Report_All_Other_" . date("Y-m-d");
+        $file_name = "Report_All_Other_" . date("Y-m-d").".xlsx";
         $start_date = "";
         $end_date = "";
         $originalDate = "";
@@ -544,13 +544,13 @@ class MakeReportController extends Controller
     {
         $file_name = "";
         if ($type == 1) {
-            $file_name = "Report_All_Message_" . date("Y-m-d");
+            $file_name = "Report_All_Message_" . date("Y-m-d").".xlsx";
         } elseif ($type == 2) {
-            $file_name = "Report_All_Reply_" . date("Y-m-d");
+            $file_name = "Report_All_Reply_" . date("Y-m-d").".xlsx";
         } elseif ($type == 3) {
-            $file_name = "Report_All_Not_Reply_" . date("Y-m-d");
+            $file_name = "Report_All_Not_Reply_" . date("Y-m-d").".xlsx";
         } else {
-            $file_name = "Report_Unread_Message_" . date("Y-m-d");
+            $file_name = "Report_Unread_Message_" . date("Y-m-d").".xlsx";
         }
 
         $spreadsheet = new Spreadsheet();
