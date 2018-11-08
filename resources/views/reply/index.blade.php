@@ -61,7 +61,7 @@
             <td>{{ $value->topic_title }}</td>
             <td>{{ $value->user_fullname }}</td>
             <td class="text-center">
-                @if($value->reply_status == 'A')
+                @if($value->reply_status == 'Y')
                 <span class="label label-success">ตอบกลับแล้ว</span> @else
                 <span class="label label-danger">ยังไม่ตอบกลับ</span> @endif
             </td>
