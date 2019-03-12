@@ -130,13 +130,17 @@ class IndexController extends Controller
         $get_religion = Myclass::mculter_service("GET", "8080", "data/api/v1/get_religion");
         $get_commerce = Myclass::mculter_service("GET", "8080", "data/api/v1/get_commerce");
         $get_organizations = Myclass::mculter_service("GET", "8080", "data/api/v1/get_organizations");
-        return view('onepage', [
+        $get_complainttype = Myclass::mculter_service("GET", "8080", "data/api/v1/get_complainttype/7");
+        $arr = [
             'title' => session('title'),
             'get_commerce' => $get_commerce->data_object,
             'get_religion' => $get_religion->data_object,
             'media_type' => $media_type->data_object,
             'get_organizations' => $get_organizations->data_object,
-        ]);
+            'get_complainttype' => $get_complainttype->data_object
+        ];
+        // dd($arr);
+        return view('onepage', $arr);
     }
 
     public function store_onepage(Request $request)
@@ -155,6 +159,8 @@ class IndexController extends Controller
             'organize_id' => 'numeric|nullable',
 
             'media_type_id' => 'numeric|nullable',
+
+            'complaint_type_id' => 'numeric|nullable',
 
             'start_date' => 'nullable',
             'end_date' => 'nullable',
@@ -232,6 +238,8 @@ class IndexController extends Controller
         $args['reference'] =  $request->reference;
         $args['organize_id'] = $request->organize_id;
         $args['media_type_id'] = $request->media_type_id;
+        $args['complaint_type_id'] = $request->complaint_type_id;
+
         $args['topic_location'] = $request->topic_location;
         $args['topic_latitude'] = $request->topic_latitude;
         $args['topic_longitude'] = $request->topic_longitude;

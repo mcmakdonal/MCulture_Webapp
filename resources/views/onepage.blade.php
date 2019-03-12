@@ -70,6 +70,19 @@
             </div>
             @endif
 
+            @if(in_array("complaint_type_id", Session::get('field')))
+            <div class="col-md-12 col-xs-12 col-sm-12">
+                <div class="form-group">
+                    <label for="media_type_id" class="control-label">ประเภทการร้องเรียน <span class="must-input">*</span> : </label>
+                    <select class="form-control use-select2" id="complaint_type_id" name="complaint_type_id">
+                        @foreach($get_complainttype as $k => $v)
+                            <option value="{{$v->complaint_type_id}}">{{$v->complaint_type_name}}</option>
+                        @endforeach
+                    <select>
+                </div>
+            </div>
+            @endif
+
             @if(in_array("topic_title", Session::get('field')))
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">

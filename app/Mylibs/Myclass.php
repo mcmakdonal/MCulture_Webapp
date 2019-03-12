@@ -213,7 +213,7 @@ class Myclass extends ServiceProvider
             case 2:
                 switch ($sub_id) {
                     case 7:
-                        $args['field'] = ['topic_title', 'media_type_id', 'location', 'topic_details', 'file', 'topic_remark'];
+                        $args['field'] = ['topic_title', 'media_type_id', 'complaint_type_id','location', 'topic_details', 'file', 'topic_remark'];
                         $args['title'] = "ร้องเรียน/ร้องทุกข์ - สื่อไม่เหมาะสม";
                         return $args;
                         break;
