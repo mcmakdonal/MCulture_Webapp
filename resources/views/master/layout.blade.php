@@ -119,7 +119,7 @@
 								</ul>
 							</div>
 						</li>
-						<li><a href="{{ url('/km/hilight') }}" class="{{ (strpos(url()->current(),'hilight') ) ? 'active' : '' }}"><i class="lnr lnr-graduation-hat"></i> <span>ไฮไลท์</span></a></li>
+						<li><a href="{{ url('/km/hilight') }}" class="{{ (strpos(url()->current(),'hilight') ) ? 'active' : '' }}"><i class="lnr lnr-graduation-hat"></i> <span>ปฏิทินกิจกรรม</span></a></li>
 					</ul>
 				</nav>
 			</div>

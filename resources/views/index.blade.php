@@ -35,7 +35,7 @@
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <div id="img-block" class="center-block">
                     <a href="{{ url('/hilight') }}">
-                        <img class="img-responsive comment" src="/frontend-assets/assets/icon/menu_hilight.png">
+                        <img class="img-responsive comment" src="/frontend-assets/assets/icon/menu_calendar.png">
                     </a>
                     <a href="{{ url('/recommend') }}">
                         <img class="img-responsive info" src="/frontend-assets/assets/icon/menu_recomment.png">
@@ -60,7 +60,7 @@
             </div>
             <div class="col-lg-3 col-md-3">
                 <a href="{{ url('/hilight') }}">
-                    <img class="img-responsive info" src="/frontend-assets/assets/icon/menu_hilight.png">
+                    <img class="img-responsive info" src="/frontend-assets/assets/icon/menu_calendar.png">
                 </a>
             </div>
             <div class="col-lg-3 col-md-3">
