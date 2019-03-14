@@ -47,7 +47,7 @@
                 <ul class="nav nav-pills nav-stacked">
                     <li class="{{ (url()->current() === url('')) ? 'nav-active' : '' }}"><a href="{{ url('/') }}"><i class="fa fa-home" aria-hidden="true"></i> หน้าหลัก</a></li>
                     <li class="{{ (strpos(url()->current(),'recommend') ) ? 'nav-active' : '' }}"><a href="{{ url('/recommend') }}"><i class="fa fa-commenting-o" aria-hidden="true"></i> แนะนำ</a></li>
-                    <li class="{{ (strpos(url()->current(),'hilight') ) ? 'nav-active' : '' }}"><a href="{{ url('/hilight') }}"><i class="fa fa-star" aria-hidden="true"></i> ไฮไลท์</a></li>
+                    <li class="{{ (strpos(url()->current(),'hilight') ) ? 'nav-active' : '' }}"><a href="{{ url('/hilight') }}"><i class="fa fa-star" aria-hidden="true"></i> ปฏิทินกิจกรรม </a></li>
                     <li class="{{ (strpos(url()->current(),'knowledges') ) ? 'nav-active' : '' }}"><a href="{{ url('/knowledges') }}"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> องค์ความรู้</a></li>
                     <li class="{{ (strpos(url()->current(),'contact') ) ? 'nav-active' : '' }}"><a href="{{ url('/contact') }}"><i class="fa fa-phone" aria-hidden="true"></i> ติดต่อ</a></li>
                 </ul>
@@ -106,7 +106,7 @@
                             <img src="{{ url('frontend-assets/assets/icon/nav_03.png') }}" class="img-responsive center-block img-icon">
                         </div>
                     </a>
-                    <span>ไฮไลท์</span>
+                    <span>ปฏิทินกิจกรรม</span>
                 </li>
                 <li class="text-center {{ (strpos(url()->current(),'knowledges') ) ? 'nav-active' : '' }}">
                     <a href="{{ url('/knowledges') }}">
