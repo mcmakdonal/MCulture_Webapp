@@ -20,7 +20,7 @@
         {{ session('status') }}
     </div>
 @endif
-{!! Form::open(['url' => '/admin/administrator/'.$content->user_id,'class' => 'form-auth-small', 'method' => 'put']) !!}
+{!! Form::open(['url' => url() . 'admin/administrator/'.$content->user_id,'class' => 'form-auth-small', 'method' => 'put']) !!}
 @csrf
     <div class="row">
         <div class="col-md-6">
@@ -67,7 +67,7 @@
         <div class="col-md-12">
             <input type="hidden" value="{{ $content->password }}" name="ADMIN_PASSWORD_OLD" id="ADMIN_PASSWORD_OLD">
             <button type="submit" class="btn btn-success">บันทึก</button>
-            <?= link_to('/admin/administrator', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
+            <?= link_to(url("/") . '/admin/administrator', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
         </div>
     </div>
 {!! Form::close() !!}

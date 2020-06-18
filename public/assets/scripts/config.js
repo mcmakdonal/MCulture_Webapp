@@ -185,7 +185,7 @@ function noti_init() {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/get-noti",
+        url: window.location.origin + "/Culture4U/api/get-noti",
         method: "GET",
         success: function (result) {
             var str = '';

@@ -44,7 +44,7 @@ function get_knowledge(page = 1) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/knowledges",
+        url: window.location.origin + "/Culture4U/knowledges",
         method: "post",
         data: {
             know_id: know_id,
@@ -74,7 +74,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '<div class="media no-top rituals" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (v['content_img'] == null || v['content_img'] == "") {
-                str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
+                str += '<img src="' + window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
             } else {
                 str += '<img src="' + v['content_img'] + '" class="media-object" style="width:150px">';
             }
@@ -95,7 +95,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '<div class="media no-top tradition" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (obj['article_img'] == null || obj['article_img'] == "") {
-                str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
+                str += '<img src="' + window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
             } else {
                 str += '<img src="' + obj['article_img'] + '" class="media-object" style="width:150px">';
             }
@@ -116,7 +116,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '<div class="media no-top folkart" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
             if (obj['folkart_img'] == null || obj['folkart_img'] == "") {
-                str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
+                str += '<img src="' + window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
             } else {
                 str += '<img src="' + obj['folkart_img'] + '" class="media-object" style="width:150px">';
             }
@@ -136,7 +136,7 @@ function release_knowledge(know_id, data, startPage) {
             str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
             str += '<div class="media no-top thailitdir" onclick="knowledge_detail_init(this,' + i + ')" style="cursor: pointer;">';
             str += '<div class="media-left">';
-            str += '<img src="' + window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
+            str += '<img src="' + window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_kl.jpg" + '" class="media-object" style="width:150px">';
             str += '</div>';
             str += '<div class="media-body">';
             str += '<h4>' + obj['title_main'] + '</h4>';
@@ -160,7 +160,7 @@ function get_hilight(page = 1) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/hilight",
+        url: window.location.origin + "/Culture4U/hilight",
         method: "post",
         data: {
             page: page,
@@ -174,7 +174,7 @@ function get_hilight(page = 1) {
             var totalPages = obj['total'];
             var str = '';
             $.each(obj['data_object'], function (i, v) {
-                var img = (v['activity_image']== null || v['activity_image'] == "")? window.location.origin + "/frontend-assets/assets/imgs/default-img_hl.jpg" :v['activity_image'];
+                var img = (v['activity_image']== null || v['activity_image'] == "")? window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_hl.jpg" :v['activity_image'];
                 str += '<div class="col-md-12 col-xs-12 col-sm-12" style="margin-top: 10px;">';
                 str += '<div class="media no-top" onclick="hilight_detail_init(this,' + i + ')" style="cursor: pointer;">';
                 str += '<div class="media-left">';
@@ -207,7 +207,7 @@ function get_hilight(page = 1) {
 
 function knowledge_detail_init(e, id) {
     $.LoadingOverlay("show");
-    var blank = window.location.origin + "/frontend-assets/assets/imgs/default-img_kl.jpg";
+    var blank = window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_kl.jpg";
     // console.log(obj);
     if ($(e).hasClass("rituals")) {
         var obj = JSON.parse($("#know_" + id).val());
@@ -310,7 +310,7 @@ function hilight_detail_init(e, id) {
     $.LoadingOverlay("show");
     var obj = JSON.parse($("#hilight_" + id).val());
 
-    var image = window.location.origin + "/frontend-assets/assets/imgs/default-img_hl.jpg";
+    var image = window.location.origin + "/Culture4U/frontend-assets/assets/imgs/default-img_hl.jpg";
 
     $("div.knowledge-banner img").attr("src", image);
     $(".knowledge-img h3").html(obj['activity_name']);

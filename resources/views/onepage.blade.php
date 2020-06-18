@@ -8,7 +8,7 @@
 
     <div class="">
 
-        {!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'post','id' => 'form-form','files'=> true] ) !!}
+        {!! Form::open(['url' => url("/") . url()->current(),'class' => 'form-auth-small', 'method' => 'post','id' => 'form-form','files'=> true] ) !!}
         <div class="row">
 
             <div class="col-md-12 col-xs-12 col-sm-12">
@@ -275,7 +275,7 @@
             @include('shared.modal-register')
 
             <div class="col-md-12 col-xs-12 col-sm-12">
-                <?=link_to('/recommend', $title = 'ยกเลิก', ['class' => 'col-xs-4 btn btn-warning can-color'], $secure = null);?>
+                <?=link_to(url("/") . '/recommend', $title = 'ยกเลิก', ['class' => 'col-xs-4 btn btn-warning can-color'], $secure = null);?>
                 <button type="button" class="btn btn-success col-xs-8 form-check submit-color">ส่งข้อมูล</button>
             </div>
         </div>

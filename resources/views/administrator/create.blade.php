@@ -15,7 +15,7 @@
     </ul>
 </div>
 @endif
-{!! Form::open(['url' => '/admin/administrator','class' => 'form-auth-small', 'method' => 'post']) !!}
+{!! Form::open(['url' => url() . 'admin/administrator','class' => 'form-auth-small', 'method' => 'post']) !!}
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -59,7 +59,7 @@
 
         <div class="col-md-12">
             <button type="submit" class="btn btn-success">บันทึก</button>
-            <?= link_to('/admin/administrator', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
+            <?= link_to(url("/") . '/admin/administrator', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
         </div>
     </div>
 {!! Form::close() !!}

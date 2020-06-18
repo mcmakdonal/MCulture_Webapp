@@ -6,13 +6,14 @@ use Illuminate\Support\ServiceProvider;
 
 class Myclass extends ServiceProvider
 {
-    public static function mculter_service($method = "GET", $port = "8080", $route = "", $arg = [], $token = "")
+    public static function mculter_service($method = "GET", $port = "80", $route = "", $arg = [], $token = "")
     {
         $curl = curl_init();
         $obj = json_encode(array_change_key_case($arg, CASE_LOWER), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "$port",
-            CURLOPT_URL => "http://mculture-social.demotoday.net:$port/" . $route,
+            CURLOPT_PORT => "80",
+            // CURLOPT_URL => "http://mculture-social.demotoday.net:$port/" . $route,
+            CURLOPT_URL => "http://digital.m-culture.go.th/ws" . $route,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -43,7 +44,7 @@ class Myclass extends ServiceProvider
         }
     }
 
-    public static function buildMultiPartRequest($method = "POST", $port = "8080", $route = "", $fields, $files, $token)
+    public static function buildMultiPartRequest($method = "POST", $port = "80", $route = "", $fields, $files, $token)
     {
         $obj = json_encode(array_change_key_case($fields, CASE_LOWER), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         $boundary = uniqid();
@@ -65,8 +66,9 @@ class Myclass extends ServiceProvider
 
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_PORT => "$port",
-            CURLOPT_URL => "http://mculture-social.demotoday.net:$port/" . $route,
+            CURLOPT_PORT => "80",
+            // CURLOPT_URL => "http://mculture-social.demotoday.net:$port/" . $route,
+            CURLOPT_URL => "http://digital.m-culture.go.th/ws" . $route,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,

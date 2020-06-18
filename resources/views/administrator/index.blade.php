@@ -15,7 +15,7 @@
     </div>
     @endif
     <div style="margin-bottom: 10px;">
-        <?= link_to('/admin/administrator/create', $title = 'เพิ่ม', ['class' => 'btn btn-primary'], $secure = null); ?>
+        <?= link_to(url("/") . '/admin/administrator/create', $title = 'เพิ่ม', ['class' => 'btn btn-primary'], $secure = null); ?>
     </div>
     <table class="table table-striped table-bordered datatables">
     <thead>

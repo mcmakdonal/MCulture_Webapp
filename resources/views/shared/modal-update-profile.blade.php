@@ -1,7 +1,7 @@
 <!-- Modal -->
 <div class="modal fade" id="update-profile" role="dialog">
     <div class="modal-dialog">
-    {!! Form::open(['url' => '/update-profile','class' => 'form-auth-small', 'method' => 'post','onsubmit' => 'return checkUpdateProfile();']) !!}
+    {!! Form::open(['url' => url("update-profile") ,'class' => 'form-auth-small', 'method' => 'post','onsubmit' => 'return checkUpdateProfile();']) !!}
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">

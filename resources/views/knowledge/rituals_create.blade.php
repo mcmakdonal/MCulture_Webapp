@@ -20,7 +20,7 @@
         {{ session('status') }}
     </div>
 @endif
-{!! Form::open(['url' => '/km/rituals','class' => 'form-auth-small', 'method' => 'post','files' => true]) !!}
+{!! Form::open(['url' => url() . 'km/rituals','class' => 'form-auth-small', 'method' => 'post','files' => true]) !!}
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
@@ -101,7 +101,7 @@
 
         <div class="col-md-12">
             <button type="submit" class="btn btn-success">บันทึก</button>
-            <?= link_to('/km/rituals', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
+            <?= link_to(url("/") . '/km/rituals', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
         </div>
     </div>
 {!! Form::close() !!}

@@ -20,7 +20,7 @@ function init_profile() {
     headers: {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     },
-    url: window.location.origin + "/api/user-detail",
+    url: window.location.origin + "/Culture4U/api/user-detail",
     method: "GET",
     beforeSend() {
       $.LoadingOverlay("show");
@@ -50,7 +50,7 @@ function init_nofti() {
     headers: {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     },
-    url: window.location.origin + "/api/user-detail",
+    url: window.location.origin + "/Culture4U/api/user-detail",
     method: "GET",
     beforeSend() {
       $.LoadingOverlay("show");
@@ -88,7 +88,7 @@ function update_nofti() {
     headers: {
       "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
     },
-    url: window.location.origin + "/api/user-nofti",
+    url: window.location.origin + "/Culture4U/api/user-nofti",
     method: "POST",
     data: data,
     beforeSend() {
@@ -254,5 +254,5 @@ function blank_bg() {
 }
 
 function change_bg() {
-  $("body").css("background-image", 'url("/frontend-assets/assets/imgs/bg.jpg")');
+  $("body").css("background-image", 'url("/Culture4U/frontend-assets/assets/imgs/bg.jpg")');
 }

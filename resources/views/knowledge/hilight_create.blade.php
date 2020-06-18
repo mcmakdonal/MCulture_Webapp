@@ -87,7 +87,7 @@
 
         <div class="col-md-12">
             <button type="submit" class="btn btn-success">บันทึก</button>
-            <?= link_to('/km/hilight', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
+            <?= link_to(url("/") . '/km/hilight', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null); ?>
         </div>
     </div>
 {!! Form::close() !!}

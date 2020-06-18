@@ -6,7 +6,7 @@
 
 @section('content')
 
-{!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'POST'] ) !!}
+{!! Form::open(['url' => url("/") . url()->current(),'class' => 'form-auth-small', 'method' => 'POST'] ) !!}
 <div class="row">
     <div class="col-md-12 col-xs-12 col-sm-12">
         @if ($errors->any())
@@ -364,7 +364,7 @@
         <input type="hidden" value="{{ $content->device_token }}" name="device_token">
         <input type="hidden" value="{{ $content->get_news_update }}" name="get_news_update">
         <button type="submit" class="btn btn-success">ตอบกลับ</button>
-        <?=link_to('admin/reply-recommend', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null);?>
+        <?=link_to(url("/") . 'admin/reply-recommend', $title = 'ยกเลิก', ['class' => 'btn btn-warning'], $secure = null);?>
     </div>
 </div>
 
@@ -373,7 +373,7 @@
 <!-- Modal -->
 <div class="modal fade" id="nofti-reply" role="dialog">
     <div class="modal-dialog">
-    {!! Form::open(['url' => '/admin/reply','class' => 'form-auth-small', 'method' => 'put']) !!}
+    {!! Form::open(['url' => url() . 'admin/reply','class' => 'form-auth-small', 'method' => 'put']) !!}
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">

@@ -63,7 +63,7 @@ function province_init() {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/province",
+        url: window.location.origin + "/Culture4U/api/province",
         method: "GET",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -102,7 +102,7 @@ function search_district(e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/district/" + province_id,
+        url: window.location.origin + "/Culture4U/api/district/" + province_id,
         method: "GET",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -132,7 +132,7 @@ function search_subdistrict(e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/subdistrict/" + district_id,
+        url: window.location.origin + "/Culture4U/api/subdistrict/" + district_id,
         method: "GET",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -196,7 +196,7 @@ function add_price_row() {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/get-admissionfees",
+        url: window.location.origin + "/Culture4U/api/get-admissionfees",
         method: "GET",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -313,7 +313,7 @@ $(".form-check").click(function (e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/check-auth",
+        url: window.location.origin + "/Culture4U/api/check-auth",
         method: "GET",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -345,7 +345,7 @@ $(".prevpage").click(function (e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/list-news",
+        url: window.location.origin + "/Culture4U/list-news",
         method: "POST",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -396,7 +396,7 @@ $(".nextpage").click(function (e) {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/list-news",
+        url: window.location.origin + "/Culture4U/list-news",
         method: "POST",
         beforeSend() {
             $.LoadingOverlay("show");
@@ -499,7 +499,7 @@ function recommend_init() {
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content")
         },
-        url: window.location.origin + "/api/sub-type",
+        url: window.location.origin + "/Culture4U/api/sub-type",
         method: "GET",
         data: {
             main_type: $("#topic_main_type_id").val()

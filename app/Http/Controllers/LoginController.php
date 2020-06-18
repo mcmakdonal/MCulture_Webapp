@@ -24,6 +24,7 @@ class LoginController extends Controller
         $password = $request->password;
         $args = array('username' => $username, 'password' => $password);
         $arg = Myclass::mculter_service("POST", "8080", "admin/api/v1/authentication", $args);
+        // dd($arg);
         if ($arg->status) {
             $cookie_token = cookie('mcul_token', $arg->token, 1440);
             $cookie_role = cookie('mcul_role', $arg->role, 1440);

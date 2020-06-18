@@ -15,7 +15,7 @@
     </div>
     @endif
 
-    {!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'post']) !!}
+    {!! Form::open(['url' => url("/") . url()->current(),'class' => 'form-auth-small', 'method' => 'post']) !!}
     <div class="row">
 
         <div class="col-md-4 col-xs-12 col-sm-12">

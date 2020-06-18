@@ -9,7 +9,7 @@
         @endforeach
     </ul>
 </div>
-@endif {!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'GET']) !!}
+@endif {!! Form::open(['url' => url("/") . url()->current(),'class' => 'form-auth-small', 'method' => 'GET']) !!}
 <div class="row">
     <div class="col-md-6 col-xs-12 col-sm-12">
         <div class="form-group">
@@ -36,7 +36,7 @@
 
     <div class="col-md-12 col-xs-12 col-sm-12 text-center">
         <button type="submit" class="btn btn-success">ค้นหา</button>
-        <?=link_to(url()->current(), $title = 'ล้างค่า', ['class' => 'btn btn-warning'], $secure = null);?>
+        <?=link_to(url("/") . url()->current(), $title = 'ล้างค่า', ['class' => 'btn btn-warning'], $secure = null);?>
     </div>
 </div>
 {!! Form::close() !!}
@@ -66,7 +66,7 @@
                 <span class="label label-danger">ยังไม่ตอบกลับ</span> @endif
             </td>
             <td class="text-center">
-                <?=link_to('/admin/reply/' . $value->topic_id , $title = 'ตอบกลับ', ['class' => 'btn btn-primary'], $secure = null);?>
+                <?=link_to(url("/") . '/admin/reply/' . $value->topic_id , $title = 'ตอบกลับ', ['class' => 'btn btn-primary'], $secure = null);?>
             </td>
             <td class="text-center">
                 <button type="button" class="btn btn-danger" onclick="destroy(this,'/admin/remove-topic','{{ $value->topic_id }}')">ลบ</button>

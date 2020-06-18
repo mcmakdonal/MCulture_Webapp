@@ -20,7 +20,7 @@
         {{ session('status') }}
     </div>
 @endif
-{!! Form::open(['url' => url()->current(),'class' => 'form-auth-small', 'method' => 'put']) !!}
+{!! Form::open(['url' => url("/") . url()->current(),'class' => 'form-auth-small', 'method' => 'put']) !!}
 @csrf
     <div class="row">
         <div class="col-md-6">

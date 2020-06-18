@@ -37,7 +37,7 @@
 
     <section id="index-contact">
         <div class="row">
-            {!! Form::open(['url' => '/recommend','class' => 'form-auth-small', 'method' => 'post','id' => 'form-form'] ) !!}
+            {!! Form::open(['url' => url() . 'recommend','class' => 'form-auth-small', 'method' => 'post','id' => 'form-form'] ) !!}
 
             <div class="col-md-12 col-xs-12 col-sm-12">
                 <div class="form-group">
@@ -59,7 +59,7 @@
             </div>
 
             <div class="col-md-12 col-xs-12 col-sm-12">
-                <?=link_to('/', $title = 'ยกเลิก', ['class' => 'col-md-4 col-xs-4 btn btn-warning can-color'], $secure = null);?>
+                <?=link_to(url("/") . '/', $title = 'ยกเลิก', ['class' => 'col-md-4 col-xs-4 btn btn-warning can-color'], $secure = null);?>
                 <button type="submit" class="btn btn-success col-md-8 col-xs-8 submit-color">ดำเนินการต่อ</button>
             </div>
 

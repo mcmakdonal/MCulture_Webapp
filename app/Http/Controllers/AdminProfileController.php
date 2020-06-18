@@ -14,6 +14,7 @@ class AdminProfileController extends Controller
         $id = \Cookie::get('mcul_id');
         $content = [];
         $arg = Myclass::mculter_service("GET", "8080", "admin/api/v1/uid/" . $id, [], $token);
+        // dd($arg);
         $content = $arg->data_object;
 
         return view('administrator.profile', [
